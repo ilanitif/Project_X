@@ -1,0 +1,53 @@
+﻿@model IList<MvcProject.BuyNet.Product>
+@{
+    ViewBag.Title = "Home Page";
+
+}
+<div class="jumbotron">
+    <h1>BuyNet </h1>
+</div>/foreach (var item in catgories)
+{
+ //List<catgoriesTop>=Model.OrderByDescending(p => p.Rate).Take(3);
+  //  foreach (var item in catgoriesTop )
+    {
+
+    }
+
+}
+
+@foreach (var item in Model)
+{
+    <div class="row">
+        <div class="col-md-4">
+            <h2>@item.Name</h2>
+            <p>
+                <div>@item.Images</div>
+                <div>@item.Rate</div>
+                @item.Description
+                <div>@item.Price</div>
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>@item.Name</h2>
+                <p>
+                    <div>@item.Images</div>
+                    <div>@item.Rate</div>
+                    @item.Description
+                    <div>@item.Price</div>
+                </p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>@item.Name</h2>
+                <p>
+                    <div>@item.Images</div>
+                    <div>@item.Rate</div>
+                    @item.Description
+                    <div>@item.Price</div>
+                </p>
+                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+            </div>
+        </div>
+
+        }
