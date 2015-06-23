@@ -17,21 +17,34 @@ namespace FinallProject_
         //method who delete user
         [OperationContract]
         void Delete_User(int id);
+        //method who edit user
         [OperationContract]
-        void Edit_User(int id);
+        void Edit_User(int id, User user);
         //method who gets  Category by  
         [OperationContract]
-        Categories GetCategory(int id);
+        Category GetCategory(int id);
         //method who gets all Category by  
         [OperationContract]
-        List<Categories> GetCategories();
+        List<Category> GetCategories();
+        //method who deleteCategory
+        [OperationContract]
+        void Delete_Category(int id);
+        //method who edit Category
+        [OperationContract]
+        void Edit_Category(int id, string name);
 
         //method who gets  SubCategory by  id
         [OperationContract]
-        SubCategories SubCategory(int id);
+        SubCategory SubCategory(int id);
         //method who gets all  SubCategory by  id
         [OperationContract]
-       List< SubCategories> SubCategories();
+        List<SubCategory> SubCategories();
+        //method who delete SubCategory
+        [OperationContract]
+        void Delete_SubCategory(int id);
+        //method who edit SubCategory
+        [OperationContract]
+        void Edit_SubCategory(int id, string name);
 
         //method who gets product by  id
         [OperationContract]
@@ -39,6 +52,12 @@ namespace FinallProject_
         //method who gets all product by  id
         [OperationContract]
         List<Product> GetProducts();
+        //method who delete Product
+        [OperationContract]
+        void Delete_Product(int id);
+        //method who edit Product
+        [OperationContract]
+        void Edit_Product(int id, Product pr);
 
         //method who gets  orderProduct by  id
         [OperationContract]
@@ -46,6 +65,12 @@ namespace FinallProject_
         //method who gets all orderProduct by  id
         [OperationContract]
         List<OrderProduct> GetOrderProducts();
+        //method who delete OrderProduct
+        [OperationContract]
+        void Delete_OrderProduct(int id);
+        //method who edit OrderProduct
+        [OperationContract]
+        void Edit_OrderProduct(int id, OrderProduct oP);
 
         //method who gets  order by  id
         [OperationContract]
@@ -53,13 +78,25 @@ namespace FinallProject_
         //method who gets ALL order by  id
         [OperationContract]
         List<Order> GetOrders();
-
+        //method who delete Order
+        [OperationContract]
+        void Delete_Order(int id);
+        //method who edit Order
+        [OperationContract]
+        void Edit_Order(int id, Order o);
         //method who gets  image by  id
         [OperationContract]
-        Images GetImage(int id);
+        Image GetImage(int id);
         //method who gets all  image by  id
         [OperationContract]
-        List<Images> GetImages();
+        List<Image> GetImages();
+        //method who delete Image
+        [OperationContract]
+        void Delete_Image(int id);
+        //method who edit Image 
+        [OperationContract]
+        void Edit_Image(int id, Image img);
+
 
         //method who gets  GetShipping_Company by  id
         [OperationContract]
@@ -67,31 +104,18 @@ namespace FinallProject_
         //method who gets all GetShipping_Company by  id
         [OperationContract]
         List<Shipping_Company> GetShipping_Companys();
+        //method who delete Shipping_Company
+        [OperationContract]
+        void Delete_Shipping_Company(int id);
+        //method who edit Shipping_Company
+        [OperationContract]
+        void Edit_Shipping_Company(int id, Shipping_Company ship);
+        [OperationContract]
+        void AddProduct(Product product);
 
-
-        // TODO: Add your service operations here
     }
 
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
-    // You can add XSD files into the project. After building the project, you can directly use the data types defined there, with the namespace "FinallProject_.ContractType".
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
 
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
 
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
+
 }

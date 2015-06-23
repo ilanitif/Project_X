@@ -3,20 +3,18 @@
     ViewBag.Title = "Home Page";
 
 }
-<div class="jumbotron">
-    <h1>BuyNet </h1>
-</div>/foreach (var item in catgories)
-{
- //List<catgoriesTop>=Model.OrderByDescending(p => p.Rate).Take(3);
-  //  foreach (var item in catgoriesTop )
+@{ List<MvcProject.BuyNet.Product> products = new List<MvcProject.BuyNet.Product>();
+    ViewBag.prodcut = products;
+    foreach (var item in products)
     {
-
+        
     }
+     }
 
-}
 
 @foreach (var item in Model)
 {
+    
     <div class="row">
         <div class="col-md-4">
             <h2>@item.Name</h2>
@@ -46,8 +44,8 @@
                     @item.Description
                     <div>@item.Price</div>
                 </p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
             </div>
         </div>
-
-        }
+     
+}

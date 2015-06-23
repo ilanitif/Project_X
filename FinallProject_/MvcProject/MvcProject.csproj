@@ -201,12 +201,6 @@
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\BuyNet\configuration91.svcinfo" />
     <None Include="Service References\BuyNet\configuration.svcinfo" />
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Categories.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Images.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <Content Include="Service References\BuyNet\MvcProject.BuyNet.Order.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
@@ -219,10 +213,16 @@
     <Content Include="Service References\BuyNet\MvcProject.BuyNet.Shipping_Company.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.SubCategories.datasource">
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.User.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.User.datasource">
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Image.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.SubCategory.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\BuyNet\Reference.svcmap">
@@ -274,6 +274,8 @@
     <None Include="Service References\BuyNet\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Home\Add.cshtml" />
+    <Content Include="Views\Home\Remove.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

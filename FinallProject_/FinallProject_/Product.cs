@@ -17,7 +17,7 @@ namespace FinallProject_
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Images = new HashSet<Images>();
+            this.Images = new HashSet<Image>();
             this.OrderProduct = new HashSet<OrderProduct>();
         }
     
@@ -30,9 +30,9 @@ namespace FinallProject_
         public Nullable<int> SubCategoryId { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Images> Images { get; set; }
+        public virtual ICollection<Image> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
-        public virtual SubCategories SubCategories { get; set; }
+        public virtual SubCategory SubCategories { get; set; }
     }
 }

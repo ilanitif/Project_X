@@ -38,7 +38,7 @@ namespace MvcProject.BuyNet {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Images[] ImagesField;
+        private MvcProject.BuyNet.Image[] ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Last_NameField;
@@ -137,7 +137,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Images[] Images {
+        public MvcProject.BuyNet.Image[] Images {
             get {
                 return this.ImagesField;
             }
@@ -252,9 +252,9 @@ namespace MvcProject.BuyNet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Images", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
     [System.SerializableAttribute()]
-    public partial class Images : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -551,7 +551,7 @@ namespace MvcProject.BuyNet {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Images[] ImagesField;
+        private MvcProject.BuyNet.Image[] ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -566,7 +566,7 @@ namespace MvcProject.BuyNet {
         private int RateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.SubCategories SubCategoriesField;
+        private MvcProject.BuyNet.SubCategory SubCategoriesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> SubCategoryIdField;
@@ -621,7 +621,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Images[] Images {
+        public MvcProject.BuyNet.Image[] Images {
             get {
                 return this.ImagesField;
             }
@@ -686,7 +686,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.SubCategories SubCategories {
+        public MvcProject.BuyNet.SubCategory SubCategories {
             get {
                 return this.SubCategoriesField;
             }
@@ -723,15 +723,15 @@ namespace MvcProject.BuyNet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubCategories", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="SubCategory", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
     [System.SerializableAttribute()]
-    public partial class SubCategories : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class SubCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Categories CategoriesField;
+        private MvcProject.BuyNet.Category CategoriesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int CatgoreyIdField;
@@ -756,7 +756,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Categories Categories {
+        public MvcProject.BuyNet.Category Categories {
             get {
                 return this.CategoriesField;
             }
@@ -1082,9 +1082,9 @@ namespace MvcProject.BuyNet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Categories", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
     [System.SerializableAttribute()]
-    public partial class Categories : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -1096,7 +1096,7 @@ namespace MvcProject.BuyNet {
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.SubCategories[] SubCategoriesField;
+        private MvcProject.BuyNet.SubCategory[] SubCategoriesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1135,7 +1135,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.SubCategories[] SubCategories {
+        public MvcProject.BuyNet.SubCategory[] SubCategories {
             get {
                 return this.SubCategoriesField;
             }
@@ -1174,34 +1174,58 @@ namespace MvcProject.BuyNet {
         System.Threading.Tasks.Task Delete_UserAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_User", ReplyAction="http://tempuri.org/IService1/Edit_UserResponse")]
-        void Edit_User(int id);
+        void Edit_User(int id, MvcProject.BuyNet.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_User", ReplyAction="http://tempuri.org/IService1/Edit_UserResponse")]
-        System.Threading.Tasks.Task Edit_UserAsync(int id);
+        System.Threading.Tasks.Task Edit_UserAsync(int id, MvcProject.BuyNet.User user);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategory", ReplyAction="http://tempuri.org/IService1/GetCategoryResponse")]
-        MvcProject.BuyNet.Categories GetCategory(int id);
+        MvcProject.BuyNet.Category GetCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategory", ReplyAction="http://tempuri.org/IService1/GetCategoryResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Categories> GetCategoryAsync(int id);
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Category> GetCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategories", ReplyAction="http://tempuri.org/IService1/GetCategoriesResponse")]
-        MvcProject.BuyNet.Categories[] GetCategories();
+        MvcProject.BuyNet.Category[] GetCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetCategories", ReplyAction="http://tempuri.org/IService1/GetCategoriesResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Categories[]> GetCategoriesAsync();
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Category[]> GetCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Category", ReplyAction="http://tempuri.org/IService1/Delete_CategoryResponse")]
+        void Delete_Category(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Category", ReplyAction="http://tempuri.org/IService1/Delete_CategoryResponse")]
+        System.Threading.Tasks.Task Delete_CategoryAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Category", ReplyAction="http://tempuri.org/IService1/Edit_CategoryResponse")]
+        void Edit_Category(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Category", ReplyAction="http://tempuri.org/IService1/Edit_CategoryResponse")]
+        System.Threading.Tasks.Task Edit_CategoryAsync(int id, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategory", ReplyAction="http://tempuri.org/IService1/SubCategoryResponse")]
-        MvcProject.BuyNet.SubCategories SubCategory(int id);
+        MvcProject.BuyNet.SubCategory SubCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategory", ReplyAction="http://tempuri.org/IService1/SubCategoryResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategories> SubCategoryAsync(int id);
+        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory> SubCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategories", ReplyAction="http://tempuri.org/IService1/SubCategoriesResponse")]
-        MvcProject.BuyNet.SubCategories[] SubCategories();
+        MvcProject.BuyNet.SubCategory[] SubCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategories", ReplyAction="http://tempuri.org/IService1/SubCategoriesResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategories[]> SubCategoriesAsync();
+        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory[]> SubCategoriesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_SubCategory", ReplyAction="http://tempuri.org/IService1/Delete_SubCategoryResponse")]
+        void Delete_SubCategory(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_SubCategory", ReplyAction="http://tempuri.org/IService1/Delete_SubCategoryResponse")]
+        System.Threading.Tasks.Task Delete_SubCategoryAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_SubCategory", ReplyAction="http://tempuri.org/IService1/Edit_SubCategoryResponse")]
+        void Edit_SubCategory(int id, string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_SubCategory", ReplyAction="http://tempuri.org/IService1/Edit_SubCategoryResponse")]
+        System.Threading.Tasks.Task Edit_SubCategoryAsync(int id, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProduct", ReplyAction="http://tempuri.org/IService1/GetProductResponse")]
         MvcProject.BuyNet.Product GetProduct(int id);
@@ -1215,6 +1239,18 @@ namespace MvcProject.BuyNet {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetProducts", ReplyAction="http://tempuri.org/IService1/GetProductsResponse")]
         System.Threading.Tasks.Task<MvcProject.BuyNet.Product[]> GetProductsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Product", ReplyAction="http://tempuri.org/IService1/Delete_ProductResponse")]
+        void Delete_Product(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Product", ReplyAction="http://tempuri.org/IService1/Delete_ProductResponse")]
+        System.Threading.Tasks.Task Delete_ProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Product", ReplyAction="http://tempuri.org/IService1/Edit_ProductResponse")]
+        void Edit_Product(int id, MvcProject.BuyNet.Product pr);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Product", ReplyAction="http://tempuri.org/IService1/Edit_ProductResponse")]
+        System.Threading.Tasks.Task Edit_ProductAsync(int id, MvcProject.BuyNet.Product pr);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrderProduct", ReplyAction="http://tempuri.org/IService1/GetOrderProductResponse")]
         MvcProject.BuyNet.OrderProduct GetOrderProduct(int id);
         
@@ -1226,6 +1262,18 @@ namespace MvcProject.BuyNet {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrderProducts", ReplyAction="http://tempuri.org/IService1/GetOrderProductsResponse")]
         System.Threading.Tasks.Task<MvcProject.BuyNet.OrderProduct[]> GetOrderProductsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_OrderProduct", ReplyAction="http://tempuri.org/IService1/Delete_OrderProductResponse")]
+        void Delete_OrderProduct(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_OrderProduct", ReplyAction="http://tempuri.org/IService1/Delete_OrderProductResponse")]
+        System.Threading.Tasks.Task Delete_OrderProductAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_OrderProduct", ReplyAction="http://tempuri.org/IService1/Edit_OrderProductResponse")]
+        void Edit_OrderProduct(int id, MvcProject.BuyNet.OrderProduct oP);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_OrderProduct", ReplyAction="http://tempuri.org/IService1/Edit_OrderProductResponse")]
+        System.Threading.Tasks.Task Edit_OrderProductAsync(int id, MvcProject.BuyNet.OrderProduct oP);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrder", ReplyAction="http://tempuri.org/IService1/GetOrderResponse")]
         MvcProject.BuyNet.Order GetOrder(int id);
@@ -1239,17 +1287,41 @@ namespace MvcProject.BuyNet {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetOrders", ReplyAction="http://tempuri.org/IService1/GetOrdersResponse")]
         System.Threading.Tasks.Task<MvcProject.BuyNet.Order[]> GetOrdersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        MvcProject.BuyNet.Images GetImage(int id);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Order", ReplyAction="http://tempuri.org/IService1/Delete_OrderResponse")]
+        void Delete_Order(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Order", ReplyAction="http://tempuri.org/IService1/Delete_OrderResponse")]
+        System.Threading.Tasks.Task Delete_OrderAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Order", ReplyAction="http://tempuri.org/IService1/Edit_OrderResponse")]
+        void Edit_Order(int id, MvcProject.BuyNet.Order o);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Order", ReplyAction="http://tempuri.org/IService1/Edit_OrderResponse")]
+        System.Threading.Tasks.Task Edit_OrderAsync(int id, MvcProject.BuyNet.Order o);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Images> GetImageAsync(int id);
+        MvcProject.BuyNet.Image GetImage(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Image> GetImageAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImages", ReplyAction="http://tempuri.org/IService1/GetImagesResponse")]
-        MvcProject.BuyNet.Images[] GetImages();
+        MvcProject.BuyNet.Image[] GetImages();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImages", ReplyAction="http://tempuri.org/IService1/GetImagesResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Images[]> GetImagesAsync();
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Image[]> GetImagesAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Image", ReplyAction="http://tempuri.org/IService1/Delete_ImageResponse")]
+        void Delete_Image(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Image", ReplyAction="http://tempuri.org/IService1/Delete_ImageResponse")]
+        System.Threading.Tasks.Task Delete_ImageAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Image", ReplyAction="http://tempuri.org/IService1/Edit_ImageResponse")]
+        void Edit_Image(int id, MvcProject.BuyNet.Image img);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Image", ReplyAction="http://tempuri.org/IService1/Edit_ImageResponse")]
+        System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Image img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetShipping_Company", ReplyAction="http://tempuri.org/IService1/GetShipping_CompanyResponse")]
         MvcProject.BuyNet.Shipping_Company GetShipping_Company(int id);
@@ -1262,6 +1334,24 @@ namespace MvcProject.BuyNet {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetShipping_Companys", ReplyAction="http://tempuri.org/IService1/GetShipping_CompanysResponse")]
         System.Threading.Tasks.Task<MvcProject.BuyNet.Shipping_Company[]> GetShipping_CompanysAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Shipping_Company", ReplyAction="http://tempuri.org/IService1/Delete_Shipping_CompanyResponse")]
+        void Delete_Shipping_Company(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Shipping_Company", ReplyAction="http://tempuri.org/IService1/Delete_Shipping_CompanyResponse")]
+        System.Threading.Tasks.Task Delete_Shipping_CompanyAsync(int id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Shipping_Company", ReplyAction="http://tempuri.org/IService1/Edit_Shipping_CompanyResponse")]
+        void Edit_Shipping_Company(int id, MvcProject.BuyNet.Shipping_Company ship);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Shipping_Company", ReplyAction="http://tempuri.org/IService1/Edit_Shipping_CompanyResponse")]
+        System.Threading.Tasks.Task Edit_Shipping_CompanyAsync(int id, MvcProject.BuyNet.Shipping_Company ship);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProduct", ReplyAction="http://tempuri.org/IService1/AddProductResponse")]
+        void AddProduct(MvcProject.BuyNet.Product product);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddProduct", ReplyAction="http://tempuri.org/IService1/AddProductResponse")]
+        System.Threading.Tasks.Task AddProductAsync(MvcProject.BuyNet.Product product);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -1307,44 +1397,76 @@ namespace MvcProject.BuyNet {
             return base.Channel.Delete_UserAsync(id);
         }
         
-        public void Edit_User(int id) {
-            base.Channel.Edit_User(id);
+        public void Edit_User(int id, MvcProject.BuyNet.User user) {
+            base.Channel.Edit_User(id, user);
         }
         
-        public System.Threading.Tasks.Task Edit_UserAsync(int id) {
-            return base.Channel.Edit_UserAsync(id);
+        public System.Threading.Tasks.Task Edit_UserAsync(int id, MvcProject.BuyNet.User user) {
+            return base.Channel.Edit_UserAsync(id, user);
         }
         
-        public MvcProject.BuyNet.Categories GetCategory(int id) {
+        public MvcProject.BuyNet.Category GetCategory(int id) {
             return base.Channel.GetCategory(id);
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Categories> GetCategoryAsync(int id) {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Category> GetCategoryAsync(int id) {
             return base.Channel.GetCategoryAsync(id);
         }
         
-        public MvcProject.BuyNet.Categories[] GetCategories() {
+        public MvcProject.BuyNet.Category[] GetCategories() {
             return base.Channel.GetCategories();
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Categories[]> GetCategoriesAsync() {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Category[]> GetCategoriesAsync() {
             return base.Channel.GetCategoriesAsync();
         }
         
-        public MvcProject.BuyNet.SubCategories SubCategory(int id) {
+        public void Delete_Category(int id) {
+            base.Channel.Delete_Category(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_CategoryAsync(int id) {
+            return base.Channel.Delete_CategoryAsync(id);
+        }
+        
+        public void Edit_Category(int id, string name) {
+            base.Channel.Edit_Category(id, name);
+        }
+        
+        public System.Threading.Tasks.Task Edit_CategoryAsync(int id, string name) {
+            return base.Channel.Edit_CategoryAsync(id, name);
+        }
+        
+        public MvcProject.BuyNet.SubCategory SubCategory(int id) {
             return base.Channel.SubCategory(id);
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategories> SubCategoryAsync(int id) {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory> SubCategoryAsync(int id) {
             return base.Channel.SubCategoryAsync(id);
         }
         
-        public MvcProject.BuyNet.SubCategories[] SubCategories() {
+        public MvcProject.BuyNet.SubCategory[] SubCategories() {
             return base.Channel.SubCategories();
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategories[]> SubCategoriesAsync() {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory[]> SubCategoriesAsync() {
             return base.Channel.SubCategoriesAsync();
+        }
+        
+        public void Delete_SubCategory(int id) {
+            base.Channel.Delete_SubCategory(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_SubCategoryAsync(int id) {
+            return base.Channel.Delete_SubCategoryAsync(id);
+        }
+        
+        public void Edit_SubCategory(int id, string name) {
+            base.Channel.Edit_SubCategory(id, name);
+        }
+        
+        public System.Threading.Tasks.Task Edit_SubCategoryAsync(int id, string name) {
+            return base.Channel.Edit_SubCategoryAsync(id, name);
         }
         
         public MvcProject.BuyNet.Product GetProduct(int id) {
@@ -1363,6 +1485,22 @@ namespace MvcProject.BuyNet {
             return base.Channel.GetProductsAsync();
         }
         
+        public void Delete_Product(int id) {
+            base.Channel.Delete_Product(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_ProductAsync(int id) {
+            return base.Channel.Delete_ProductAsync(id);
+        }
+        
+        public void Edit_Product(int id, MvcProject.BuyNet.Product pr) {
+            base.Channel.Edit_Product(id, pr);
+        }
+        
+        public System.Threading.Tasks.Task Edit_ProductAsync(int id, MvcProject.BuyNet.Product pr) {
+            return base.Channel.Edit_ProductAsync(id, pr);
+        }
+        
         public MvcProject.BuyNet.OrderProduct GetOrderProduct(int id) {
             return base.Channel.GetOrderProduct(id);
         }
@@ -1377,6 +1515,22 @@ namespace MvcProject.BuyNet {
         
         public System.Threading.Tasks.Task<MvcProject.BuyNet.OrderProduct[]> GetOrderProductsAsync() {
             return base.Channel.GetOrderProductsAsync();
+        }
+        
+        public void Delete_OrderProduct(int id) {
+            base.Channel.Delete_OrderProduct(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_OrderProductAsync(int id) {
+            return base.Channel.Delete_OrderProductAsync(id);
+        }
+        
+        public void Edit_OrderProduct(int id, MvcProject.BuyNet.OrderProduct oP) {
+            base.Channel.Edit_OrderProduct(id, oP);
+        }
+        
+        public System.Threading.Tasks.Task Edit_OrderProductAsync(int id, MvcProject.BuyNet.OrderProduct oP) {
+            return base.Channel.Edit_OrderProductAsync(id, oP);
         }
         
         public MvcProject.BuyNet.Order GetOrder(int id) {
@@ -1395,20 +1549,52 @@ namespace MvcProject.BuyNet {
             return base.Channel.GetOrdersAsync();
         }
         
-        public MvcProject.BuyNet.Images GetImage(int id) {
+        public void Delete_Order(int id) {
+            base.Channel.Delete_Order(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_OrderAsync(int id) {
+            return base.Channel.Delete_OrderAsync(id);
+        }
+        
+        public void Edit_Order(int id, MvcProject.BuyNet.Order o) {
+            base.Channel.Edit_Order(id, o);
+        }
+        
+        public System.Threading.Tasks.Task Edit_OrderAsync(int id, MvcProject.BuyNet.Order o) {
+            return base.Channel.Edit_OrderAsync(id, o);
+        }
+        
+        public MvcProject.BuyNet.Image GetImage(int id) {
             return base.Channel.GetImage(id);
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Images> GetImageAsync(int id) {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Image> GetImageAsync(int id) {
             return base.Channel.GetImageAsync(id);
         }
         
-        public MvcProject.BuyNet.Images[] GetImages() {
+        public MvcProject.BuyNet.Image[] GetImages() {
             return base.Channel.GetImages();
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Images[]> GetImagesAsync() {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Image[]> GetImagesAsync() {
             return base.Channel.GetImagesAsync();
+        }
+        
+        public void Delete_Image(int id) {
+            base.Channel.Delete_Image(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_ImageAsync(int id) {
+            return base.Channel.Delete_ImageAsync(id);
+        }
+        
+        public void Edit_Image(int id, MvcProject.BuyNet.Image img) {
+            base.Channel.Edit_Image(id, img);
+        }
+        
+        public System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Image img) {
+            return base.Channel.Edit_ImageAsync(id, img);
         }
         
         public MvcProject.BuyNet.Shipping_Company GetShipping_Company(int id) {
@@ -1425,6 +1611,30 @@ namespace MvcProject.BuyNet {
         
         public System.Threading.Tasks.Task<MvcProject.BuyNet.Shipping_Company[]> GetShipping_CompanysAsync() {
             return base.Channel.GetShipping_CompanysAsync();
+        }
+        
+        public void Delete_Shipping_Company(int id) {
+            base.Channel.Delete_Shipping_Company(id);
+        }
+        
+        public System.Threading.Tasks.Task Delete_Shipping_CompanyAsync(int id) {
+            return base.Channel.Delete_Shipping_CompanyAsync(id);
+        }
+        
+        public void Edit_Shipping_Company(int id, MvcProject.BuyNet.Shipping_Company ship) {
+            base.Channel.Edit_Shipping_Company(id, ship);
+        }
+        
+        public System.Threading.Tasks.Task Edit_Shipping_CompanyAsync(int id, MvcProject.BuyNet.Shipping_Company ship) {
+            return base.Channel.Edit_Shipping_CompanyAsync(id, ship);
+        }
+        
+        public void AddProduct(MvcProject.BuyNet.Product product) {
+            base.Channel.AddProduct(product);
+        }
+        
+        public System.Threading.Tasks.Task AddProductAsync(MvcProject.BuyNet.Product product) {
+            return base.Channel.AddProductAsync(product);
         }
     }
 }

@@ -228,7 +228,7 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="FinallProject_Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Categories">
+        <EntityType Name="Category">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -236,7 +236,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <NavigationProperty Name="SubCategories" Relationship="Self.FK_Department_Categories" FromRole="Categories" ToRole="SubCategories" />
         </EntityType>
-        <EntityType Name="Images">
+        <EntityType Name="Image">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -297,7 +297,7 @@
           <Property Name="Shipping_Cost" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_Shipping_Company" FromRole="Shipping_Company" ToRole="Order" />
         </EntityType>
-        <EntityType Name="SubCategories">
+        <EntityType Name="SubCategory">
           <Key>
             <PropertyRef Name="id" />
           </Key>
@@ -326,8 +326,8 @@
           <NavigationProperty Name="Order" Relationship="Self.FK_Order_User" FromRole="User" ToRole="Order" />
         </EntityType>
         <Association Name="FK_Department_Categories">
-          <End Role="Categories" Type="Self.Categories" Multiplicity="1" />
-          <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="*" />
+          <End Role="Categories" Type="FinallProject_Model.Category" Multiplicity="1" />
+          <End Role="SubCategories" Type="FinallProject_Model.SubCategory" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categories">
               <PropertyRef Name="Id" />
@@ -339,7 +339,7 @@
         </Association>
         <Association Name="FK_Images_Product">
           <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
-          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <End Role="Images" Type="FinallProject_Model.Image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Product">
               <PropertyRef Name="Id" />
@@ -351,7 +351,7 @@
         </Association>
         <Association Name="FK_Images_User">
           <End Role="User" Type="Self.User" Multiplicity="0..1" />
-          <End Role="Images" Type="Self.Images" Multiplicity="*" />
+          <End Role="Images" Type="FinallProject_Model.Image" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
               <PropertyRef Name="Id" />
@@ -410,7 +410,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Product_SubCategories">
-          <End Role="SubCategories" Type="Self.SubCategories" Multiplicity="0..1" />
+          <End Role="SubCategories" Type="FinallProject_Model.SubCategory" Multiplicity="0..1" />
           <End Role="Product" Type="Self.Product" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="SubCategories">
@@ -422,13 +422,13 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="FinallProject_Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Categories" EntityType="Self.Categories" />
-          <EntitySet Name="Images" EntityType="Self.Images" />
+          <EntitySet Name="Categories" EntityType="FinallProject_Model.Category" />
+          <EntitySet Name="Images" EntityType="FinallProject_Model.Image" />
           <EntitySet Name="Order" EntityType="Self.Order" />
           <EntitySet Name="OrderProduct" EntityType="Self.OrderProduct" />
           <EntitySet Name="Product" EntityType="Self.Product" />
           <EntitySet Name="Shipping_Company" EntityType="Self.Shipping_Company" />
-          <EntitySet Name="SubCategories" EntityType="Self.SubCategories" />
+          <EntitySet Name="SubCategories" EntityType="FinallProject_Model.SubCategory" />
           <EntitySet Name="User" EntityType="Self.User" />
           <AssociationSet Name="FK_Department_Categories" Association="Self.FK_Department_Categories">
             <End Role="Categories" EntitySet="Categories" />
@@ -470,7 +470,7 @@
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="FinallProject_ModelStoreContainer" CdmEntityContainer="FinallProject_Entities">
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="FinallProject_Model.Categories">
+            <EntityTypeMapping TypeName="FinallProject_Model.Category">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
@@ -478,7 +478,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Images">
-            <EntityTypeMapping TypeName="FinallProject_Model.Images">
+            <EntityTypeMapping TypeName="FinallProject_Model.Image">
               <MappingFragment StoreEntitySet="Images">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
@@ -533,7 +533,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SubCategories">
-            <EntityTypeMapping TypeName="FinallProject_Model.SubCategories">
+            <EntityTypeMapping TypeName="FinallProject_Model.SubCategory">
               <MappingFragment StoreEntitySet="SubCategories">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

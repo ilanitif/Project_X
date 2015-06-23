@@ -25,13 +25,13 @@ namespace FinallProject_
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Categories> Categories { get; set; }
-        public virtual DbSet<Images> Images { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Image> Images { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderProduct> OrderProduct { get; set; }
         public virtual DbSet<Product> Product { get; set; }
         public virtual DbSet<Shipping_Company> Shipping_Company { get; set; }
-        public virtual DbSet<SubCategories> SubCategories { get; set; }
+        public virtual DbSet<SubCategory> SubCategories { get; set; }
         public virtual DbSet<User> User { get; set; }
     }
 }
