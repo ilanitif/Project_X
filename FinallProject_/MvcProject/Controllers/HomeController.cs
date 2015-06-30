@@ -78,5 +78,11 @@ namespace MvcProject.Controllers
 
             return View();
         }
+        public ActionResult UserP()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View(client.GetUser(1));
+        }
     }
 }

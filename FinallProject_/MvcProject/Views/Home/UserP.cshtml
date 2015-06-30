@@ -1,0 +1,60 @@
+﻿@model MvcProject.BuyNet.User
+
+@{
+    ViewBag.Title = "User";
+}
+@for (int i = 0; i < 5; i++)
+{
+    <br />
+}
+
+<h2>User</h2>
+<header>
+    <section class="pull-left">
+        <span class="right">
+            <img src="~/App_Data/@Model.Images" />
+          
+        </span>
+        <span class="left">
+            @Model.UserName 
+            <br />
+            @Model.First_Name
+            <br />
+            @Model.Last_Name
+            <br />
+            @Model.Email
+            <br />
+        </span>
+    </section>
+   <section class="pull-right">
+       <table border="1">
+           <thead><b>Inbox</b></thead>
+         
+               <tr>
+           <td>
+              note.writer
+               <br />
+               <br />
+              
+               note.context
+
+           </td>
+           </tr>
+               
+           
+       </table>
+       @foreach (var note in Model.Notes)
+       {
+       }
+   </section>
+   <br/>
+    </header>
+<p class="user_body">
+
+    <ul class="nav nav-tabs .nav-justified">
+        <li class="active buyer .nav-justified"><a href="#">User</a></li>
+        <li class="seller"><a href="#">Seller</a></li>
+        <li class="Cart"><a href="#">Cart</a></li>
+      
+    </ul>
+</p>

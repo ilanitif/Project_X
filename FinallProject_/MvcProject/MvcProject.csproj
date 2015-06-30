@@ -276,6 +276,7 @@
     </None>
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\Home\Remove.cshtml" />
+    <Content Include="Views\Home\UserP.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
