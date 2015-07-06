@@ -17,10 +17,10 @@ namespace MvcProject.Controllers
        public static Service1Client client = new Service1Client();
         public ActionResult Index()
         {
+          
 
-       
-       
-            return View(client.GetProducts());
+
+           return View(client.GetProducts());
         }
         public ActionResult Add()
         {
@@ -35,12 +35,12 @@ namespace MvcProject.Controllers
 
             Service1Client client = new Service1Client();
             Product product = new Product() { Condition = Condition, Description = Description, Name = Name, Price = Price,
-                SubCategories = client.SubCategories().FirstOrDefault(sub=>sub.Name==SubCategories),
+             
              
             };
             client.AddProduct(product);
             
-            return View("index", client.GetProducts());
+            return View("index", client.GetCategories());
         }
         public ActionResult Remove(int id)
         {
@@ -64,12 +64,13 @@ namespace MvcProject.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult About(byte[] img)
+        public ActionResult Aboutas()
         {
+            //byte[] img
 
             ViewBag.Message = "Your application description page.";
-
-            return View();
+            
+            return View(client.GetProducts());
         }
 
         public ActionResult Contact()

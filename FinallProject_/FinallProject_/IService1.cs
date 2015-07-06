@@ -35,10 +35,10 @@ namespace FinallProject_
 
         //method who gets  SubCategory by  id
         [OperationContract]
-        SubCategory SubCategory(int id);
+        Category SubCategory(int id);
         //method who gets all  SubCategory by  id
         [OperationContract]
-        List<SubCategory> SubCategories();
+        List<Category> SubCategories();
         //method who delete SubCategory
         [OperationContract]
         void Delete_SubCategory(int id);
@@ -86,16 +86,16 @@ namespace FinallProject_
         void Edit_Order(int id, Order o);
         //method who gets  image by  id
         [OperationContract]
-        Image GetImage(int id);
+        Images GetImage(int id);
         //method who gets all  image by  id
         [OperationContract]
-        List<Image> GetImages();
+        List<Images> GetImages();
         //method who delete Image
         [OperationContract]
         void Delete_Image(int id);
         //method who edit Image 
         [OperationContract]
-        void Edit_Image(int id, Image img);
+        void Edit_Image(int id, Images img);
 
 
         //method who gets  GetShipping_Company by  id

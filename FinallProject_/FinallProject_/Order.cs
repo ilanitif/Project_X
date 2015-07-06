@@ -21,9 +21,9 @@ namespace FinallProject_
         }
     
         public int Id { get; set; }
-        public int UserId { get; set; }
         public Nullable<System.DateTime> DateOfPayment { get; set; }
         public Nullable<int> shippingId { get; set; }
+        public int BuyerId { get; set; }
     
         public virtual Shipping_Company Shipping_Company { get; set; }
         public virtual User User { get; set; }

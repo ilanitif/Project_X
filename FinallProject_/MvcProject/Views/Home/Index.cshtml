@@ -1,51 +1,106 @@
 ﻿@model IList<MvcProject.BuyNet.Product>
 @{
     ViewBag.Title = "Home Page";
-
 }
-@{ List<MvcProject.BuyNet.Product> products = new List<MvcProject.BuyNet.Product>();
-    ViewBag.prodcut = products;
-    foreach (var item in products)
-    {
-        
-    }
-     }
 
-
-@foreach (var item in Model)
+@for (int i = 0; i < 10; i++)
 {
-    
-    <div class="row">
-        <div class="col-md-4">
-            <h2>@item.Name</h2>
-            <p>
-                <div>@item.Images</div>
-                <div>@item.Rate</div>
-                @item.Description
-                <div>@item.Price</div>
-            </p>
-            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>@item.Name</h2>
-                <p>
-                    <div>@item.Images</div>
-                    <div>@item.Rate</div>
-                    @item.Description
-                    <div>@item.Price</div>
-                </p>
-                <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>@item.Name</h2>
-                <p>
-                    <div>@item.Images</div>
-                    <div>@item.Rate</div>
-                    @item.Description
-                    <div>@item.Price</div>
-                </p>
-                <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
-            </div>
-        </div>
-     
+    <br/>
 }
+
+    @{List<MvcProject.BuyNet.Product>
+                                         pro = new List<MvcProject.BuyNet.Product>
+                                                                        ();
+
+        {
+            foreach (var item in MvcProject.Controllers.HomeController.client.GetCategories())
+            {
+                pro =Model.Where(P=>P.Category.Parent==item.Id).OrderByDescending(P => P.Rate).Take(3).ToList();
+
+            }
+
+            foreach (var item in pro)
+            {
+
+           
+                    <div class="row">
+                        <div class="col-md-4">
+                            <h2>@item.Name</h2>
+                            <p>
+                                <div>@item.Images</div>
+                                <div>@item.Rate</div>
+                                @item.Description
+                                <div>@item.Price</div>
+                            </p>
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>@item.Name</h2>
+                            <p>
+                                <div>@item.Images</div>
+                                <div>@item.Rate</div>
+                                @item.Description
+                                <div>@item.Price</div>
+                            </p>
+                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                        </div>
+                        <div class="col-md-4">
+                            <h2>@item.Name</h2>
+                            <p>
+                                <div>@item.Images</div>
+                                <div>@item.Rate</div>
+                                @item.Description
+                                <div>@item.Price</div>
+                            </p>
+                            <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+                        </div>
+                    </div>
+                    <br />
+                }
+                pro.OrderByDescending(p => p.Rate).Take(3);
+                foreach (var item in pro)
+                {
+                @:TOP_PRO LIST <br />
+                
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>@item.Name</h2>
+                        <p>
+                            <div>@item.Images</div>
+                            <div>@item.Rate</div>
+                            @item.Description
+                            <div>@item.Price</div>
+                        </p>
+                        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>@item.Name</h2>
+                        <p>
+                            <div>@item.Images</div>
+                            <div>@item.Rate</div>
+                            @item.Description
+                            <div>@item.Price</div>
+                        </p>
+                        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>@item.Name</h2>
+                        <p>
+                            <div>@item.Images</div>
+                            <div>@item.Rate</div>
+                            @item.Description
+                            <div>@item.Price</div>
+                        </p>
+                        <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+                    </div>
+                </div>
+                <br/>
+                    }
+
+
+                }
+            }
+        }
+
+        }
+

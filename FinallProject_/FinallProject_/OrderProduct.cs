@@ -17,7 +17,7 @@ namespace FinallProject_
         public int Id { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
-        public Nullable<int> Quentity { get; set; }
+        public int Quentity { get; set; }
         public string PriceAtPayment { get; set; }
     
         public virtual Order Order { get; set; }

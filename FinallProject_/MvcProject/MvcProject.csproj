@@ -219,10 +219,7 @@
     <Content Include="Service References\BuyNet\MvcProject.BuyNet.Category.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Image.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.SubCategory.datasource">
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Images.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Service References\BuyNet\Reference.svcmap">
@@ -277,6 +274,7 @@
     <Content Include="Views\Home\Add.cshtml" />
     <Content Include="Views\Home\Remove.cshtml" />
     <Content Include="Views\Home\UserP.cshtml" />
+    <Content Include="Views\Home\Aboutas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

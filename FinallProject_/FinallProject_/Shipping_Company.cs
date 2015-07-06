@@ -22,7 +22,7 @@ namespace FinallProject_
     
         public int Id { get; set; }
         public string Company_Name { get; set; }
-        public Nullable<System.DateTime> Delivery_Time { get; set; }
+        public System.DateTime Delivery_Time { get; set; }
         public string Shipping_Cost { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -38,7 +38,7 @@ namespace MvcProject.BuyNet {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Image[] ImagesField;
+        private MvcProject.BuyNet.Images[] ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Last_NameField;
@@ -51,6 +51,9 @@ namespace MvcProject.BuyNet {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string PasswordField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MvcProject.BuyNet.Product[] ProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string Street_numberField;
@@ -137,7 +140,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Image[] Images {
+        public MvcProject.BuyNet.Images[] Images {
             get {
                 return this.ImagesField;
             }
@@ -202,6 +205,19 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public MvcProject.BuyNet.Product[] Product {
+            get {
+                return this.ProductField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProductField, value) != true)) {
+                    this.ProductField = value;
+                    this.RaisePropertyChanged("Product");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public string Street_number {
             get {
                 return this.Street_numberField;
@@ -252,9 +268,9 @@ namespace MvcProject.BuyNet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Image", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Images", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
     [System.SerializableAttribute()]
-    public partial class Image : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Images : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
@@ -275,10 +291,7 @@ namespace MvcProject.BuyNet {
         private System.Nullable<int> UserIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private byte[] imgField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string imgNameField;
+        private string imgField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -356,7 +369,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public byte[] img {
+        public string img {
             get {
                 return this.imgField;
             }
@@ -364,19 +377,6 @@ namespace MvcProject.BuyNet {
                 if ((object.ReferenceEquals(this.imgField, value) != true)) {
                     this.imgField = value;
                     this.RaisePropertyChanged("img");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string imgName {
-            get {
-                return this.imgNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.imgNameField, value) != true)) {
-                    this.imgNameField = value;
-                    this.RaisePropertyChanged("imgName");
                 }
             }
         }
@@ -401,6 +401,9 @@ namespace MvcProject.BuyNet {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int BuyerIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<System.DateTime> DateOfPaymentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -416,9 +419,6 @@ namespace MvcProject.BuyNet {
         private MvcProject.BuyNet.User UserField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int UserIdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private System.Nullable<int> shippingIdField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -428,6 +428,19 @@ namespace MvcProject.BuyNet {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int BuyerId {
+            get {
+                return this.BuyerIdField;
+            }
+            set {
+                if ((this.BuyerIdField.Equals(value) != true)) {
+                    this.BuyerIdField = value;
+                    this.RaisePropertyChanged("BuyerId");
+                }
             }
         }
         
@@ -497,19 +510,6 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int UserId {
-            get {
-                return this.UserIdField;
-            }
-            set {
-                if ((this.UserIdField.Equals(value) != true)) {
-                    this.UserIdField = value;
-                    this.RaisePropertyChanged("UserId");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public System.Nullable<int> shippingId {
             get {
                 return this.shippingIdField;
@@ -542,6 +542,12 @@ namespace MvcProject.BuyNet {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private MvcProject.BuyNet.Category CategoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private System.Nullable<int> CategoryIdField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool ConditionField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -551,7 +557,7 @@ namespace MvcProject.BuyNet {
         private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Image[] ImagesField;
+        private MvcProject.BuyNet.Images[] ImagesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -560,16 +566,16 @@ namespace MvcProject.BuyNet {
         private MvcProject.BuyNet.OrderProduct[] OrderProductField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private decimal PriceField;
+        private System.Nullable<decimal> PriceField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int RateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.SubCategory SubCategoriesField;
+        private System.Nullable<int> SellerIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> SubCategoryIdField;
+        private MvcProject.BuyNet.User UserField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -578,6 +584,32 @@ namespace MvcProject.BuyNet {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public MvcProject.BuyNet.Category Category {
+            get {
+                return this.CategoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.CategoryField, value) != true)) {
+                    this.CategoryField = value;
+                    this.RaisePropertyChanged("Category");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> CategoryId {
+            get {
+                return this.CategoryIdField;
+            }
+            set {
+                if ((this.CategoryIdField.Equals(value) != true)) {
+                    this.CategoryIdField = value;
+                    this.RaisePropertyChanged("CategoryId");
+                }
             }
         }
         
@@ -621,7 +653,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Image[] Images {
+        public MvcProject.BuyNet.Images[] Images {
             get {
                 return this.ImagesField;
             }
@@ -660,7 +692,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public decimal Price {
+        public System.Nullable<decimal> Price {
             get {
                 return this.PriceField;
             }
@@ -686,27 +718,27 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.SubCategory SubCategories {
+        public System.Nullable<int> SellerId {
             get {
-                return this.SubCategoriesField;
+                return this.SellerIdField;
             }
             set {
-                if ((object.ReferenceEquals(this.SubCategoriesField, value) != true)) {
-                    this.SubCategoriesField = value;
-                    this.RaisePropertyChanged("SubCategories");
+                if ((this.SellerIdField.Equals(value) != true)) {
+                    this.SellerIdField = value;
+                    this.RaisePropertyChanged("SellerId");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> SubCategoryId {
+        public MvcProject.BuyNet.User User {
             get {
-                return this.SubCategoryIdField;
+                return this.UserField;
             }
             set {
-                if ((this.SubCategoryIdField.Equals(value) != true)) {
-                    this.SubCategoryIdField = value;
-                    this.RaisePropertyChanged("SubCategoryId");
+                if ((object.ReferenceEquals(this.UserField, value) != true)) {
+                    this.UserField = value;
+                    this.RaisePropertyChanged("User");
                 }
             }
         }
@@ -723,27 +755,30 @@ namespace MvcProject.BuyNet {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="SubCategory", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
     [System.SerializableAttribute()]
-    public partial class SubCategory : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Category CategoriesField;
+        private MvcProject.BuyNet.Category[] Category1Field;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int CatgoreyIdField;
+        private MvcProject.BuyNet.Category Category2Field;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.Product[] ProductField;
+        private System.Nullable<int> ParentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int idField;
+        private MvcProject.BuyNet.Product[] ProductField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -756,27 +791,40 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.Category Categories {
+        public MvcProject.BuyNet.Category[] Category1 {
             get {
-                return this.CategoriesField;
+                return this.Category1Field;
             }
             set {
-                if ((object.ReferenceEquals(this.CategoriesField, value) != true)) {
-                    this.CategoriesField = value;
-                    this.RaisePropertyChanged("Categories");
+                if ((object.ReferenceEquals(this.Category1Field, value) != true)) {
+                    this.Category1Field = value;
+                    this.RaisePropertyChanged("Category1");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public int CatgoreyId {
+        public MvcProject.BuyNet.Category Category2 {
             get {
-                return this.CatgoreyIdField;
+                return this.Category2Field;
             }
             set {
-                if ((this.CatgoreyIdField.Equals(value) != true)) {
-                    this.CatgoreyIdField = value;
-                    this.RaisePropertyChanged("CatgoreyId");
+                if ((object.ReferenceEquals(this.Category2Field, value) != true)) {
+                    this.Category2Field = value;
+                    this.RaisePropertyChanged("Category2");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int Id {
+            get {
+                return this.IdField;
+            }
+            set {
+                if ((this.IdField.Equals(value) != true)) {
+                    this.IdField = value;
+                    this.RaisePropertyChanged("Id");
                 }
             }
         }
@@ -795,6 +843,19 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.Nullable<int> Parent {
+            get {
+                return this.ParentField;
+            }
+            set {
+                if ((this.ParentField.Equals(value) != true)) {
+                    this.ParentField = value;
+                    this.RaisePropertyChanged("Parent");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public MvcProject.BuyNet.Product[] Product {
             get {
                 return this.ProductField;
@@ -803,19 +864,6 @@ namespace MvcProject.BuyNet {
                 if ((object.ReferenceEquals(this.ProductField, value) != true)) {
                     this.ProductField = value;
                     this.RaisePropertyChanged("Product");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int id {
-            get {
-                return this.idField;
-            }
-            set {
-                if ((this.idField.Equals(value) != true)) {
-                    this.idField = value;
-                    this.RaisePropertyChanged("id");
                 }
             }
         }
@@ -858,7 +906,7 @@ namespace MvcProject.BuyNet {
         private int ProductIdField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<int> QuentityField;
+        private int QuentityField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -949,7 +997,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<int> Quentity {
+        public int Quentity {
             get {
                 return this.QuentityField;
             }
@@ -984,7 +1032,7 @@ namespace MvcProject.BuyNet {
         private string Company_NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.Nullable<System.DateTime> Delivery_TimeField;
+        private System.DateTime Delivery_TimeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdField;
@@ -1019,7 +1067,7 @@ namespace MvcProject.BuyNet {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.Nullable<System.DateTime> Delivery_Time {
+        public System.DateTime Delivery_Time {
             get {
                 return this.Delivery_TimeField;
             }
@@ -1066,83 +1114,6 @@ namespace MvcProject.BuyNet {
                 if ((object.ReferenceEquals(this.Shipping_CostField, value) != true)) {
                     this.Shipping_CostField = value;
                     this.RaisePropertyChanged("Shipping_Cost");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/FinallProject_")]
-    [System.SerializableAttribute()]
-    public partial class Category : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string NameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private MvcProject.BuyNet.SubCategory[] SubCategoriesField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int Id {
-            get {
-                return this.IdField;
-            }
-            set {
-                if ((this.IdField.Equals(value) != true)) {
-                    this.IdField = value;
-                    this.RaisePropertyChanged("Id");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Name {
-            get {
-                return this.NameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.NameField, value) != true)) {
-                    this.NameField = value;
-                    this.RaisePropertyChanged("Name");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public MvcProject.BuyNet.SubCategory[] SubCategories {
-            get {
-                return this.SubCategoriesField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.SubCategoriesField, value) != true)) {
-                    this.SubCategoriesField = value;
-                    this.RaisePropertyChanged("SubCategories");
                 }
             }
         }
@@ -1204,16 +1175,16 @@ namespace MvcProject.BuyNet {
         System.Threading.Tasks.Task Edit_CategoryAsync(int id, string name);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategory", ReplyAction="http://tempuri.org/IService1/SubCategoryResponse")]
-        MvcProject.BuyNet.SubCategory SubCategory(int id);
+        MvcProject.BuyNet.Category SubCategory(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategory", ReplyAction="http://tempuri.org/IService1/SubCategoryResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory> SubCategoryAsync(int id);
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Category> SubCategoryAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategories", ReplyAction="http://tempuri.org/IService1/SubCategoriesResponse")]
-        MvcProject.BuyNet.SubCategory[] SubCategories();
+        MvcProject.BuyNet.Category[] SubCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/SubCategories", ReplyAction="http://tempuri.org/IService1/SubCategoriesResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory[]> SubCategoriesAsync();
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Category[]> SubCategoriesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_SubCategory", ReplyAction="http://tempuri.org/IService1/Delete_SubCategoryResponse")]
         void Delete_SubCategory(int id);
@@ -1300,16 +1271,16 @@ namespace MvcProject.BuyNet {
         System.Threading.Tasks.Task Edit_OrderAsync(int id, MvcProject.BuyNet.Order o);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        MvcProject.BuyNet.Image GetImage(int id);
+        MvcProject.BuyNet.Images GetImage(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImage", ReplyAction="http://tempuri.org/IService1/GetImageResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Image> GetImageAsync(int id);
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Images> GetImageAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImages", ReplyAction="http://tempuri.org/IService1/GetImagesResponse")]
-        MvcProject.BuyNet.Image[] GetImages();
+        MvcProject.BuyNet.Images[] GetImages();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetImages", ReplyAction="http://tempuri.org/IService1/GetImagesResponse")]
-        System.Threading.Tasks.Task<MvcProject.BuyNet.Image[]> GetImagesAsync();
+        System.Threading.Tasks.Task<MvcProject.BuyNet.Images[]> GetImagesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Delete_Image", ReplyAction="http://tempuri.org/IService1/Delete_ImageResponse")]
         void Delete_Image(int id);
@@ -1318,10 +1289,10 @@ namespace MvcProject.BuyNet {
         System.Threading.Tasks.Task Delete_ImageAsync(int id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Image", ReplyAction="http://tempuri.org/IService1/Edit_ImageResponse")]
-        void Edit_Image(int id, MvcProject.BuyNet.Image img);
+        void Edit_Image(int id, MvcProject.BuyNet.Images img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Edit_Image", ReplyAction="http://tempuri.org/IService1/Edit_ImageResponse")]
-        System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Image img);
+        System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Images img);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetShipping_Company", ReplyAction="http://tempuri.org/IService1/GetShipping_CompanyResponse")]
         MvcProject.BuyNet.Shipping_Company GetShipping_Company(int id);
@@ -1437,19 +1408,19 @@ namespace MvcProject.BuyNet {
             return base.Channel.Edit_CategoryAsync(id, name);
         }
         
-        public MvcProject.BuyNet.SubCategory SubCategory(int id) {
+        public MvcProject.BuyNet.Category SubCategory(int id) {
             return base.Channel.SubCategory(id);
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory> SubCategoryAsync(int id) {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Category> SubCategoryAsync(int id) {
             return base.Channel.SubCategoryAsync(id);
         }
         
-        public MvcProject.BuyNet.SubCategory[] SubCategories() {
+        public MvcProject.BuyNet.Category[] SubCategories() {
             return base.Channel.SubCategories();
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.SubCategory[]> SubCategoriesAsync() {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Category[]> SubCategoriesAsync() {
             return base.Channel.SubCategoriesAsync();
         }
         
@@ -1565,19 +1536,19 @@ namespace MvcProject.BuyNet {
             return base.Channel.Edit_OrderAsync(id, o);
         }
         
-        public MvcProject.BuyNet.Image GetImage(int id) {
+        public MvcProject.BuyNet.Images GetImage(int id) {
             return base.Channel.GetImage(id);
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Image> GetImageAsync(int id) {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Images> GetImageAsync(int id) {
             return base.Channel.GetImageAsync(id);
         }
         
-        public MvcProject.BuyNet.Image[] GetImages() {
+        public MvcProject.BuyNet.Images[] GetImages() {
             return base.Channel.GetImages();
         }
         
-        public System.Threading.Tasks.Task<MvcProject.BuyNet.Image[]> GetImagesAsync() {
+        public System.Threading.Tasks.Task<MvcProject.BuyNet.Images[]> GetImagesAsync() {
             return base.Channel.GetImagesAsync();
         }
         
@@ -1589,11 +1560,11 @@ namespace MvcProject.BuyNet {
             return base.Channel.Delete_ImageAsync(id);
         }
         
-        public void Edit_Image(int id, MvcProject.BuyNet.Image img) {
+        public void Edit_Image(int id, MvcProject.BuyNet.Images img) {
             base.Channel.Edit_Image(id, img);
         }
         
-        public System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Image img) {
+        public System.Threading.Tasks.Task Edit_ImageAsync(int id, MvcProject.BuyNet.Images img) {
             return base.Channel.Edit_ImageAsync(id, img);
         }
         

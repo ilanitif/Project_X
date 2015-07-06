@@ -17,22 +17,24 @@ namespace FinallProject_
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Product()
         {
-            this.Images = new HashSet<Image>();
+            this.Images = new HashSet<Images>();
             this.OrderProduct = new HashSet<OrderProduct>();
         }
     
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public decimal Price { get; set; }
+        public Nullable<decimal> Price { get; set; }
         public int Rate { get; set; }
         public bool Condition { get; set; }
-        public Nullable<int> SubCategoryId { get; set; }
+        public Nullable<int> CategoryId { get; set; }
+        public Nullable<int> SellerId { get; set; }
     
+        public virtual Category Category { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Image> Images { get; set; }
+        public virtual ICollection<Images> Images { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<OrderProduct> OrderProduct { get; set; }
-        public virtual SubCategory SubCategories { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -51,6 +51,7 @@
                 </div>
             </div>
         </div>
+       
         <script language="javescript">
             function foo() {
                 alert("sasad");
@@ -65,6 +66,10 @@
                 }
             }
         </script>
+            
+
+        
+        
         <div class="form-group">
             @Html.LabelFor(model => model.SubCategories.Categories.Name, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -105,8 +110,8 @@
                 </td>
                 <td>
 
-                    <div class="col-md-10">
-                        <input type="file" name="picture">
+                    <div class="col-md-10" ng-app="mine" ng-controller="fileController">
+                        <input type="file" id="image" name="picture" ng-model="picture" value="Select Picture" >
                     </div>
                 </td>
             </tr>
@@ -119,12 +124,33 @@
             </div>
         </div>
     </div>
-                        }
+   <script>
+       var dom=angular.module('mine',[]);
+       dom.controller(('fileController'), function($scope){
+           $scope.value="1222";
+       });  
+       // From <input> node
+       var elm = document.getElementById('image'),
+           img = elm.files[0],
+           fileName = img.name, // not path
+           fileSize = img.size; // bytes
 
+       // By Parsing File
+       var reader = new FileReader(),
+           binary, base64;
+       reader.addEventListener('loadend', function () {
+           binary = reader.result; // binary data (stored as string), unsafe for most actions
+           base64 = btoa(binary); // base64 data, safer but takes up more memory
+       }, false);
+       reader.readAsBinaryString(img);
+
+    </script>                     }
+ 
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
 
 @section Scripts {
+   
     @Scripts.Render("~/bundles/jqueryval")
 }

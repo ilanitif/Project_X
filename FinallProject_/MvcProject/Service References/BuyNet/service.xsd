@@ -101,7 +101,7 @@
   <xs:element name="SubCategoryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="SubCategoryResult" nillable="true" type="q5:SubCategory" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="SubCategoryResult" nillable="true" type="q5:Category" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -113,7 +113,7 @@
   <xs:element name="SubCategoriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="SubCategoriesResult" nillable="true" type="q6:ArrayOfSubCategory" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="SubCategoriesResult" nillable="true" type="q6:ArrayOfCategory" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -305,7 +305,7 @@
   <xs:element name="GetImageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="GetImageResult" nillable="true" type="q16:Image" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="GetImageResult" nillable="true" type="q16:Images" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -317,7 +317,7 @@
   <xs:element name="GetImagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="GetImagesResult" nillable="true" type="q17:ArrayOfImage" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="GetImagesResult" nillable="true" type="q17:ArrayOfImages" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -337,7 +337,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="id" type="xs:int" />
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="img" nillable="true" type="q18:Image" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/FinallProject_" minOccurs="0" name="img" nillable="true" type="q18:Images" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

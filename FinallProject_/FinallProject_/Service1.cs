@@ -23,12 +23,12 @@ namespace FinallProject_
         //method who gets  Category by  id
         public Category GetCategory(int id)
         {
-            return db.Categories.FirstOrDefault(c => c.Id == id);
+            return db.Category.FirstOrDefault(c => c.Parent == null && c.Id == id);
         }
         //method who gets  SubCategory by  id
-        public SubCategory SubCategory(int id)
+        public Category SubCategory(int id)
         {
-            return db.SubCategories.FirstOrDefault(sc => sc.id == id);
+            return db.Category.FirstOrDefault(sc => sc.Parent!=null && sc.Id==id );
         }
         //method who gets product by  id
         public Product GetProduct(int id)
@@ -43,7 +43,7 @@ namespace FinallProject_
             db.SaveChanges();
         }
 
-        //method who gets  orderProduct by  id
+        //method who gets orderProduct by id
         public OrderProduct GetOrderProduct(int id)
         {
 
@@ -56,7 +56,7 @@ namespace FinallProject_
             return db.Order.FirstOrDefault(o => o.Id == id);
         }
         //method who gets  image by  id
-        public Image GetImage(int id)
+        public Images GetImage(int id)
         {
 
             return db.Images.FirstOrDefault(img => img.Id == id);
@@ -71,12 +71,13 @@ namespace FinallProject_
 
         public List<Category> GetCategories()
         {
-            return db.Categories.ToList();
+            
+            return db.Category.Where(c=>c.Parent==null).ToList();
         }
 
-        public List<SubCategory> SubCategory()
+        public List<Category> SubCategories()
         {
-            return db.SubCategories.ToList();
+            return db.Category.Where(c => c.Parent != null).ToList();
         }
 
         public List<Product> GetProducts()
@@ -95,7 +96,7 @@ namespace FinallProject_
             return db.Order.ToList();
         }
 
-        public List<Image> GetImages()
+        public List<Images> GetImages()
         {
             return db.Images.ToList();
         }
@@ -122,34 +123,31 @@ namespace FinallProject_
 
         public void Delete_Category(int id)
         {
-            Category cat = db.Categories.FirstOrDefault(i => i.Id == id);
-            db.Categories.Remove(cat);
+            Category cat = db.Category.FirstOrDefault(i => i.Parent == null && i.Id == id);
+            db.Category.Remove(cat);
             db.SaveChanges();
         }
 
         public void Edit_Category(int id, string name)
         {
-            db.Categories.FirstOrDefault(i => i.Id == id).Name = name;
+            db.Category.FirstOrDefault(i => i.Parent == null && i.Id == id).Name = name;
 
             db.SaveChanges();
 
         }
 
-        public List<SubCategory> SubCategories()
-        {
-            return db.SubCategories.ToList();
-        }
+        
 
         public void Delete_SubCategory(int id)
         {
-            SubCategory subCat = db.SubCategories.FirstOrDefault(s => s.id == id);
-            db.SubCategories.Remove(subCat);
+            Category subCat = db.Category.FirstOrDefault(s => s.Parent != null && s.Id == id);
+            db.Category.Remove(subCat);
             db.SaveChanges();
         }
 
         public void Edit_SubCategory(int id, string name)
         {
-            db.SubCategories.FirstOrDefault(s => s.id == id).Name = name;
+            db.Category.FirstOrDefault(s => s.Parent != null && s.Id == id).Name = name;
             db.SaveChanges();
 
         }
@@ -199,9 +197,9 @@ namespace FinallProject_
             db.SaveChanges();
         }
 
-        public void Edit_Image(int id, Image image)
+        public void Edit_Image(int id, Images image)
         {
-            Image i = db.Images.FirstOrDefault(p => p.Id == id);
+            Images i = db.Images.FirstOrDefault(p => p.Id == id);
             i = image;
             db.SaveChanges();
         }
