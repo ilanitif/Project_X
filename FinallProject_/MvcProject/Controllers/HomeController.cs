@@ -17,8 +17,8 @@ namespace MvcProject.Controllers
        public static Service1Client client = new Service1Client();
         public ActionResult Index()
         {
-          
-
+             
+            
 
            return View(client.GetProducts());
         }
@@ -82,8 +82,14 @@ namespace MvcProject.Controllers
         public ActionResult UserP()
         {
             ViewBag.Message = "Your contact page.";
-
+           
             return View(client.GetUser(1));
+        }
+        public ActionResult Product_Page(int id)
+        {
+           
+            
+            return View(client.GetProduct(id));
         }
     }
 }

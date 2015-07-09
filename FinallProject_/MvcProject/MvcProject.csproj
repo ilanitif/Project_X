@@ -201,27 +201,6 @@
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\BuyNet\configuration91.svcinfo" />
     <None Include="Service References\BuyNet\configuration.svcinfo" />
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Order.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.OrderProduct.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Product.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Shipping_Company.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.User.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Category.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
-    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Images.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </Content>
     <None Include="Service References\BuyNet\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -261,6 +240,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\Add.cshtml" />
+    <Content Include="Views\Home\Remove.cshtml" />
+    <Content Include="Views\Home\UserP.cshtml" />
+    <Content Include="Views\Home\Aboutas.cshtml" />
+    <Content Include="Views\Home\Product_Page.cshtml" />
     <None Include="Service References\BuyNet\FinallProject_.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -271,13 +255,10 @@
     <None Include="Service References\BuyNet\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Home\Add.cshtml" />
-    <Content Include="Views\Home\Remove.cshtml" />
-    <Content Include="Views\Home\UserP.cshtml" />
-    <Content Include="Views\Home\Aboutas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="pics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

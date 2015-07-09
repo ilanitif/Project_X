@@ -3,104 +3,104 @@
     ViewBag.Title = "Home Page";
 }
 
-@for (int i = 0; i < 10; i++)
-{
-    <br/>
-}
 
     @{List<MvcProject.BuyNet.Product>
-                                         pro = new List<MvcProject.BuyNet.Product>
-                                                                        ();
+                                                     pro = new List<MvcProject.BuyNet.Product>
+                                                     ();
 
         {
-            foreach (var item in MvcProject.Controllers.HomeController.client.GetCategories())
-            {
-                pro =Model.Where(P=>P.Category.Parent==item.Id).OrderByDescending(P => P.Rate).Take(3).ToList();
 
-            }
 
-            foreach (var item in pro)
-            {
 
-           
-                    <div class="row">
+        }
+
+
+
+        //foreach (var cat in MvcProject.Controllers.HomeController.client.GetCategories())
+        {
+
+       
+        foreach (var item in Model)
+        {
+            //if (cat.Id==(int)item.CategoryId)
+            { <div class="row">
                         <div class="col-md-4">
-                            <h2>@item.Name</h2>
-                            <p>
-                                <div>@item.Images</div>
-                                <div>@item.Rate</div>
-                                @item.Description
-                                <div>@item.Price</div>
+                            
+                                <h2>@item.Name</h2>
+                                <p>
+                                    <div>
+
+                                        <a href="Product_Page/@item.Id">
+                                            <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
+                                        </a>
+                                    </div>
+                                    <br/>
+                                    <div>
+                                        Rate:
+                                        @for (int i = 0; i < @item.Rate; i++)
+                                        {
+                                            <b> *</b>
+                                        }
+                                    </div>
+                                    <div>
+                                        @item.Description
+                                    </div>
+                                        <div>@item.Price $</div>
+</p>
+                            <p><a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
                             </p>
-                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
                         </div>
                         <div class="col-md-4">
                             <h2>@item.Name</h2>
                             <p>
-                                <div>@item.Images</div>
-                                <div>@item.Rate</div>
-                                @item.Description
-                                <div>@item.Price</div>
-                            </p>
-                            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                                <div><a href="Product_Page/@item.Id">
+    <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
+</a></div>
+                                <br />
+                                <div>
+                                    Rate:
+                                    @for (int i = 0; i < @item.Rate; i++)
+                                    {
+                                        <b> *</b>
+                                    }
+                                </div>
+                                <div>
+                                    @item.Description</div>
+                                    <div>@item.Price</div>
+</p>
+                            <p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
                         </div>
                         <div class="col-md-4">
                             <h2>@item.Name</h2>
                             <p>
-                                <div>@item.Images</div>
-                                <div>@item.Rate</div>
-                                @item.Description
-                                <div>@item.Price</div>
-                            </p>
-                            <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+                                <div><a href="/Product_Page/@item.Id">
+    <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
+</a></div>
+                                <br />
+                                <div>
+                                    Rate:
+                                    @for (int i = 0; i < @item.Rate; i++)
+                                    {
+                                        <b> *</b>
+                                    }
+                                </div>
+                                <div>
+                                    @item.Description</div>
+                                    <div>@item.Price</div>
+</p>
+                            <p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
                         </div>
                     </div>
                     <br />
                 }
-                pro.OrderByDescending(p => p.Rate).Take(3);
-                foreach (var item in pro)
-                {
-                @:TOP_PRO LIST <br />
-                
-                <div class="row">
-                    <div class="col-md-4">
-                        <h2>@item.Name</h2>
-                        <p>
-                            <div>@item.Images</div>
-                            <div>@item.Rate</div>
-                            @item.Description
-                            <div>@item.Price</div>
-                        </p>
-                        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>@item.Name</h2>
-                        <p>
-                            <div>@item.Images</div>
-                            <div>@item.Rate</div>
-                            @item.Description
-                            <div>@item.Price</div>
-                        </p>
-                        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-                    </div>
-                    <div class="col-md-4">
-                        <h2>@item.Name</h2>
-                        <p>
-                            <div>@item.Images</div>
-                            <div>@item.Rate</div>
-                            @item.Description
-                            <div>@item.Price</div>
-                        </p>
-                        <p><a class="btn btn-default" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
-                    </div>
-                </div>
-                <br/>
-                    }
-
-
-                }
             }
+            //pro.OrderByDescending(p => p.Rate).Take(3);
+
+
+
+
         }
+
 
         }
 
