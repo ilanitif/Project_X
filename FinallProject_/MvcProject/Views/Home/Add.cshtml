@@ -71,7 +71,7 @@
         
         
         <div class="form-group">
-            @Html.LabelFor(model => model.SubCategories.Categories.Name, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Category, "Category", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 <select id="categories" onselect="foo()" class="col-md-10">
                     @{
@@ -86,7 +86,7 @@
             </div>
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.SubCategoryId, "SubCategory", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Category, "SubCategory", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
 
                 <select id="sub" class="col-md-10">
@@ -143,6 +143,7 @@
            base64 = btoa(binary); // base64 data, safer but takes up more memory
        }, false);
        reader.readAsBinaryString(img);
+       $("form").validate()
 
     </script>                     }
  

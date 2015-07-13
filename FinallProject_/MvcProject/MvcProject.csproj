@@ -164,6 +164,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -201,6 +202,27 @@
     <Content Include="Scripts\_references.js" />
     <None Include="Service References\BuyNet\configuration91.svcinfo" />
     <None Include="Service References\BuyNet\configuration.svcinfo" />
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Category.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Images.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Order.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.OrderProduct.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Product.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.Shipping_Company.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Service References\BuyNet\MvcProject.BuyNet.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Service References\BuyNet\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -208,6 +230,7 @@
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -220,18 +243,18 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
-    <Content Include="Views\Account\ConfirmEmail.cshtml" />
-    <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
-    <Content Include="Views\Account\ExternalLoginFailure.cshtml" />
-    <Content Include="Views\Account\ForgotPassword.cshtml" />
-    <Content Include="Views\Account\ForgotPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
-    <Content Include="Views\Account\Register.cshtml" />
-    <Content Include="Views\Account\ResetPassword.cshtml" />
-    <Content Include="Views\Account\ResetPasswordConfirmation.cshtml" />
-    <Content Include="Views\Account\SendCode.cshtml" />
-    <Content Include="Views\Account\VerifyCode.cshtml" />
+    <Content Include="Scripts\Account\_ExternalLoginsListPartial.cshtml" />
+    <Content Include="Scripts\Account\ConfirmEmail.cshtml" />
+    <Content Include="Scripts\Account\ExternalLoginConfirmation.cshtml" />
+    <Content Include="Scripts\Account\ExternalLoginFailure.cshtml" />
+    <Content Include="Scripts\Account\ForgotPassword.cshtml" />
+    <Content Include="Scripts\Account\ForgotPasswordConfirmation.cshtml" />
+    <Content Include="Scripts\Account\Login.cshtml" />
+    <Content Include="Scripts\Account\Register.cshtml" />
+    <Content Include="Scripts\Account\ResetPassword.cshtml" />
+    <Content Include="Scripts\Account\ResetPasswordConfirmation.cshtml" />
+    <Content Include="Scripts\Account\SendCode.cshtml" />
+    <Content Include="Scripts\Account\VerifyCode.cshtml" />
     <Content Include="Views\Manage\AddPhoneNumber.cshtml" />
     <Content Include="Views\Manage\ChangePassword.cshtml" />
     <Content Include="Views\Manage\Index.cshtml" />
@@ -255,20 +278,32 @@
     <None Include="Service References\BuyNet\service1.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="Views\Shared\NavigationBar.cshtml" />
+    <Content Include="Views\Home\Top3products.cshtml" />
+    <Content Include="Views\Home\SellNewProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="pics\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FinallProject_\FinallProject_.csproj">
+      <Project>{0b74e65d-f2f5-4888-a540-287d4ca68eb6}</Project>
+      <Name>FinallProject_</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\BuyNet\" />

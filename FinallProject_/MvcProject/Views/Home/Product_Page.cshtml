@@ -3,20 +3,48 @@
 @{
     ViewBag.Title = "Product_Page";
 }
-
+<style>
+    .carousel-inner>.item>img,
+    .carousel-inner>.item>a>img{
+        width:70%;
+         margin:auto;
+    }
+</style>
 <h2>Product_Page</h2>
 
 <div>
     <h4>Product</h4>
     <hr />
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <--Indicators--></--Indicators-->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+            <li data-target="#myCarousel" data-slide-to="3"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+           
+                
+              //string n = MvcProject.Controllers.HomeController.client.GetImages().FirstOrDefault(i => i.ProductId == Model.Id).img;
+                <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" alt="@Model.Name" width="460" height="345"/>
+               
+                  }
+                <div class="carousel-caption">
+                    <h3>@Model.Name</h3>
+                    <p>@for (int i = 0; i < @Model.Rate; i++)
+                    {
+                        <span class="glyphicon glyphicon-stats"></span>
+                    }</p>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
     <dl class="dl-horizontal">
-        @foreach (var item in Model.Images)
-        {
-            <image src="@item.img"/>
-        }
- 
-
-
+       
         <dt>
             @Html.DisplayNameFor(model => model.Name)
         </dt>

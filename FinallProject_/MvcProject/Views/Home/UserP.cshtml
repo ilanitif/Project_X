@@ -1,60 +1,290 @@
 ﻿@model MvcProject.BuyNet.User
 
-@{
-    ViewBag.Title = "User";
-}
-@for (int i = 0; i < 5; i++)
-{
-    <br />
-}
 
-<h2>User</h2>
-<header>
-    <section class="pull-left">
-        <span class="right">
-            <img src="~/App_Data/@Model.Images" />
-          
-        </span>
-        <span class="left">
-            @Model.UserName 
+
+
+<section style="padding-top:50px">
+    <span class="row">
+        <img src="~/pics/Users/Asher/asher.jpg" width="50" height="175" class="col-sm-2" />
+        <span class="col-lg-7" style="position:relative">
+            <b>@Model.UserName </b>
             <br />
-            @Model.First_Name
             <br />
-            @Model.Last_Name
             <br />
-            @Model.Email
+            <br />
+            @Model.Notes
             <br />
         </span>
-    </section>
-   <section class="pull-right">
-       <table border="1">
-           <thead><b>Inbox</b></thead>
-         
-               <tr>
-           <td>
-              note.writer
-               <br />
-               <br />
-              
-               note.context
+        <span class="col-lg-3">
+            <a href="">
 
-           </td>
-           </tr>
-               
-           
-       </table>
-       @foreach (var note in Model.Notes)
-       {
-       }
-   </section>
-   <br/>
-    </header>
-<p class="user_body">
+                <span id="selling"></span>
 
-    <ul class="nav nav-tabs .nav-justified">
-        <li class="active buyer .nav-justified"><a href="#">User</a></li>
-        <li class="seller"><a href="#">Seller</a></li>
-        <li class="Cart"><a href="#">Cart</a></li>
-      
+            </a>
+        </span>
+    </span>
+
+    <span class="glyphicons glyphicons-eyedropper"></span>
+</section>
+@*<section class="pull-right">
+        <table border="1">
+            <thead><b>Inbox</b></thead>
+
+                <tr>
+            <td>
+               note.writer
+                <br />
+                <br />
+
+                note.context
+
+            </td>
+            </tr>
+
+
+        </table>
+        @foreach (var note in Model.Notes)
+            {
+            }
+    </section>*@
+<br />
+
+<p class="user_body col col-sm-3 text-center">
+
+    <ul class="nav nav-tabs ">
+        <li class="active"><a id="him" data-toggle="tab" href="#buyer">User</a></li>
+        <li><a id="we" data-toggle="tab" href="#seller">Seller</a></li>
+        <li><a data-toggle="tab" href="#Cart">Cart</a></li>
+        <li><a data-toggle="tooltip" title="ilanit :)">hover me</a></li>
+
     </ul>
+    <div class="tab-content">
+        <div id="buyer" class="tab-pane fade in active">
+
+            <div>
+                <table border="1">
+                    @foreach (var ordp in MvcProject.Controllers.HomeController.client.GetOrderProducts())
+                    {
+
+
+                        <tr class="row">
+                            <td class="col-lg-9">
+                                <br />
+
+                                <span class="col-lg-3">
+                                    <img class="col-lg-12" src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" />
+                                </span>
+                                <span class="col-lg-5">
+
+                                    @foreach (var item in MvcProject.Controllers.HomeController.client.GetProducts())
+                                    {
+                                        if ( ordp.ProductId==item.Id)
+                                        {
+                                            <b>@item.Name</b>
+                                            <br />
+                                            @:Quntity:
+                                            <b>@ordp.Quentity</b>
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            @:Price:<b>Us <span class="glyphicon glyphicon-usd">@item.Price</span></b>
+                                            <br />
+                                        }
+                                    }
+                                    @*<b>@ordp.Product.Name</b>*@
+
+                                    @*Price:Us <span class="glyphicon glyphicon-usd">@ordp.Product.Price</span>*@
+                                </span>
+                                <span class="col-lg-4">
+                                    <span class="top">@Model.UserName</span>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    Rank product:
+                                    @foreach (var item in MvcProject.Controllers.HomeController.client.GetProducts())
+                                    {
+                                        if (item.Id == ordp.ProductId)
+                                        {
+                                            for (int i = 0; i < @item.Rate; i++)
+                                            {
+                                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                            }
+                                            if (@item.Rate < 5)
+                                            {
+                                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                                {
+                                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                                }
+                                            }
+
+                                        }
+                                    }
+                                    @*<span class="bottom-left glyphicon glyphicon glyphicon-star">@ordp.Product.Rate</span>*@
+
+                                </span>
+
+
+                            </td>
+                            <td class="col-lg-7">
+                                sent to:
+                                <br />
+                                <br />
+
+                                @foreach (var item in MvcProject.Controllers.HomeController.client.Users())
+                {
+                    if (item.Id == MvcProject.Controllers.HomeController.client.GetOrder(ordp.OrderId).BuyerId)
+                    {
+                                        @:Name: @item.UserName
+                                        <br />
+                                        @:Country:  @item.Country
+                                        <br />
+                                        @:Adress: @item.City , @item.Street_number, @item.Zip_Code
+                                 }
+
+                }
+                                @*Name:  @ordp.Order.User.UserName
+                                    Country:  @ordp.Order.User.Country
+                                    Adress: @ordp.Order.User.City , @ordp.Order.User.Street_number, @ordp.Order.User.Zip_Code*@
+
+
+
+                            </td>
+                        </tr>
+                    }
+                 <tr class="row"> <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td> </tr> 
+                </table>
+
+            </div>
+
+        </div>
+        <div id="seller" class="tab-pane fade in active">
+            <div>
+            <table border="1">
+                @foreach (var pro in MvcProject.Controllers.HomeController.client.GetProducts())
+                {
+
+                    
+                    <tr class="row">
+                        <td class="col-lg-9">
+                            <br />
+
+                            <span class="col-lg-3">
+                                <img class="col-lg-12" src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" />
+                            </span>
+                            <span class="col-lg-5">
+
+                                @foreach (var item in MvcProject.Controllers.HomeController.client.GetOrderProducts())
+                                {
+                                    if (Model.Id == pro.SellerId)
+                                    {
+                                        <b>@pro.Name</b>
+                                            <br />
+                                            @:Quntity:
+                                            <b>@item.Quentity</b>
+                                            <br />
+                                            <br />
+                                            <br />
+                                            <br />
+                                            @:Price:<b>Us <span class="glyphicon glyphicon-usd">@pro.Price</span></b>
+                                            <br />
+                                    }
+                                }
+                                @*<b>@ordp.Product.Name</b>*@
+
+                                @*Price:Us <span class="glyphicon glyphicon-usd">@ordp.Product.Price</span>*@
+                            </span>
+                            <span class="col-lg-4">
+                                <span class="top">@Model.UserName</span>
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+                                Rank product:
+                                @foreach (var item in MvcProject.Controllers.HomeController.client.GetProducts())
+                                {
+                                    if (item.Id == Model.Id)
+                                    {
+                                        for (int i = 0; i < @item.Rate; i++)
+                                        {
+                                            <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                        }
+                                        if (@item.Rate < 5)
+                                        {
+                                            for (int i = 0; i < (5 - @item.Rate); i++)
+                                            {
+                                                <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                            }
+                                        }
+
+                                    }
+                                }
+                                @*<span class="bottom-left glyphicon glyphicon glyphicon-star">@ordp.Product.Rate</span>*@
+
+                            </span>
+
+
+                        </td>
+                        <td class="col-lg-7">
+                            sent to:
+                            <br />
+                            <br />
+
+                            @foreach (var item in MvcProject.Controllers.HomeController.client.Users())
+                {
+                    if (item.Id == MvcProject.Controllers.HomeController.client.GetOrder(4).BuyerId)
+                    {
+                                    @:Name: @item.UserName
+                                    <br />
+                                        @:Country:  @item.Country
+                                        <br />
+                                        @:Adress: @item.City , @item.Street_number, @item.Zip_Code
+                                 }
+
+                }
+                            @*Name:  @ordp.Order.User.UserName
+                        Country:  @ordp.Order.User.Country
+                        Adress: @ordp.Order.User.City , @ordp.Order.User.Street_number, @ordp.Order.User.Zip_Code*@
+
+
+
+                        </td>
+                    </tr>
+                }
+                <tr class="row"> <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td> </tr>
+            </table>
+
+
+
+        </div>
+        <div id="Cart" class="tab-pane fade in active">
+            <h3></h3>
+            <span> </span>
+
+        </div>
+
+    </div>
 </p>
+<div style="width:50%; height:50%">
+
+</div>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle=tooltip]').tooltip();
+            $("#we").click(function () {
+                $("#selling").html("contact");
+                $("#him").click(function () { $("#selling").html("sell new product"); })
+                if (buyer) {
+                    $("#we").ajaxSend()
+                }
+            })
+        });
+
+    </script>
+
+}

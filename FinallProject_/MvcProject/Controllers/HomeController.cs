@@ -1,9 +1,11 @@
-﻿using System;
+﻿using MvcProject.BuyNet;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using MvcProject.BuyNet;
+
+
 
 
 
@@ -14,38 +16,48 @@ namespace MvcProject.Controllers
 {
     public class HomeController : Controller
     {
-       public static Service1Client client = new Service1Client();
-        public ActionResult Index()
+      public static Service1Client client = new Service1Client();
+        public ActionResult Top3products()
         {
-             
-            
 
-           return View(client.GetProducts());
+
+
+            return View(client.GetProducts());
         }
+        public  ActionResult Index()
+        {
+            return View();
+        } 
+
         public ActionResult Add()
         {
-            
+
 
             return View();
         }
         [HttpPost]
-        public ActionResult AddProduct(bool Condition,string Description,string Name,decimal Price,
+        public ActionResult AddProduct(bool Condition, string Description, string Name, decimal Price,
             string SubCategories_Categories_Name, string SubCategories)
         {
 
             Service1Client client = new Service1Client();
-            Product product = new Product() { Condition = Condition, Description = Description, Name = Name, Price = Price,
-             
-             
+            Product product = new Product()
+            {
+                Condition = Condition,
+                Description = Description,
+                Name = Name,
+                Price = Price,
+
+
             };
             client.AddProduct(product);
-            
+
             return View("index", client.GetCategories());
         }
         public ActionResult Remove(int id)
         {
             Service1Client client = new Service1Client();
-          Product pro=  client.GetProduct(id);
+            Product pro = client.GetProduct(id);
             return View(pro);
         }
         [HttpPost]
@@ -69,7 +81,7 @@ namespace MvcProject.Controllers
             //byte[] img
 
             ViewBag.Message = "Your application description page.";
-            
+
             return View(client.GetProducts());
         }
 
@@ -82,14 +94,19 @@ namespace MvcProject.Controllers
         public ActionResult UserP()
         {
             ViewBag.Message = "Your contact page.";
-           
+
             return View(client.GetUser(1));
         }
         public ActionResult Product_Page(int id)
         {
-           
-            
+
+
             return View(client.GetProduct(id));
+        }
+
+        public ActionResult SellNewProduct()
+        {
+            return View();
         }
     }
 }
