@@ -14,6 +14,8 @@ namespace FinallProject_
         //method who gets user by  id
         [OperationContract]
         User GetUser(int id);
+        [OperationContract]
+        List<User> Users();
         //method who delete user
         [OperationContract]
         void Delete_User(int id);
@@ -112,9 +114,17 @@ namespace FinallProject_
         void Edit_Shipping_Company(int id, Shipping_Company ship);
         [OperationContract]
         void AddProduct(Product product);
-
+        [OperationContract]
+        User LoginUser(User user);
+        [OperationContract]
+        void dbDispose();
+        [OperationContract]
+        void AddUser(User user);
+        [OperationContract]
+        void AddImage(Images ima);
+        
     }
-
+    
 
 
 

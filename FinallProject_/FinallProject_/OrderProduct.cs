@@ -11,16 +11,24 @@ namespace FinallProject_
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class OrderProduct
     {
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public int OrderId { get; set; }
+        [DataMember]
         public int ProductId { get; set; }
+        [DataMember]
         public int Quentity { get; set; }
+        [DataMember]
         public string PriceAtPayment { get; set; }
-    
+        [DataMember]
         public virtual Order Order { get; set; }
+        [DataMember]
         public virtual Product Product { get; set; }
     }
 }

@@ -12,8 +12,6 @@
 </head>
 <body>
 
- 
-
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -27,7 +25,7 @@
             </div>
 
 
-            <div class="navbar-collapse collapse">
+            <div class="navbar-collapse collapse" style="position:absolute">
 
                 <ul class="nav navbar-nav">
                     @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
@@ -36,26 +34,33 @@
                         <li>@Html.ActionLink("About", "About", "Home")</li>
                         <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
                     <li>
-                        <div class="col-lg-3">
+                        <div class="col-lg-3" style="padding-left:300px">
+
                             <div class="input-group" style="position:absolute;padding-top: 10px;align-content:center;">
                                 <span class="input-group-btn">
                                     <button class="btn btn-default" type="button">Go!</button>
                                 </span>
 
-                                <input style="position: fixed;" type="text" class="form-control" placeholder="Search for...">
+                                <input id="searchbox" style="position: fixed;" type="text" class="form-control" placeholder="Search for...">
+                                <div  style="position:absolute">
+                                    <ul class=" nav-list bs-docs-sidenav" style="padding-top:34px; position:fixed" id="options">
+                                        @* here we bring the result by Search *@
+                                    </ul>
+
+                                </div>
                             </div>
                         </div>
 
-                    </li>
-
                 </ul>
 
-                @Html.Partial("_LoginPartial")
             </div>
+
+
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
-    <div class="container body-content">
 
+    <div class="container body-content">
 
 
 
@@ -69,5 +74,41 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
+
+
+    <script>
+
+        $(document).click(function () {
+            $.each($('#options'), function (i, item) {
+                $('.opt').remove();
+            }
+         )
+        });
+
+        $('#searchbox').keyup(function () {
+
+
+            $.each($('#options'), function (i, item) {
+                $('.opt').remove();
+            })
+
+            var t = document.getElementById('searchbox').value;
+            $.getJSON("/Home/SearchActionMethod", { word: t },
+                function (data) {
+                    var ul = $('#options');
+                    $.each(data, function (i, item) {
+                        ul.addClass("nav nav-list bs-docs-sidenav ");
+                        ul.append("<li class='opt dropdown-toggle' data-toggle='dropdown' style='background-color:white;width:280px;position:relative'><a  href='#'>" + item + "</a></li>");
+                    });
+                }
+            );
+        })
+
+    </script>
+
+
+
+
 </body>
+
 </html>

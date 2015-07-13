@@ -81,6 +81,7 @@ namespace MvcProject.Controllers
                     {
                         Session["LogUserId"] = user.Id.ToString();
                         Session["LogUserName"] = user.UserName.ToString();
+                         Session["User"] = user;
                     }
                     return PartialView();
                 //}

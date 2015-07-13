@@ -37,18 +37,25 @@ namespace MvcProject.Controllers
         }
         [HttpPost]
         public ActionResult AddProduct(bool Condition, string Description, string Name, decimal Price,
-            string SubCategories_Categories_Name, string SubCategories)
+            string SubCategories_Categories_Name, string SubCategories, string image)
         {
 
             Service1Client client = new Service1Client();
+            Guid g = Guid.NewGuid();
+            Images ima = new Images()
+            {
+                User = (User)Session["User"],
+                img = "~/pics/" + g,
+                UserId = int.Parse((string)Session["LogUserId"])
+
+            };
+            client.AddImage(ima);
             Product product = new Product()
             {
                 Condition = Condition,
                 Description = Description,
                 Name = Name,
                 Price = Price,
-
-
             };
             client.AddProduct(product);
 
@@ -108,5 +115,52 @@ namespace MvcProject.Controllers
         {
             return View();
         }
+        public ActionResult SearchActionMethod(string word)
+        {
+            List<string> words = new List<string>();
+            foreach (var item in client.GetProducts())
+            {
+                if (item.Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
+                {
+                    words.Add(item.Name);
+                    //words.Add(item.User.UserName);
+                }
+            }
+            foreach (var item in client.GetShipping_Companys())
+            {
+                if (item.Company_Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
+                {
+                    words.Add(item.Company_Name);
+                }
+            }
+            foreach (var item in client.SubCategories())
+            {
+                if (item.Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
+                {
+                    words.Add(item.Name);
+                }
+            }
+            foreach (var item in client.GetProducts())
+            {
+                if (item.Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
+                {
+                    words.Add(item.Name);
+                }
+            }
+            foreach (var item in client.GetCategories())
+            {
+                if (item.Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
+                {
+                    words.Add(item.Name);
+                }
+                   
+            }
+            client.GetCategories();
+          
+          
+            return Json(words.Take(5), JsonRequestBehavior.AllowGet);
+        }
+
+
     }
 }

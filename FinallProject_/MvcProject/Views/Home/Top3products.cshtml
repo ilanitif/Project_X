@@ -1,119 +1,168 @@
 ﻿@model IList<MvcProject.BuyNet.Product>
+@using MvcProject.Controllers;
+@using MvcProject.BuyNet;
 
 
+@{
+    Dictionary<Product, Category> prolIST = new Dictionary<Product,Category>();
 
-@{List<MvcProject.BuyNet.Product>
-                  pro = new List<MvcProject.BuyNet.Product>();
+    Model.OrderByDescending(p => p.Rate).Take(3);
 
+    foreach (var pro in HomeController.client.GetProducts())
     {
+        prolIST.Add(pro,pro.Category.ParentCategory);
+    }
+    var results = persons.GroupBy(p => p.PersonId,
+                               p => p.car,
+                               (key, g) => new
+                               {
+                                   PersonId = key,
+                                   Cars = g.ToList()
+                               }
+                              );
+    var query = grades.GroupBy(student => student.Name)
+                  .Select(group =>
+                        new
+                        {
+                            Name = group.Key,
+                            Students = group.OrderByDescending(x => x.Grade)
+                        })
+                  .OrderBy(group => group.Students.First().Grade);
+    listStudents.GroupBy(g => g.Name).OrderBy(g => g.Key).SelectMany(g => g.OrderByDescending(x => x.Grade)).ToList().ForEach(x => Console.WriteLine(x.ToString()));
+    var k = HomeController.client.GetProducts().GroupBy(p => p.Name, p => p.Category.ParentCategory,
+  (Key, g) => new { product = Key, category = g.ToList().OrderByDescending() });
+    foreach (var item in HomeController.client.GetCategories())
+    {
+        if(k.Contains(item))
+        {
+
+        }
+    }
 
 
+    }
+    for (int i = 0; i < MvcProject.Controllers.HomeController.client.GetCategories().Length; i++)
+    {
+        foreach (var item in MvcProject.Controllers.HomeController.client.GetCategories())
+        {
+            if (prolIST.ContainsValue(item))
+            {
+                prolIST.
+            }
+
+        }
 
     }
 
 
 
-    //foreach (var cat in MvcProject.Controllers.HomeController.client.GetCategories())
-    {
 
 
-        foreach (var item in Model)
-        {
-            //if (cat.Id==(int)item.CategoryId)
-            { 
-                <<div class="row">
-        <div class="col-md-4">
+    @*@foreach (var item in Model)
+    { 
+        <div class="row">
+            <div class="col-md-4">
 
-            <h2>@item.Name</h2>
-            <p>
-                <div>
+                <h2>@item.Name</h2>
+                <p>
+                    <div>
 
-                    <a href="Product_Page/@item.Id">
-                        <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
-                    </a>
-                </div>
-                <br />
-                <div>
-                    Rate:
-                    @{
-                        for (int i = 0; i < 5; i++)
-                        {
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                        }
-
-                        for (int i = 0; i < @item.Rate; i++)
-                        {
-                            <b><span class="glyphicon glyphicon-star"></span></b>
-                        }
-                    }
-                </div>
-                <div>
-                    @item.Description
-                </div>
-                <div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-            </p>
-            <p>
-                <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>@item.Name</h2>
-            <p>
-                <div>
-                    <a href="Product_Page/@item.Id">
-                        <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
-                    </a>
-                </div>
-                <br />
-                <div>
-                    Rate:
-                    @for (int i = 0; i < @item.Rate; i++)
-                    {
-                        <b> *</b>
-                    }
-                </div>
-                <div>
-                    @item.Description
-                </div>
-                <div>@item.Price</div>
-            </p>
-            <p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-        </div>
-        <div class="col-md-4">
-            <h2>@item.Name</h2>
-            <p>
-                <div>
-                    <a href="/Product_Page/@item.Id">
-                        <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
-                    </a>
-                </div>
-                <br />
-                <div>
-                    Rate:
-                    @for (int i = 0; i < @item.Rate; i++)
-                    {
-                        <b> *</b>
-                    }
-                </div>
-                <div>
-                    @item.Description
-                </div>
-                <div>@item.Price</div>
-            </p>
-            <p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
-        </div>
-    </div>
-    <br />
+                        <a href="Product_Page/@item.Id">
+                            <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
+                        </a>
+                    </div>
+                    <br />
+                    <div>
+                        Rate:
+                        @{
+                            for (int i = 0; i < @item.Rate; i++)
+                            {
+                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                            }
+                            if (@item.Rate < 5)
+                            {
+                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                {
+                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
                                 }
                             }
-                            //pro.OrderByDescending(p => p.Rate).Take(3);
-
-
-
-
                         }
+                    </div>
+                    <div>
+                        @item.Description
+                    </div>
+                    <div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
+                </p>
+                <p>
+                    <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
+                </p>
+            </div>
+            <div class="col-md-4">
+                <h2>@item.Name</h2>
+                <p>
+                    <div>
+                        <a href="Product_Page/@item.Id">
+                            <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
+                        </a>
+                    </div>
+                    <br />
+                    <div>
+                        @{for (int i = 0; i < @item.Rate; i++)
+                            {
+                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                            }
+                            if (@item.Rate < 5)
+                            {
+                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                {
+                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                }
+                            }
+                        }
+                    </div>
+                    <div>
+                        @item.Description
+                    </div>
+                    <div>@item.Price</div>
+                </p>
+                <p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+            </div>
+            <div class="col-md-4">
+                <h2>@item.Name</h2>
+                <p>
+                    <div>
+                        <a href="/Product_Page/@item.Id">
+                            <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
+                        </a>
+                    </div>
+                    <br />
+                    <div>
+                        @{for (int i = 0; i < @item.Rate; i++)
+                            {
+                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                            }
+                            if (@item.Rate < 5)
+                            {
+                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                {
+                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+
+                                }
+                            }
+                </div>
+                    <div>
+                        @item.Description
+                    </div>
+                    <div>@item.Price</div>
+                </p>
+                <p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+            </div>
+        </div>
+                            
+                           
+        <br />
+     }*@                 
 
 
-}
 
 

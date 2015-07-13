@@ -28,7 +28,7 @@
 @*@Html.Partial("Index");*@
 
 
-        </div>
+      
 <div class=" navbar navbar-default  navbar-left col col-sm-3" role="navigation" id="left" style="float:left;width:20%">
     <div class="span3 bs-docs-sidebar">
         <ul class="nav nav-list bs-docs-sidenav top" style="top: 200px">
@@ -48,7 +48,7 @@
                                 if (sub.Value == cat)
                                 {
                                     g++;
-                                    <li><a class="dropdown-toggle list-group-item" style="border:none" href="#" id="@sub.Key">@sub.Key <span class="badge">@g</span></a></li>
+                                    <li><a class="dropdown-toggle list-group-item" style="border:none" href="index/@sub.Key" id="@sub.Key">@sub.Key <span class="badge">@g</span></a></li>
                                 }
 
                             }

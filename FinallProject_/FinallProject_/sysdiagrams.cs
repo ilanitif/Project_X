@@ -11,22 +11,13 @@ namespace FinallProject_
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-
-    [DataContract(IsReference =true)]
-    public partial class Images
+    
+    public partial class sysdiagrams
     {
-        [DataMember]
-        public int Id { get; set; }
-        [DataMember]
-        public Nullable<int> UserId { get; set; }
-        [DataMember]
-        public Nullable<int> ProductId { get; set; }
-        [DataMember]
-        public string img { get; set; }
-        [DataMember]
-        public virtual Product Product { get; set; }
-        [DataMember]
-        public virtual User User { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

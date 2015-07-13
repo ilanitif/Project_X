@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
+using System.Data.Entity.SqlServer;
 using System.ServiceModel;
 using System.Text;
+using System.Data.Entity;
 
 namespace FinallProject_
 {
@@ -12,29 +14,35 @@ namespace FinallProject_
     {
         public Service1()
         {
-            db.Configuration.ProxyCreationEnabled = false;
+           db.Configuration.ProxyCreationEnabled = false;
         }
         FinallProject_Entities db = new FinallProject_Entities();
         //method who getting a user by his id
         public User GetUser(int id)
         {
-            return db.User.FirstOrDefault(u => u.Id == id);
+   
+            return db.User.Include("Images").Include("Order").Include("Product").FirstOrDefault(u => u.Id == id);
         }
         //method who gets  Category by  id
         public Category GetCategory(int id)
         {
-            return db.Category.FirstOrDefault(c => c.Parent == null && c.Id == id);
+            //return DatabaseContext.Applications
+         //.Include(a => a.Children.Select(c => c.ChildRelationshipType));
+           
+            Category t = db.Category.Include("SubCategoryCategory").Include("Product").Include("ParentCategory").FirstOrDefault(c => c.Parent == null && c.Id == id);
+            return t;
+         
         }
         //method who gets  SubCategory by  id
         public Category SubCategory(int id)
         {
-            return db.Category.FirstOrDefault(sc => sc.Parent!=null && sc.Id==id );
+            db.Configuration.ProxyCreationEnabled = false;
+            return db.Category.Include("ParentCategory").Include("Product").FirstOrDefault(sc => sc.Parent!=null && sc.Id==id );
         }
         //method who gets product by  id
         public Product GetProduct(int id)
         {
-
-            return db.Product.FirstOrDefault(p => p.Id == id);
+            return db.Product.Include("User").Include("Category").FirstOrDefault(p => p.Id == id);
         }
         public void AddProduct(Product product)
         {
@@ -47,63 +55,66 @@ namespace FinallProject_
         public OrderProduct GetOrderProduct(int id)
         {
 
-            return db.OrderProduct.FirstOrDefault(op => op.Id == id);
+            return db.OrderProduct.Include("Order").Include("Product").FirstOrDefault(op => op.Id == id);
         }
         //method who gets  order by  id
         public Order GetOrder(int id)
         {
 
-            return db.Order.FirstOrDefault(o => o.Id == id);
+            return db.Order.Include("User").Include("Shipping_Company").FirstOrDefault(o => o.Id == id);
         }
         //method who gets  image by  id
         public Images GetImage(int id)
         {
 
-            return db.Images.FirstOrDefault(img => img.Id == id);
+            
+            Images t = db.Images.Include("Product").Include("User").FirstOrDefault(d => d.Id == id);
+            return t;
         }
         //method who gets  image by  id
         public Shipping_Company GetShipping_Company(int id)
         {
 
-            return db.Shipping_Company.FirstOrDefault(s => s.Id == id);
+            return db.Shipping_Company.Include("Order").FirstOrDefault(s => s.Id == id);
         }
 
 
         public List<Category> GetCategories()
         {
             
-            return db.Category.Where(c=>c.Parent==null).ToList();
+            return db.Category.Include("SubCategoryCategory").Include("ParentCategory").Include("Product").Where(c=>c.Parent==null).ToList();
         }
 
         public List<Category> SubCategories()
         {
-            return db.Category.Where(c => c.Parent != null).ToList();
+            return db.Category.Include("SubCategoryCategory").Include("ParentCategory").Include("Product").Where(c => c.Parent != null).ToList();
         }
 
         public List<Product> GetProducts()
         {
 
-            return db.Product.ToList();
+            return db.Product.Include("Category").Include("User").ToList();
         }
 
         public List<OrderProduct> GetOrderProducts()
         {
-            return db.OrderProduct.ToList();
+            var aa = db.OrderProduct.Include("Order").Include("Product").ToList();
+            return aa;
         }
 
         public List<Order> GetOrders()
         {
-            return db.Order.ToList();
+            return db.Order.Include("User").ToList();
         }
 
         public List<Images> GetImages()
         {
-            return db.Images.ToList();
+            return db.Images.Include("Product").Include("User").ToList();
         }
 
         public List<Shipping_Company> GetShipping_Companys()
         {
-            return db.Shipping_Company.ToList();
+            return db.Shipping_Company.Include("Order").ToList();
         }
 
         public void Delete_User(int id)
@@ -116,9 +127,12 @@ namespace FinallProject_
 
         public void Edit_User(int id, User editUser)
         {
-            User user = db.User.FirstOrDefault(u => u.Id == id);
-            user = editUser;
+            //User user = db.User.FirstOrDefault(u => u.Id == id);
+           // user = editUser;
+            //db.SaveChanges();
+            db.Entry(editUser).State = EntityState.Modified;
             db.SaveChanges();
+            
         }
 
         public void Delete_Category(int id)
@@ -214,6 +228,31 @@ namespace FinallProject_
         {
             Shipping_Company ship = db.Shipping_Company.FirstOrDefault(p => p.Id == id);
             ship = editShipp;
+            db.SaveChanges();
+        }
+
+        public List< User> Users()
+        {
+        return  db.User.ToList();
+        }
+        public User LoginUser(User user)
+        {
+            return db.User.Where(a => a.UserName.Equals(user.UserName) && a.Password.Equals(user.Password)).FirstOrDefault();
+        }
+        public void dbDispose()
+        {
+            db.Dispose();
+        }
+
+        public void AddUser(User user)
+        {
+            db.User.Add(user);
+            db.SaveChanges();
+        }
+
+        public void AddImage(Images ima)
+        {
+            db.Images.Add(ima);
             db.SaveChanges();
         }
     }

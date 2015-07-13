@@ -62,7 +62,7 @@
         <div id="buyer" class="tab-pane fade in active">
 
             <div>
-                <table border="1">
+                <table border="1" class="navbar-default" >
                     @foreach (var ordp in MvcProject.Controllers.HomeController.client.GetOrderProducts())
                     {
 
@@ -78,7 +78,7 @@
 
                                     @foreach (var item in MvcProject.Controllers.HomeController.client.GetProducts())
                                     {
-                                        if ( ordp.ProductId==item.Id)
+                                        if (ordp.ProductId == item.Id)
                                         {
                                             <b>@item.Name</b>
                                             <br />
@@ -154,137 +154,166 @@
                             </td>
                         </tr>
                     }
-                 <tr class="row"> <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td> </tr> 
+                    <tr class="row"> <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td> </tr>
                 </table>
 
             </div>
 
         </div>
         <div id="seller" class="tab-pane fade in active">
-            <div>
-            <table border="1">
-                @foreach (var pro in MvcProject.Controllers.HomeController.client.GetProducts())
+<div>
+    <table border="1">
+       
+      
+            
+      @{int ordpn=0;
+            foreach (var item in MvcProject.Controllers.HomeController.client.GetOrderProducts())
+            {
+                foreach (var pro in MvcProject.Controllers.HomeController.client.GetProducts())
                 {
 
-                    
-                    <tr class="row">
-                        <td class="col-lg-9">
-                            <br />
-
-                            <span class="col-lg-3">
-                                <img class="col-lg-12" src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" />
-                            </span>
-                            <span class="col-lg-5">
-
-                                @foreach (var item in MvcProject.Controllers.HomeController.client.GetOrderProducts())
-                                {
-                                    if (Model.Id == pro.SellerId)
-                                    {
-                                        <b>@pro.Name</b>
-                                            <br />
-                                            @:Quntity:
-                                            <b>@item.Quentity</b>
-                                            <br />
-                                            <br />
-                                            <br />
-                                            <br />
-                                            @:Price:<b>Us <span class="glyphicon glyphicon-usd">@pro.Price</span></b>
-                                            <br />
-                                    }
-                                }
-                                @*<b>@ordp.Product.Name</b>*@
-
-                                @*Price:Us <span class="glyphicon glyphicon-usd">@ordp.Product.Price</span>*@
-                            </span>
-                            <span class="col-lg-4">
-                                <span class="top">@Model.UserName</span>
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                <br />
-                                Rank product:
-                                @foreach (var item in MvcProject.Controllers.HomeController.client.GetProducts())
-                                {
-                                    if (item.Id == Model.Id)
-                                    {
-                                        for (int i = 0; i < @item.Rate; i++)
-                                        {
-                                            <span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                                        }
-                                        if (@item.Rate < 5)
-                                        {
-                                            for (int i = 0; i < (5 - @item.Rate); i++)
-                                            {
-                                                <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                                            }
-                                        }
-
-                                    }
-                                }
-                                @*<span class="bottom-left glyphicon glyphicon glyphicon-star">@ordp.Product.Rate</span>*@
-
-                            </span>
-
-
-                        </td>
-                        <td class="col-lg-7">
-                            sent to:
-                            <br />
-                            <br />
-
-                            @foreach (var item in MvcProject.Controllers.HomeController.client.Users())
-                {
-                    if (item.Id == MvcProject.Controllers.HomeController.client.GetOrder(4).BuyerId)
+                    if (pro.SellerId == Model.Id && item.ProductId == pro.Id)
                     {
-                                    @:Name: @item.UserName
+                      ordpn++;
+                        <tr class="row">
+                            <td class="col-lg-9">
+                                <br />
+
+                                <span class="col-lg-3">
+                                    <img class="col-lg-12" src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" />
+                                </span>
+                                <span class="col-lg-5">
+
+                                    <b>@pro.Name</b>
                                     <br />
-                                        @:Country:  @item.Country
+                                    Quntity:
+                                    <b>@item.Quentity</b>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    Price:<b>Us <span class="glyphicon glyphicon-usd">@pro.Price</span></b>
+                                    <br />
+
+                                    @*<b>@ordp.Product.Name</b>*@
+
+                                    @*Price:Us <span class="glyphicon glyphicon-usd">@ordp.Product.Price</span>*@
+                                </span>
+                                <span class="col-lg-4">
+                                    <span class="top">@Model.UserName</span>
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    <br />
+                                    Rank product:
+
+                                    @for (int i = 0; i < @pro.Rate; i++)
+                                    {
+                                        <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                    }
+                                    @if (@pro.Rate < 5)
+                                    {
+                                        for (int i = 0; i < (5 - @pro.Rate); i++)
+                                        {
+                                            <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                        }
+                                    }
+                                </span>
+
+
+                            </td>
+
+                            <td class="col-lg-7">
+                                sent to:
+                                <br />
+                                <br />
+
+                                @foreach (var or in MvcProject.Controllers.HomeController.client.Users())
+                                {
+                                    if (or.Id == item.OrderId)
+                                    {
+                                        @:Name: @or.UserName
                                         <br />
-                                        @:Adress: @item.City , @item.Street_number, @item.Zip_Code
+                                        @:Country:  @or.Country
+                                        <br />
+                                        @:Adress: @or.City , @or.Street_number, @or.Zip_Code
                                  }
 
-                }
-                            @*Name:  @ordp.Order.User.UserName
-                        Country:  @ordp.Order.User.Country
-                        Adress: @ordp.Order.User.City , @ordp.Order.User.Street_number, @ordp.Order.User.Zip_Code*@
+                                }
+                            </td>
+                        </tr>
+                  }
+              }
+          }
+          if (ordpn== 0)
+          {
+              <tr>there is no products that made</tr>
+          }
+          else if(ordpn>=3)
+          {
+            <tr class="row">
+                <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td>
+            </tr>
+          }
 
+    }
 
-
-                        </td>
-                    </tr>
-                }
-                <tr class="row"> <td><a href=""><span class="glyphicon glyphicon-download text-center col-lg-12"></span> </a></td> </tr>
+    
             </table>
 
 
 
-        </div>
-        <div id="Cart" class="tab-pane fade in active">
-            <h3></h3>
-            <span> </span>
+                    </div>
 
-        </div>
+            </div>
+
+                <div id="Cart" class="tab-pane fade in active">
+                    <h3></h3>
+                    <span> </span>
+
+                </div>
+
+            </div>
+    </p>
+    <div style="width:50%; height:50%">
 
     </div>
-</p>
-<div style="width:50%; height:50%">
+<footer>
 
-</div>
+</footer>
 
-@section scripts{
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle=tooltip]').tooltip();
-            $("#we").click(function () {
-                $("#selling").html("contact");
-                $("#him").click(function () { $("#selling").html("sell new product"); })
-                if (buyer) {
-                    $("#we").ajaxSend()
-                }
-            })
-        });
-
-    </script>
-
-}
+    @section scripts{
+        <script>
+            $(document).ready(function () {
+                $('[data-toggle=tooltip]').tooltip();
+                $("#we").click(function () {
+                    $("#selling").html("contact");
+                    $("#him").click(function () { $("#selling").html("sell new product"); })
+                    if (buyer) {
+                        $("#we").ajaxSend()
+                    }
+                })
+            });
+            $(function () {
+                $('#search').autocomplete({
+                    source: function (request, response) {
+                        $.ajax({
+                            url: "StudentService.asmx/GetStudentNames",
+                            data: "{ 'searchTerm': '" + request.term + "' }",
+                            type: "POST",
+                            dataType: "json",
+                            contentType: "application/json;charset=utf-8",
+                            success: function (data) {
+                                response(data.d);
+                            },
+                            error: function (result) {
+                                alert('There is a problem processing your request');
+                            }
+                        });
+                    },
+                    minLength: 0
+                });
+            });
+        </script>
+    }
