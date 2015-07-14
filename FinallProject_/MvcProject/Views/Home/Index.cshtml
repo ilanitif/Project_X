@@ -2,12 +2,13 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<div class="row">
+    <div class="col-lg-2">
+        @Html.Partial("NavigationBar")
+    </div>
 
+    <div class="col-lg-10">
+        @Html.Partial("Top3products", MvcProject.Controllers.HomeController.client.GetProducts())
 
-    @Html.Partial("NavigationBar")
-
-
-<div class="col-lg-8">
-    @Html.Partial("Top3products", MvcProject.Controllers.HomeController.client.GetProducts())
-
+    </div>
 </div>

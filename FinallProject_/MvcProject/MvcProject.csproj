@@ -281,6 +281,7 @@
     <Content Include="Views\Shared\NavigationBar.cshtml" />
     <Content Include="Views\Home\Top3products.cshtml" />
     <Content Include="Views\Home\SellNewProduct.cshtml" />
+    <Content Include="Views\Home\Category.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

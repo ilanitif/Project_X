@@ -3,166 +3,228 @@
 @using MvcProject.BuyNet;
 
 
-@{
-    Dictionary<Product, Category> prolIST = new Dictionary<Product,Category>();
-
-    Model.OrderByDescending(p => p.Rate).Take(3);
-
-    foreach (var pro in HomeController.client.GetProducts())
-    {
-        prolIST.Add(pro,pro.Category.ParentCategory);
-    }
-    var results = persons.GroupBy(p => p.PersonId,
-                               p => p.car,
-                               (key, g) => new
-                               {
-                                   PersonId = key,
-                                   Cars = g.ToList()
-                               }
-                              );
-    var query = grades.GroupBy(student => student.Name)
-                  .Select(group =>
-                        new
-                        {
-                            Name = group.Key,
-                            Students = group.OrderByDescending(x => x.Grade)
-                        })
-                  .OrderBy(group => group.Students.First().Grade);
-    listStudents.GroupBy(g => g.Name).OrderBy(g => g.Key).SelectMany(g => g.OrderByDescending(x => x.Grade)).ToList().ForEach(x => Console.WriteLine(x.ToString()));
-    var k = HomeController.client.GetProducts().GroupBy(p => p.Name, p => p.Category.ParentCategory,
-  (Key, g) => new { product = Key, category = g.ToList().OrderByDescending() });
-    foreach (var item in HomeController.client.GetCategories())
-    {
-        if(k.Contains(item))
-        {
-
-        }
-    }
 
 
-    }
-    for (int i = 0; i < MvcProject.Controllers.HomeController.client.GetCategories().Length; i++)
-    {
-        foreach (var item in MvcProject.Controllers.HomeController.client.GetCategories())
-        {
-            if (prolIST.ContainsValue(item))
-            {
-                prolIST.
-            }
-
-        }
-
-    }
-
-
-
-
-
-    @*@foreach (var item in Model)
-    { 
+    <div id="aComDiv" style="left:10px">Our Special`s</div>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>Our Top Product</h1>
+            <p></p>
+        </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-lg-7"></div>
+            <div id="aDiv" class="col-lg-2>
 
-                <h2>@item.Name</h2>
-                <p>
-                    <div>
+              
+                @*<table id="tab" style="width:200px; height:150px;">*@
+                <table>
+                    <thead>
+                        <b>see what your <span style="color:cornflowerblue">FB</span> friend`s bought</b>
+                    </thead>
+                    <tr>
+                        <td>
+                            <a style="color:cornflowerblue"><b>Ilanit Farda</b></a><br /> has a <a style="color:red">Galaxy 6</a>
 
-                        <a href="Product_Page/@item.Id">
-                            <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
-                        </a>
-                    </div>
-                    <br />
-                    <div>
-                        Rate:
-                        @{
-                            for (int i = 0; i < @item.Rate; i++)
-                            {
-                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                            }
-                            if (@item.Rate < 5)
-                            {
-                                for (int i = 0; i < (5 - @item.Rate); i++)
-                                {
-                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                                }
-                            }
-                        }
-                    </div>
-                    <div>
-                        @item.Description
-                    </div>
-                    <div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-                </p>
-                <p>
-                    <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
-                </p>
-            </div>
-            <div class="col-md-4">
-                <h2>@item.Name</h2>
-                <p>
-                    <div>
-                        <a href="Product_Page/@item.Id">
-                            <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
-                        </a>
-                    </div>
-                    <br />
-                    <div>
-                        @{for (int i = 0; i < @item.Rate; i++)
-                            {
-                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                            }
-                            if (@item.Rate < 5)
-                            {
-                                for (int i = 0; i < (5 - @item.Rate); i++)
-                                {
-                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                                }
-                            }
-                        }
-                    </div>
-                    <div>
-                        @item.Description
-                    </div>
-                    <div>@item.Price</div>
-                </p>
-                <p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
-            </div>
-            <div class="col-md-4">
-                <h2>@item.Name</h2>
-                <p>
-                    <div>
-                        <a href="/Product_Page/@item.Id">
-                            <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
-                        </a>
-                    </div>
-                    <br />
-                    <div>
-                        @{for (int i = 0; i < @item.Rate; i++)
-                            {
-                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                            }
-                            if (@item.Rate < 5)
-                            {
-                                for (int i = 0; i < (5 - @item.Rate); i++)
-                                {
-                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
 
-                                }
-                            }
-                </div>
-                    <div>
-                        @item.Description
-                    </div>
-                    <div>@item.Price</div>
-                </p>
-                <p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+
+
+                    </tr>
+                    <tr>
+                        <td><a style="color:cornflowerblue"><b>Daniel Gola</b></a><br /> bought a <a style="color:red">SoneyPlastion</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+
+
+                    </tr>
+                    <tr>
+                        <td><a style="color:cornflowerblue"><b>Natan Biest</b></a><br /> bought  a <a style="color:red">Ring</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+
+
+                    </tr>
+                    <tr>
+                        <td><a style="color:cornflowerblue"><b>Asher Ababa</b></a><br /> bought a <a style="color:red">Blaston</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+                    </tr>
+                    <tr>
+                        <td><a style="color:cornflowerblue"><b>Ronit Micheali</b></a><br /> has a new <a style="color:red">TV</a></td>
+                    </tr>
+                    <tr>
+                        <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+                    </tr>
+                </table>
             </div>
         </div>
-                            
-                           
-        <br />
-     }*@                 
+
+       </div>
+        
 
 
 
 
+
+
+
+                @foreach (var item in Model)
+                    {
+                        <div class="row">
+                            <div class="col-md-4">
+
+                                <h2>@item.Name</h2>
+                                <p>
+                                    <div>
+
+                                        <a href="Product_Page/@item.Id">
+                                            <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
+                                        </a>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        Rate:
+                                        @{
+                                            for (int i = 0; i < @item.Rate; i++)
+                                            {
+                                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                            }
+                                            if (@item.Rate < 5)
+                                            {
+                                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                                {
+                                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                    <div>
+                                        @item.Description
+                                    </div>
+                                    <div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
+                                </p>
+                                <p>
+                                    <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
+                                </p>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>@item.Name</h2>
+                                <p>
+                                    <div>
+                                        <a href="Product_Page/@item.Id">
+                                            <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
+                                        </a>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        @{for (int i = 0; i < @item.Rate; i++)
+                                            {
+                                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                            }
+                                            if (@item.Rate < 5)
+                                            {
+                                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                                {
+                                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                                }
+                                            }
+                                        }
+                                    </div>
+                                    <div>
+                                        @item.Description
+                                    </div>
+                                    <div>@item.Price</div>
+                                </p>
+                                <p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+                            </div>
+                            <div class="col-md-4">
+                                <h2>@item.Name</h2>
+                                <p>
+                                    <div>
+                                        <a href="/Product_Page/@item.Id">
+                                            <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
+                                        </a>
+                                    </div>
+                                    <br />
+                                    <div>
+                                        @{for (int i = 0; i < @item.Rate; i++)
+                                            {
+                                                <span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                            }
+                                            if (@item.Rate < 5)
+                                            {
+                                                for (int i = 0; i < (5 - @item.Rate); i++)
+                                                {
+                                                    <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+
+                                                }
+                                            }
+                                </div>
+                                    <div>
+                                        @item.Description
+                                    </div>
+                                    <div>@item.Price</div>
+                                </p>
+                                <p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+                            </div>
+                        </div>
+
+
+                        <br />
+
+
+                  
+                     }
+                <div id="fb-root"></div>
+                <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                <div id="fb-root"></div>
+                <script>
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+                <div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+                <div>
+                    class="fb-like"
+                    data-share="true"
+                    data-width="450"
+                    data-show-faces="true">
+                </div>
+                <div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
+                <div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
+                <script>
+        var e = document.getElementById("aComDiv");
+        var s = 1;
+        setInterval(function () {
+            var eLeftPos = e.offsetLeft;
+            e.style.left = (eLeftPos + s) + 'px';
+
+        }, 1000);
+        var top = document.getElementById("aDiv").style.top;
+        setInterval(function () {
+            top += 1;
+            var e = document.getElementById("aDiv");
+
+            // Increase the top position by 1 pixel
+            e.style.top = top + 'px';
+            // If the top position is greater than 100px, set it to 100px
+            if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
+        }, 1000);
+        $("tr").even.css("border","black");
+                </script>

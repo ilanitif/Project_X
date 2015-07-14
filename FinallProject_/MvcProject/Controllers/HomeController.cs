@@ -160,6 +160,11 @@ namespace MvcProject.Controllers
           
             return Json(words.Take(5), JsonRequestBehavior.AllowGet);
         }
+        public ActionResult Category(int categoryId)
+        {
+            
+            return View(client.GetCategory(categoryId));
+        }
 
 
     }
