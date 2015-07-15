@@ -284,16 +284,18 @@
 </footer>
 
     @section scripts{
+
         <script>
+           
             $(document).ready(function () {
                 alert("k")
                 $('[data-toggle=tooltip]').tooltip();
                 $("#we").click(function () {
                     $("#selling").html("contact");
-                    //$("#link").attr("href", "/home/contactus");
+                    $("#link").attr("href", "/home/contactus");
                     $("#him").click(function () {
                         $("#selling").html("sell new product");
-                        //$("#link").attr("href", "/home/sellnewproduct")
+                        $("#link").attr("href", "/home/sellnewproduct")
                     })
                     if (buyer) {
                         $("#we").ajaxSend()

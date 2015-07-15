@@ -179,6 +179,12 @@ namespace MvcProject.Controllers
 
             return View();
         }
+        public ActionResult NavigationBar()
+        {
+
+
+            return View();
+        }
 
 
     }

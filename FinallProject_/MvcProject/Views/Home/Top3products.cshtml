@@ -3,15 +3,14 @@
 @using MvcProject.BuyNet;
 
 
-
 <div class="container">
     <div class="jumbotron">
         <h1>Our Top Product</h1>
 
 
 
-
     </div>
+
     <div class="col-lg-11">
         @{
             foreach (var item in Model)
@@ -19,6 +18,62 @@
 
                 @:<div class="row">
                     @:<div class="col-md-4">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -38,16 +93,130 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 @:<a href="Product_Page/@item.Id">
                                     @: <img src="/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="150" height="150" />
+                                    @:
                                     @:
                                     @:
                                 @:</a>
                                 @:
                                 @:
+                                @:
                             @:</div>
                             @:<br />
                             @:<div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -72,22 +241,27 @@
 
                 @:
                 @:
-            @:</div>
+                @:
+           @: </div>
             @:<div>
                 @item.Description
                 @:
                 @:
-           @: </div>
+                @:
+            @:</div>
             @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
             @:
+                @:
                 @:
             @:</p>
             @:<p>
                 @: <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
                 @:
                 @:
-           @: </p>
+                @:
+@:</p>
             @:
+                @:
                 @:
            @: </div>
             @:<div class="col-md-4">
@@ -95,16 +269,20 @@
                 @:<p>
                     @:<div>
                         @:<a href="Product_Page/@item.Id">
-                            @: <img src="/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="150" height="150" />
+                        string img=item.Images.FirstOrDefault()==null? "/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" : item.Images[0].img;
+
+                            @: <img src="@Html.Raw(img); " alt="@item.Name" width="150" height="150" />
                             @:
                             @:
-                        @:</a>
+                            @:
+                      @:  </a>
                         @:
                         @:
-                    @:</div>
+                        @:
+                   @: </div>
                     @:<br />
                     @:<div>
-                    @:Rate:
+                        @:Rate:
                                     for (int i = 0; i < @item.Rate; i++)
                 {
                     @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
@@ -119,30 +297,43 @@
 
                 @:
                 @:
-            @:</div>
+                @:
+           @: </div>
             @:<div>
                 @item.Description
+                @:
                 @:
                 @:
             @:</div>
             @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
             @:
                 @:
-            @:</p>
+                @:
+           @: </p>
             @:<p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
             @:
-               
-            @:</div>
+
+
+
+
+
+
+
+
+                @:
+           @: </div>
             @:<div class="col-md-4">
                 @:  <h2>@item.Name</h2>
                 @:<p>
-        @:  <div>
-            @:<a href="/Product_Page/@item.Id">
-                @: <img src="/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="150" height="150" />
+                    @:  <div>
+                        @:<a href="/Product_Page/@item.Id">
+                            @: <img src="/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="150" height="150" />
+                            @:
                             @:
                             @:
                             @:
                         @:</a>
+                        @:
                         @:
                         @:
                         @:
@@ -152,13 +343,13 @@
                         @:Rate:
                                     for (int i = 0; i < @item.Rate; i++)
                 {
-            @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                    @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
                                         }
                 if (@item.Rate < 5)
                 {
                     for (int i = 0; i < (5 - @item.Rate); i++)
                     {
-                @: <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                        @: <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
 
 
 
@@ -175,18 +366,132 @@
 
 
 
-            }
-        }
-        @:
-        @:
-        @:
-    @:</div>
-        @:<div>
-            @item.Description
-            @:
-            @:
-            @:
-       @: </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
+                }
+                @:
+                @:
+                @:
+                @:
+           @: </div>
+            @:<div>
+                @item.Description
+                @:
+                @:
+                @:
+                @:
+            @:</div>
             @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
 
 
@@ -204,18 +509,134 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             @:
-            @:
-            @:
-       @: </p>
+                @:
+                @:
+                @:
+            @:</p>
+
 
             @:<p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
             @:
                 @:
+                @:
             @:</div>
             @:
                 @:
-            @:</div>
+                @:
+           @: </div>
             }
 
             @:<br />
@@ -272,69 +693,70 @@
             </tr>
         </table>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+    <br />
 </div>
-    
 
 
 
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+    <div>
+        class="fb-like"
+        data-share="true"
+        data-width="450"
+        data-show-faces="true">
+    </div>
+    <div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
+    <div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
+    <script>
+        var e = document.getElementById("aComDiv");
+        var s = 1;
 
+        setInterval(function () {
 
+            var eLeftPos = e.offsetLeft;
+            e.style.left = (eLeftPos + s) + 'px';
+            if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
 
+        }, 1000);
+        var top = document.getElementById("aDiv").style.top;
+        setInterval(function () {
+            top += 1;
+            var e = document.getElementById("aDiv");
 
+            // Increase the top position by 1 pixel
+            e.style.top = top + 'px';
+            // If the top position is greater than 100px, set it to 100px
+            if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
+        }, 1000);
 
-
-<br />
-
-
-
-
-<div id="fb-root"></div>
-<script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<div id="fb-root"></div>
-<script>
-    (function (d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-<div>
-    class="fb-like"
-    data-share="true"
-    data-width="450"
-    data-show-faces="true">
-</div>
-<div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
-<div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
-<script>
-    var e = document.getElementById("aComDiv");
-    var s = 1;
-
-    setInterval(function () {
-
-        var eLeftPos = e.offsetLeft;
-        e.style.left = (eLeftPos + s) + 'px';
-        if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
-
-    }, 1000);
-    var top = document.getElementById("aDiv").style.top;
-    setInterval(function () {
-        top += 1;
-        var e = document.getElementById("aDiv");
-
-        // Increase the top position by 1 pixel
-        e.style.top = top + 'px';
-        // If the top position is greater than 100px, set it to 100px
-        if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
-    }, 1000);
-
-</script>
+    </script>

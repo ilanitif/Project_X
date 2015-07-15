@@ -8,6 +8,8 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
 </head>
 <body>
@@ -70,9 +72,9 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 
-
+@section scripts{
     <script>
-
+     
         $(document).click(function () {
             $.each($('#options'), function (i, item) {
                 $('.opt').remove();
@@ -100,8 +102,10 @@
         })
 
     </script>
+    }
+    
 
-
+    
 
 
 </body>

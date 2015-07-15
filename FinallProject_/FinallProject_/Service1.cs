@@ -93,7 +93,7 @@ namespace FinallProject_
         public List<Product> GetProducts()
         {
 
-            return db.Product.Include("Category").Include("User").ToList();
+            return db.Product.Include("Category").Include("User").Include("Images").ToList();
         }
 
         public List<OrderProduct> GetOrderProducts()

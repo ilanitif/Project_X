@@ -287,7 +287,7 @@
     <None Include="Service References\BuyNet\service1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <Content Include="Views\Shared\NavigationBar.cshtml" />
+    <Content Include="Views\Home\NavigationBar.cshtml" />
     <Content Include="Views\Home\Top3products.cshtml" />
     <Content Include="Views\Home\SellNewProduct.cshtml" />
     <Content Include="Views\Home\Category.cshtml" />
