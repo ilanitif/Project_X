@@ -2,21 +2,100 @@
 @{
     ViewBag.Title = "SellNewProduct";
 }
+<style>
+    #main{
+width:910px;
+height:2000px;
+margin:100px auto;
+}
+label {
+    display:block;
+    margin-top:30px;
+    letter-spacing:2px;
+}
+input{
+width:150px;
+padding:10px;
+margin-top:10px;
+margin-bottom:35px;
+border-radius:5px;
+border:1px solid #cbcbcb;
+font-size:16px
+}
+textarea{
+width:400px;
+height:100px;
+padding:10px;
+margin-top:10px;
+margin-bottom:35px;
+border-radius:5px;
+border:1px solid #cbcbcb;
+font-size:16px
+}
 
-<h2 style="font:italic">Sell New Product</h2>
 
 
-<div>
-    Product name: <input type="text" /><br />
+</style>
+Sell new product
+<div id="main">
+    <div id="first">
+        <h1>Sell New Product</h1>
 
-    
-    Category:                        Sub Category: <br />
+        <from>
+            <label>Product Name:<input type="text" /> </label>
+            <label>
+                Category:
+                <select><option></option></select>
+                Sub Category: <select><option></option></select>
+            </label>
+            <label>
+                Description:
+                <textarea maxlength="80"></textarea>
+            </label>
+
+            <label>
+                item condition:
+                <span> new <input type="radio" name="optradio"></span>
+                <span>used<input type="radio" name="optradio"></span>
+            </label>
+            <label>
+                Brand:<input type="text" maxlength="20" />
+            </label>
+
+            <label>
+                Price:     US $<input type="number" min="1" />
+            </label>
+
+            <h1>Shipping</h1>
+
+            <br />
 
 
-    Description: <input type="text" size="150"/><br />
+            <label>
+                Shipping to:
+                <span>
+                    <input type="radio" name="optradio">worldwide
+                    <input type="radio" name="optradio">Other:<input type="text" />
+                </span>
+                <label> Shipping Cost: US $<input type="number" /></label>
 
-    Item Condition:    <input type="checkbox" /> new  <input type="checkbox" /> Used
+                <label>  Delivery:  Maximum<input type="number" min="1" max="31" />days. </label>
+            </label>
 
+            <label>
+                Get Paid:
+                <span>
+                    <input type="radio" name="optradio">
+                    <img src="~/imgPay/visaImg.jpg" width="65" height="25" />
+                    <input type="radio" name="optradio">
+                    <img src="~/imgPay/PayPal.jpg" width="60" height="60" />
+                </span>
+            </label>
+
+            <button type="button" class="btn btn-info">Save</button>
+
+        </from>
+    </div>
 </div>
-<div id="cctype" class="radio ccIcon cctype"><label class="radio visa" id="pm-visa" for="visa"><input id="visa" type="radio" name="credit_card_type" value="V"><span class="cclogo visa"> </span><span>ויזה</span></label><label class="radio mc" id="pm-mastercard" for="mastercard"><input class="mc_subtype" id="mastercard" type="radio" name="credit_card_type" value="M"><span class="cclogo mc"> </span><span>מאסטרקארד</span></label><label class="radio disc" id="pm-discover" for="discover"><input id="discover" type="radio" name="credit_card_type" value="D"><span class="cclogo disc"> </span><span>Discover‏</span></label><label class="radio amex" id="pm-amex" for="amex"><input id="amex" type="radio" name="credit_card_type" value="A"><span class="cclogo amex"> </span><span>אמריקן&#x20;אקספרס</span></label></div><
- 
+
+

@@ -111,10 +111,7 @@ namespace MvcProject.Controllers
             return View(client.GetProduct(id));
         }
 
-        public ActionResult SellNewProduct()
-        {
-            return View();
-        }
+     
         public ActionResult SearchActionMethod(string word)
         {
             List<string> words = new List<string>();
@@ -164,6 +161,23 @@ namespace MvcProject.Controllers
         {
             
             return View(client.GetCategory(categoryId));
+        }
+        public ActionResult SellNewProduct()
+        {
+
+            return View();
+        }
+        public ActionResult ContactUs()
+        {
+
+            return View();
+        }
+
+        public ActionResult YourDeatails()
+        {
+
+
+            return View();
         }
 
 
