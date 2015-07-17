@@ -247,13 +247,13 @@ namespace FinallProject_
         public void AddUser(User user)
         {
             db.User.Add(user);
-            db.SaveChanges();
+           
         }
 
         public void AddImage(Images ima)
         {
             db.Images.Add(ima);
-            db.SaveChanges();
+          
         }
     }
 }

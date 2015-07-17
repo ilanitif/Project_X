@@ -3,108 +3,119 @@
 @{
     ViewBag.Title = "Product_Page";
 }
-<style>
-    .carousel-inner>.item>img,
-    .carousel-inner>.item>a>img{
-        width:70%;
-         margin:auto;
-    }
-</style>
-<h2>Product_Page</h2>
+<head>
+    <style>
+        .carousel-inner > .item > img,
+        .carousel-inner > .item > a > img {
+            width: 70%;
+            margin: auto;
+        }
+    </style>
+    <title>Demo 1 - Menucool Image Slider</title>
 
-<div>
-    <h4>Product</h4>
-    <hr />
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <--Indicators--></--Indicators-->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" alt="@Model.Name" width="460" height="345"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="item active">
-           
-                
-              //string n = MvcProject.Controllers.HomeController.client.GetImages().FirstOrDefault(i => i.ProductId == Model.Id).img;
-                <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" alt="@Model.Name" width="460" height="345"/>
-               
-                  }
-                <div class="carousel-caption">
-                    <h3>@Model.Name</h3>
-                    <p>@for (int i = 0; i < @Model.Rate; i++)
-                    {
-                        <span class="glyphicon glyphicon-stats"></span>
-                    }</p>
 
+
+    <title>Demo 3</title>
+    
+
+
+
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <--indicators--></--indicators-->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" alt="@Model.Name" width="460" height="345"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+
+
+                    //string n = MvcProject.Controllers.HomeController.client.GetImages().FirstOrDefault(i => i.ProductId == Model.Id).img;
+                    <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Iphone5.jpg" alt="@Model.Name" width="460" height="345" />
+
+                    }
+                    <div class="carousel-caption">
+                        <h3>@Model.Name</h3>
+                        <p>
+                            @for (int i = 0; i < @Model.Rate; i++)
+                            {
+                                <span class="glyphicon glyphicon-stats"></span>
+                            }
+                        </p>
+
+                    </div>
                 </div>
             </div>
+
         </div>
+        <dl class="dl-horizontal">
 
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CategoryId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Condition) New:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Condition)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price) $
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Rate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Rate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.SellerId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SellerId)
+            </dd>
+
+        </dl>
     </div>
-    <dl class="dl-horizontal">
-       
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.CategoryId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.CategoryId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Condition) New:
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Condition)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Description)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Description)
-        </dd>
-
-        
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Price)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Price) $
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Rate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Rate)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.SellerId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.SellerId)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>

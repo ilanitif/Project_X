@@ -7,6 +7,8 @@ using MvcProject.BuyNet;
 using System.Net;
 using System.Web.Security;
 
+
+
 namespace MvcProject.Controllers
 {
     public class UserController : Controller
@@ -27,8 +29,8 @@ namespace MvcProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            
-                User user = db.GetUser((int)id);
+
+             User user = db.GetUser((int)id);
                 if (user == null)
                 {
                     return HttpNotFound();
@@ -49,46 +51,32 @@ namespace MvcProject.Controllers
         {
             return View();
         }
-        public ActionResult OpenLogin()
-        {
-            return PartialView("LoginDialog");
-        }
+      
         //
         public ActionResult Logoff()
         {
             FormsAuthentication.SignOut();
             ViewData["Logoff"] = true;
 
-            return PartialView("LoginButton");
+            return PartialView("Index");
         }
         //
-        public ActionResult GetLoginButton()
-        {
-            return PartialView("LoginButton");
-        }
+      
         //Login post
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(User user)
         {
-            if (ModelState.IsValid)
-            {
-                // using (UserContext uc = new UserContext())
-                // {
-                // var v = uc.Users.Where(a => a.UserName.Equals(user.UserName) && a.Password.Equals(user.Password));
-                var v = db.LoginUser(user);
+         
+                //var v = fe.User.Where(a => a.UserName.Equals(user.UserName) && a.Password.Equals(user.Password));
+                  var v =db.GetUser(user.Id);
                     if (v != null)
                     {
                         Session["LogUserId"] = user.Id.ToString();
                         Session["LogUserName"] = user.UserName.ToString();
-                         Session["User"] = user;
+                         //Session["User"] = user;
                     }
-                    return PartialView();
-                //}
-            }
-            return View(user);
-            //FormsAuthentication.SetAuthCookie(user, false);
-            //return Json(new { Success=true});
+                    return RedirectToAction("AfterLogin");
         }
 
         public ActionResult AfterLogin()
@@ -107,7 +95,7 @@ namespace MvcProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,City,Country,Email,First_Name,Last_Name,Notes,Password,Street_number,UserName,Zip_Code")]  User user)
+        public ActionResult Create([Bind(Include = "Id,City,Country,Email,First_Name,Last_Name,Notes,Password,Street_number,UserName,Zip_Code")]  BuyNet.User user)
         {
 
             if (ModelState.IsValid)
@@ -127,7 +115,7 @@ namespace MvcProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.GetUser((int)id);
+            BuyNet.User user = db.GetUser((int)id);
             if (user == null)
             {
                 return HttpNotFound();
@@ -140,7 +128,7 @@ namespace MvcProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,City,Country,Email,First_Name,Last_Name,Notes,Password,Street_number,UserName,Zip_Code")] User user)
+        public ActionResult Edit([Bind(Include = "Id,City,Country,Email,First_Name,Last_Name,Notes,Password,Street_number,UserName,Zip_Code")] BuyNet.User user)
         {
             if (ModelState.IsValid)
             {
@@ -157,7 +145,7 @@ namespace MvcProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            User user = db.GetUser((int)id);
+            BuyNet.User user = db.GetUser((int)id);
             if (user == null)
             {
                 return HttpNotFound();

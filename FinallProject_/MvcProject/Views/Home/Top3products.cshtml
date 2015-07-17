@@ -6,7 +6,7 @@
 <div class="container">
     <div class="jumbotron">
         <h1>Our Top Product</h1>
-
+        
 
 
     </div>
@@ -15,142 +15,17 @@
         @{
             foreach (var item in Model)
             {
-
+                <a herf=>@item.Category.Name <span class="glyphicon glyphicon-play"></span></a>
                 @:<div class="row">
                     @:<div class="col-md-4">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        @:<h2>@item.Name</h2>
+                    @:<h2>@item.Name</h2>
                         @:<p>
                             @: <div>
 
+                                @:<a href="/home/Product_Page/@item.Id">
+                                    string img = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                @:<a href="Product_Page/@item.Id">
-                                    @: <img src="/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="150" height="150" />
+                @: <img src="@Html.Raw(img)" alt="@item.Name" width="150" height="150" />
                                     @:
                                     @:
                                     @:
@@ -168,64 +43,7 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                @:Rate:
+                             @:Rate:
 
                 for (int i = 0; i < @item.Rate; i++)
                 {
@@ -255,7 +73,7 @@
                 @:
             @:</p>
             @:<p>
-                @: <a class="btn btn-primary" href="BuyMe/@item.Id">Buy Me Now &raquo;</a>
+                @: <a class="btn btn-primary" href="/home/BuyMe/@item.Id">Buy Me Now &raquo;</a>
                 @:
                 @:
                 @:
@@ -268,10 +86,10 @@
                 @:<h2>@item.Name</h2>
                 @:<p>
                     @:<div>
-                        @:<a href="Product_Page/@item.Id">
-                        string img=item.Images.FirstOrDefault()==null? "/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" : item.Images[0].img;
+                        @:<a href="/home/Product_Page/@item.Id">
+                        string img1=item.Images.FirstOrDefault()==null? "/pics/empty2.png" : item.Images[0].img;
 
-                            @: <img src="@Html.Raw(img); " alt="@item.Name" width="150" height="150" />
+                            @: <img src="@Html.Raw(img1)" alt="@item.Name" width="150" height="150" />
                             @:
                             @:
                             @:
@@ -310,7 +128,7 @@
                 @:
                 @:
            @: </p>
-            @:<p><a class="btn btn-primary" href="http://go.microsoft.com/fwlink/?LinkId=301865">Buy Now &raquo;</a></p>
+            @:<p><a class="btn btn-primary" href="/Home/BuyMe/id=@item.Id">Buy Now &raquo;</a></p>
             @:
 
 
@@ -326,8 +144,10 @@
                 @:  <h2>@item.Name</h2>
                 @:<p>
                     @:  <div>
-                        @:<a href="/Product_Page/@item.Id">
-                            @: <img src="/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="150" height="150" />
+                        @:<a href="/home/Product_Page/@item.Id">
+                              string img2 = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
+
+                @: <img src="@Html.Raw(img2)" alt="@item.Name" width="150" height="150" />
                             @:
                             @:
                             @:
@@ -350,134 +170,6 @@
                     for (int i = 0; i < (5 - @item.Rate); i++)
                     {
                         @: <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     }
                 }
                 @:
@@ -628,7 +320,7 @@
             @:</p>
 
 
-            @:<p><a class="btn btn-primary" href="/Home/Remove?id=@item.Id">Delete &raquo;</a></p>
+            @:<p><a class="btn btn-primary" href="/Home/BuyMe?id=@item.Id">Buy me NOW &raquo;</a></p>
             @:
                 @:
                 @:
@@ -637,6 +329,7 @@
                 @:
                 @:
            @: </div>
+              @:<hr/>
             }
 
             @:<br />

@@ -157,10 +157,10 @@ namespace MvcProject.Controllers
           
             return Json(words.Take(5), JsonRequestBehavior.AllowGet);
         }
-        public ActionResult Category(int categoryId)
+        public ActionResult Category(string category)
         {
-            
-            return View(client.GetCategory(categoryId));
+            Category ca=client.GetCategories().FirstOrDefault(c => c.Name == category);
+            return View(ca);
         }
         public ActionResult SellNewProduct()
         {

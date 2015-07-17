@@ -5,9 +5,9 @@
 
 <h2>@Model</h2>
 @foreach (var Cat in Model.SubCategoryCategory)
+{ 
+foreach (var item in Cat.Product)
 {
-    foreach (var item in Cat.Product)
-    {
                 <div class="row">
     <div class="col-md-4">
 
@@ -16,7 +16,10 @@
             <div>
 
                 <a href="Product_Page/@item.Id">
-                    <img src="~/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" alt="@item.Name" width="250" height="250" />
+                    @{ string img2 = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
+
+                        <img src="@Html.Raw(img2)" alt="@item.Name" width="150" height="150" />
+                    }
                 </a>
             </div>
             <br />
@@ -50,8 +53,12 @@
         <p>
             <div>
                 <a href="Product_Page/@item.Id">
-                    <img src="~/pics/Books/The Bold And The Beutifual/TheBoldAndBeutifual.jpg" alt="@item.Name" width="250" height="250" />
+                    @{ string img1 = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
+
+                        <img src="@Html.Raw(img1)" alt="@item.Name" width="150" height="150" />
+                    }
                 </a>
+
             </div>
             <br />
             <div>
@@ -80,7 +87,10 @@
         <p>
             <div>
                 <a href="/Product_Page/@item.Id">
-                    <img src="~/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" alt="@item.Name" width="250" height="250" />
+                    @{ string img3= item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
+
+                        <img src="@Html.Raw(img3)" alt="@item.Name" width="150" height="150" />
+                    }
                 </a>
             </div>
             <br />
