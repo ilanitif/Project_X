@@ -28,65 +28,65 @@
 <div class=" navbar navbar-left" role="navigation" style="display:table; padding:10px; width: 100%; min-height: 500px">
     <div id="right" style="width: 80%; margin-left: auto;float:right;padding-left:2em">
 
-@{int i = 0;
-    Dictionary<string, string> c = new Dictionary<String, String>();
-    foreach (var cat in MvcProject.Controllers.HomeController.client.GetCategories())
-    {
-        c.Add((i++).ToString(), cat.Name);
-        foreach (var sub in MvcProject.Controllers.HomeController.client.SubCategories())
-        {
-            if (sub.Parent == cat.Id)
+        @{int i = 0;
+            Dictionary<string, string> c = new Dictionary<String, String>();
+            foreach (var cat in MvcProject.Controllers.HomeController.client.GetCategories())
             {
-                c.Add(sub.Name, cat.Name);
+                c.Add((i++).ToString(), cat.Name);
+                foreach (var sub in MvcProject.Controllers.HomeController.client.SubCategories())
+                {
+                    if (sub.Parent == cat.Id)
+                    {
+                        c.Add(sub.Name, cat.Name);
+                    }
+                }
+
             }
+
         }
 
-    }
 
-}
-
-
-@*@Html.Partial("Index");*@
+        @*@Html.Partial("Index");*@
 
 
-      
-<div class=" navbar navbar-default  navbar-left" role="navigation" id="left" >
-    <div class="span3 bs-docs-sidebar">
-        <ul class="nav nav-list bs-docs-sidenav top" style="top: 200px">
-            @{
-                var x2 = c.Select(x => x.Value).Distinct();
-                foreach (var cat in x2)
-                {
-                    <li>
-                        <a class="dropdown-toggle" data-toggle="dropdown" onclick="categorypage(@cat);">
-                            <i class="icon-user" style="font:16px arial;color:black" id="@cat">@cat</i>
-                            <span class="caret"></span>
-                        </a><ul class="dropdown-menu nav nav-list list-group ">
 
-                            @foreach (var sub in c)
-                            {
-                                int g = 0;
-                                if (sub.Value == cat)
-                                {
-                                    g++;
-                                    <li><a class="dropdown-toggle list-group-item" style="border:none" href="/home/index/@sub.Key" id="@sub.Key">@sub.Key <span class="badge">@g</span></a></li>
-                                }
+        <div class=" navbar navbar-default  navbar-left" role="navigation" id="left">
+            <div class="span3 bs-docs-sidebar">
+                <ul class="nav nav-list bs-docs-sidenav top" style="top: 200px">
+                    @{
+                        var x2 = c.Select(x => x.Value).Distinct();
+                        foreach (var cat in x2)
+                        {
+                            <li>
+                                <a class="dropdown-toggle" data-toggle="dropdown" onclick="categorypage(@cat);">
+                                    <i class="icon-user" style="font:16px arial;color:black" id="@cat">@cat</i>
+                                    <span class="caret"></span>
+                                </a><ul class="dropdown-menu nav nav-list list-group ">
 
-                            }
-                        </ul>
+                                    @foreach (var sub in c)
+                                    {
+                                        int g = 0;
+                                        if (sub.Value == cat)
+                                        {
+                                            g++;
+                                            <li><a class="dropdown-toggle list-group-item" style="border:none" href="/home/index/@sub.Key" id="@sub.Key">@sub.Key <span class="badge">@g</span></a></li>
+                                        }
 
-
-                    </li>
+                                    }
+                                </ul>
 
 
-                } }
-        </ul>
+                            </li>
 
-    </div>
-</div>
+
+                        } }
+                </ul>
+
+            </div>
         </div>
+    </div>
     @section scripts{
-<script>
+        <script>
     alert("s");
     function categorypage(id)
     {
@@ -94,7 +94,7 @@
             var id = id;
 
             var xMLHttpRequest = new XMLHttpRequest();
-            xMLHttpRequest.open("GET", "/Home/Category", true);
+            xMLHttpRequest.open("GET", "/Home/Category/"+id, true);
             xMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
             xMLHttpRequest.send();
             xMLHttpRequest.onreadystatechange = function () {
@@ -107,7 +107,7 @@
                     document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
                 }
             }
-        
+
     }
         $(function () {
             $('#category').on('change', function () {
@@ -122,9 +122,6 @@
         });
 
 
-</script>
+        </script>
     }
-    </div>
-
-
-
+</div>

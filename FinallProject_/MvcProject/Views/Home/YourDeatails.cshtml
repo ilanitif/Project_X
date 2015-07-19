@@ -1,0 +1,98 @@
+﻿
+@{
+    ViewBag.Title = "YourDeatails";
+}
+
+<style>
+    #main{
+width:910px;
+height:2000px;
+margin:100px auto;
+}
+label {
+    display:block;
+    margin-top:30px;
+    letter-spacing:2px;
+}
+input{
+width:150px;
+padding:10px;
+margin-top:10px;
+margin-bottom:35px;
+border-radius:5px;
+border:1px solid #cbcbcb;
+font-size:16px
+}
+textarea{
+width:400px;
+height:100px;
+padding:10px;
+margin-top:10px;
+margin-bottom:35px;
+border-radius:5px;
+border:1px solid #cbcbcb;
+font-size:16px
+}
+
+
+</style>
+
+<div class="row">
+
+    <div id="main">
+        <div id="first">
+            <h2>Your Deatails</h2>
+
+            <form class="col-md-8" method="post">
+                <label>
+                    First Name: <input type="text" name="firstName" /> Last Name: <input type="text" />
+                </label>
+                <label>
+                    Country: <select><option>Choose</option></select> City : <input type="text" />
+                </label>
+                <label>
+                    Street: <input type="text" /> no.<input type="number" />
+                </label>
+                <label>
+                    Zip Code:  <input type="number" />
+                </label>
+
+                <label>Notes</label>
+                <textarea name="message" placeholder="Type Here"></textarea>
+
+
+
+                <label>Get Paid:  </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio">
+                    <img src="~/imgPay/visaImg.jpg" width="65" height="25" />
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio">
+                    <img src="~/imgPay/PayPal.jpg" width="50" height="50" />
+                </label>
+                <label>
+                    <button type="button" class="btn btn-info">BUY NOW</button>
+                </label>
+
+                <label>
+                    Congratulaions your product has been ordered!
+                </label>
+
+            </form>
+            <div class="col-md-4" dir="rtl">
+                <img src="~/images/5.jpg" />
+                <label>Name of the Product</label>
+                <label>
+                    Quantity:<input type="number" min="1" max="10" /> Shipping Cost: US $81
+                </label>
+                <label>
+                    Price: US $105
+                </label>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+

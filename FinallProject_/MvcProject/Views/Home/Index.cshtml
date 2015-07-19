@@ -5,7 +5,7 @@
 <div class="col-lg-12" id="aComDiv" style="position:relative;"><b><span style="color:red">50%</span> discount on Elctronic Devisece   <span style="color:red">30%</span> discount on women lundery   <span style="color:red">25%</span> on hair Productions   <span style="color:red">15%</span> discount on books </b><b><span style="color:red">Free</span> shipping </b> </div>
 
   
-    <div class="row">
+    <div class="row" id="seen">
         <div class="col-lg-3" id="Nav">
             @Html.Partial("NavigationBar")
         </div>
@@ -22,8 +22,8 @@
 
 
     <script>
-
-        //$("Curent").empty()
+       
+        document.getElementById("seen").style = innerWidth;       //$("Curent").empty()
         //Product(ushort quantity)
         //Department(string departmentName)
 

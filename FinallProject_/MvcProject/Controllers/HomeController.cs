@@ -1,6 +1,7 @@
 ﻿using MvcProject.BuyNet;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -16,7 +17,7 @@ namespace MvcProject.Controllers
 {
     public class HomeController : Controller
     {
-      public static Service1Client client = new Service1Client();
+        public static Service1Client client = new Service1Client();
         public ActionResult Top3products()
         {
 
@@ -24,43 +25,12 @@ namespace MvcProject.Controllers
 
             return View(client.GetProducts());
         }
-        public  ActionResult Index()
+        public ActionResult Index()
         {
             return View();
-        } 
-
-        public ActionResult Add()
-        {
-
-
-            return View();
         }
-        [HttpPost]
-        public ActionResult AddProduct(bool Condition, string Description, string Name, decimal Price,
-            string SubCategories_Categories_Name, string SubCategories, string image)
-        {
 
-            Service1Client client = new Service1Client();
-            Guid g = Guid.NewGuid();
-            Images ima = new Images()
-            {
-                User = (User)Session["User"],
-                img = "~/pics/" + g,
-                UserId = int.Parse((string)Session["LogUserId"])
 
-            };
-            client.AddImage(ima);
-            Product product = new Product()
-            {
-                Condition = Condition,
-                Description = Description,
-                Name = Name,
-                Price = Price,
-            };
-            client.AddProduct(product);
-
-            return View("index", client.GetCategories());
-        }
         public ActionResult Remove(int id)
         {
             Service1Client client = new Service1Client();
@@ -111,7 +81,7 @@ namespace MvcProject.Controllers
             return View(client.GetProduct(id));
         }
 
-     
+
         public ActionResult SearchActionMethod(string word)
         {
             List<string> words = new List<string>();
@@ -150,23 +120,19 @@ namespace MvcProject.Controllers
                 {
                     words.Add(item.Name);
                 }
-                   
+
             }
             client.GetCategories();
-          
-          
+
+
             return Json(words.Take(5), JsonRequestBehavior.AllowGet);
         }
         public ActionResult Category(string category)
         {
-            Category ca=client.GetCategories().FirstOrDefault(c => c.Name == category);
+            Category ca = client.GetCategories().FirstOrDefault(c => c.Name == category);
             return View(ca);
         }
-        public ActionResult SellNewProduct()
-        {
 
-            return View();
-        }
         public ActionResult ContactUs()
         {
 
@@ -185,7 +151,167 @@ namespace MvcProject.Controllers
 
             return View();
         }
+        public ActionResult SellNewProduct()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult SellNewProduct(string productName, int? categoryId, int? subCategoryId, bool? itemCondiation, decimal? price,
+            string productDescription, HttpPostedFileBase [] files)
+        {
+              //< httpRuntime targetFramework = "4.5.2" />
+             Product p = new Product()
+            {
+                CategoryId = subCategoryId,
+                Condition = itemCondiation ?? true,
+                Price = price,
+                Description = productDescription,
+                Category = client.SubCategory(subCategoryId ?? 1)
+            };
+            client.AddProduct(p);
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+                //foreach (var item in Request.Files)
+                //{
+                //    if (item != null && item.ContentLength > 0)
+                //    {
+                //        var fileName = Path.GetFileName(file.FileName);
+                //        var path = Path.Combine(Server.MapPath("~/pics/"), fileName);
+                //        file.SaveAs(path);
+                //    }
+                //}
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    var path = Path.Combine(Server.MapPath("~/pics/"), fileName);
+                    file.SaveAs(path);
+                }
+            }
+           
+
+            foreach (var photovar in Request.Files)
+            {
+                if (photovar is HttpPostedFileBase)
+                {
+                    HttpPostedFileBase photo = (HttpPostedFileBase)photovar;
+
+                    if (photo != null && photo.ContentLength > 0)
+                    {
+                        Guid g = Guid.NewGuid();
+                        string directory = @"~/pics/" + g;
+
+                        Images ima = new Images()
+                        {
+                            img = directory,
+                            ProductId = client.GetProducts().FirstOrDefault(pr => pr == p).Id
+                        };
 
 
+                        if (photo.ContentLength > 10240)
+                        {
+                            ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
+                            return View();
+                        }
+
+                        var supportedTypes = new[] { "jpg", "jpeg", "png" };
+
+                        var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
+
+                        if (!supportedTypes.Contains(fileExt))
+                        {
+                            ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
+                            return View();
+                        }
+
+                        var fileName = Path.GetFileName(photo.FileName);
+                        photo.SaveAs(Path.Combine(directory, fileName));
+                    }
+
+                }
+            }
+
+                    return View();
+            }
+        public ActionResult Add()
+        {
+
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddProduct(bool Condition, string Description, string Name, decimal Price,
+            string SubCategories_Categories_Name, string SubCategories, string image)
+        {
+
+            Service1Client client = new Service1Client();
+            Guid g = Guid.NewGuid();
+            Images ima = new Images()
+            {
+                User = (User)Session["User"],
+                img = "~/pics/" + g,
+                UserId = int.Parse((string)Session["LogUserId"])
+
+            };
+            client.AddImage(ima);
+            Product product = new Product()
+            {
+                Condition = Condition,
+                Description = Description,
+                Name = Name,
+                Price = Price,
+            };
+            client.AddProduct(product);
+
+            return View("index", client.GetCategories());
+        }
+        //    [HttpPost]
+        //    //public ActionResult Upload(IEnumerable<HttpPostedFileBase> files)
+        //    //{
+        //    //    if (photo != null && photo.ContentLength > 0)
+        //    //    {
+        //    //        string directory = @"D:\Temp\";
+
+        //    //        if (photo.ContentLength > 10240)
+        //    //        {
+        //    //            ModelState.AddModelError("photo", "The size of the file should not exceed 10 KB");
+        //    //            return View();
+        //    //        }
+
+        //    //        var supportedTypes = new[] { "jpg", "jpeg", "png" };
+
+        //    //        var fileExt = System.IO.Path.GetExtension(photo.FileName).Substring(1);
+
+        //    //        if (!supportedTypes.Contains(fileExt))
+        //    //        {
+        //    //            ModelState.AddModelError("photo", "Invalid type. Only the following types (jpg, jpeg, png) are supported.");
+        //    //            return View();
+        //    //        }
+
+        //    //        var fileName = Path.GetFileName(photo.FileName);
+        //    //        photo.SaveAs(Path.Combine(directory, fileName));
+        //    //    }
+
+        //    //    foreach (var file in files)
+        //    //    {
+        //    //        file.SaveAs(...);
+        //    //    }
+
+        //    //    return RedirectToAction("Index");
+        //    //}
+        //    //[HttpPost]
+        //    //public ActionResult Upload(HttpPostedFileBase photo)
+        //    //{
+        //    //    string directory = @"D:\Temp\";
+
+        //    //    if (photo != null && photo.ContentLength > 0)
+        //    //    {
+        //    //        var fileName = Path.GetFileName(photo.FileName);
+        //    //        photo.SaveAs(Path.Combine(directory, fileName));
+        //    //    }
+
+        //    //    return RedirectToAction("Index");
+        //    //}
     }
 }

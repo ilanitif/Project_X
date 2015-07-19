@@ -5,9 +5,7 @@
 
 <div class="container">
     <div class="jumbotron">
-        <h1>Our Top Product</h1>
-        
-
+        <h1> Our Top Product </h1>
 
     </div>
 
@@ -23,8 +21,8 @@
                             @: <div>
 
                                 @:<a href="/home/Product_Page/@item.Id">
-                                    string img = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
-
+                                    string img = item.Images.FirstOrDefault() == null ? "/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" : item.Images[0].img;
+                //"/pics/empty2.png"
                 @: <img src="@Html.Raw(img)" alt="@item.Name" width="150" height="150" />
                                     @:
                                     @:
@@ -36,13 +34,6 @@
                             @:</div>
                             @:<br />
                             @:<div>
-
-
-
-
-
-
-
                              @:Rate:
 
                 for (int i = 0; i < @item.Rate; i++)
@@ -87,8 +78,8 @@
                 @:<p>
                     @:<div>
                         @:<a href="/home/Product_Page/@item.Id">
-                        string img1=item.Images.FirstOrDefault()==null? "/pics/empty2.png" : item.Images[0].img;
-
+                        string img1=item.Images.FirstOrDefault()==null? "/pics/[Phones & Telecommunications]/Galxy S5/Galxy5s.jpg" : item.Images[0].img;
+                //"/pics/empty2.png"
                             @: <img src="@Html.Raw(img1)" alt="@item.Name" width="150" height="150" />
                             @:
                             @:
@@ -130,14 +121,6 @@
            @: </p>
             @:<p><a class="btn btn-primary" href="/Home/BuyMe/id=@item.Id">Buy Now &raquo;</a></p>
             @:
-
-
-
-
-
-
-
-
                 @:
            @: </div>
             @:<div class="col-md-4">
@@ -145,9 +128,9 @@
                 @:<p>
                     @:  <div>
                         @:<a href="/home/Product_Page/@item.Id">
-                              string img2 = item.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Images[0].img;
+                              string img2 = item.Images.FirstOrDefault() == null ? "/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" : item.Images[0].img;
 
-                @: <img src="@Html.Raw(img2)" alt="@item.Name" width="150" height="150" />
+                @: <img src="@Url.Content(img2)" alt="@item.Name" width="150" height="150" />
                             @:
                             @:
                             @:
@@ -185,133 +168,6 @@
                 @:
             @:</div>
             @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             @:
                 @:
