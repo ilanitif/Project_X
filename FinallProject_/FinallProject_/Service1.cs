@@ -46,9 +46,15 @@ namespace FinallProject_
         }
         public void AddProduct(Product product)
         {
-
-            db.Product.Add(product);
-            db.SaveChanges();
+            try
+            {
+                db.Product.Add(product);
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.InnerException);
+                Console.Write(ex.Message);
+            }
         }
 
         //method who gets orderProduct by id
