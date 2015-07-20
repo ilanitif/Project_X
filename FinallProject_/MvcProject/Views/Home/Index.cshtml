@@ -1,7 +1,10 @@
-﻿
+﻿@model MvcProject.BuyNet.User
+
 @{
     ViewBag.Title = "Home Page";
 }
+
+
 <div class="col-lg-12" id="aComDiv" style="position:relative;"><b><span style="color:red">50%</span> discount on Elctronic Devisece   <span style="color:red">30%</span> discount on women lundery   <span style="color:red">25%</span> on hair Productions   <span style="color:red">15%</span> discount on books </b><b><span style="color:red">Free</span> shipping </b> </div>
 
   
@@ -11,11 +14,10 @@
         </div>
 
         <div class="col-lg-9" id="Curent">
-            @Html.Partial("Top3products", MvcProject.Controllers.HomeController.client.GetProducts())
+            @*@Html.Partial("Top3products", MvcProject.Controllers.HomeController.client.GetProducts())*@
 
         </div>
     </div>
-
 
 
    
@@ -23,27 +25,27 @@
 
     <script>
        
-        document.getElementById("seen").style = innerWidth;       //$("Curent").empty()
+        //document.getElementById("seen").style = innerWidth;       //$("Curent").empty()
         //Product(ushort quantity)
         //Department(string departmentName)
 
-        //function Remove() {
-        //    var id = id;
+        function Remove() {
+            var id = id;
 
-        //    var xMLHttpRequest = new XMLHttpRequest();
-        //    xMLHttpRequest.open("GET", "/Home/Top3products", true);
-        //    xMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        //    xMLHttpRequest.send();
-        //    xMLHttpRequest.onreadystatechange = function () {
-        //        if (xMLHttpRequest.readyState == 4 && xMLHttpRequest.status != 200) {
-        //            alert("Failed to load");
-        //        }
-        //        else {
+            var xMLHttpRequest = new XMLHttpRequest();
+            xMLHttpRequest.open("GET", "/Home/Top3products", true);
+            xMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xMLHttpRequest.send();
+            xMLHttpRequest.onreadystatechange = function () {
+                if (xMLHttpRequest.readyState == 4 && xMLHttpRequest.status != 200) {
+                    alert("Failed to load");
+                }
+                else {
 
-        //            document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
-        //        }
-        //    }
-        //}
+                    document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
+                }
+            }
+        }
 
         //function nav() {
         //    var id = id;
@@ -73,10 +75,9 @@
 
             var eLeftPos = e.offsetLeft;
             e.style.left = (eLeftPos + s) + 'px';
-            if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
+            if (parseInt(e.style.left) >1000) { e.style.left = '0px'; }
 
         }, 1000);
     </script>
-
 
 

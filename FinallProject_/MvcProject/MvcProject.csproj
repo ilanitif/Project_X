@@ -348,6 +348,8 @@
     <Content Include="Models\Scripts\respond.js" />
     <Content Include="Models\Scripts\respond.min.js" />
     <None Include="Models\Scripts\_references.js" />
+    <Content Include="pics\2291.jpg" />
+    <Content Include="pics\729.jpg" />
     <Content Include="pics\Books\THE ACCIDENTAL UNIVERSE\theaccidentaluniverse.jpg" />
     <Content Include="pics\Books\The Bold And The Beutifual\TheBoldAndBeutifual.jpg" />
     <Content Include="pics\dianeackerman_thehumanage.jpg" />
@@ -358,13 +360,16 @@
     <Content Include="pics\GalxyS5.jpg" />
     <Content Include="pics\iphone.jpg" />
     <Content Include="pics\Iphone5.jpg" />
+    <Content Include="pics\iphone_PNG5736.png" />
     <Content Include="pics\Ipone5s.jpg" />
+    <Content Include="pics\PayPal.jpg" />
     <Content Include="pics\profile1.png" />
     <Content Include="pics\profile2.jpg" />
     <Content Include="pics\profile3.jpg" />
     <Content Include="pics\theaccidentaluniverse.jpg" />
     <Content Include="pics\TheBoldAndBeutifual.jpg" />
     <Content Include="pics\Users\Asher\asher.jpg" />
+    <Content Include="pics\visaImg.jpg" />
     <Content Include="pics\[Phones &amp; Telecommunications]\Galxy S5\Galxy5.jpg" />
     <Content Include="pics\[Phones &amp; Telecommunications]\Galxy S5\Galxy5s.jpg" />
     <Content Include="pics\[Phones &amp; Telecommunications]\Galxy S5\GalxyS5.jpg" />
@@ -423,6 +428,7 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <Content Include="StyleVIewPages\YourDetailsCss.css" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -490,6 +496,7 @@
     <Content Include="Views\User\Delete.cshtml" />
     <Content Include="Views\Home\UserPage.cshtml" />
     <Content Include="Views\Order\CurrentCart.cshtml" />
+    <Content Include="Views\Home\SubCategory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

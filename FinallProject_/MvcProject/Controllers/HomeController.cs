@@ -17,20 +17,44 @@ namespace MvcProject.Controllers
 {
     public class HomeController : Controller
     {
+        public static Service1Client db = new Service1Client();
         public static Service1Client client = new Service1Client();
         public ActionResult Top3products()
         {
+            Dictionary<Product, Category> all = new Dictionary<Product, BuyNet.Category>();
+            foreach (var item in client.GetCategories())
+            {
+                List<Product> temp =  client.GetProducts().Where(pr => pr.Category.ParentCategory.ParentCategory == item).OrderByDescending(p => p.Rate).Take(3).ToList();
+                foreach (var i in temp)
+                {
+                    all.Add(i, item);
+                }
+            }
 
 
-
-            return View(client.GetProducts());
+            return View(all);
         }
         public ActionResult Index()
         {
             return View();
         }
 
+        [HttpPost]
+        public ActionResult Index(User user)
+        {
 
+
+            var v = db.GetUser(user.Id);
+            if (v != null)
+                {
+                    Session["LogUserId"] = user.Id.ToString();
+                    Session["LogUserName"] = user.UserName.ToString();
+
+                }
+                return RedirectToAction("AfterLogin");
+         
+
+        }
         public ActionResult Remove(int id)
         {
             Service1Client client = new Service1Client();
@@ -90,7 +114,7 @@ namespace MvcProject.Controllers
                 if (item.Name.ToUpper().Contains(word.ToUpper()) && word != String.Empty)
                 {
                     words.Add(item.Name);
-                    //words.Add(item.User.UserName);
+                   
                 }
             }
             foreach (var item in client.GetShipping_Companys())
@@ -131,6 +155,12 @@ namespace MvcProject.Controllers
         {
             Category ca = client.GetCategories().FirstOrDefault(c => c.Name == category);
             return View(ca);
+        }
+        public ActionResult SubCategory(string subcategory)
+        {
+            Category sub = client.SubCategories().FirstOrDefault(c => c.Name == subcategory);
+            List<Product> prosub = client.GetProducts().Where(p => p.CategoryId == sub.Id).ToList();
+            return View(prosub);
         }
 
         public ActionResult ContactUs()
@@ -312,6 +342,6 @@ namespace MvcProject.Controllers
         //    //    }
 
         //    //    return RedirectToAction("Index");
-        //    //}
+      
     }
 }

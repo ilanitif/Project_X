@@ -1,41 +1,9 @@
-﻿
+﻿<link href="~/StyleVIewPages/YourDetailsCss.css" rel="stylesheet" />
 @{
     ViewBag.Title = "YourDeatails";
 }
 
-<style>
-    #main{
-width:910px;
-height:2000px;
-margin:100px auto;
-}
-label {
-    display:block;
-    margin-top:30px;
-    letter-spacing:2px;
-}
-input{
-width:150px;
-padding:10px;
-margin-top:10px;
-margin-bottom:35px;
-border-radius:5px;
-border:1px solid #cbcbcb;
-font-size:16px
-}
-textarea{
-width:400px;
-height:100px;
-padding:10px;
-margin-top:10px;
-margin-bottom:35px;
-border-radius:5px;
-border:1px solid #cbcbcb;
-font-size:16px
-}
 
-
-</style>
 
 <div class="row">
 
@@ -45,16 +13,16 @@ font-size:16px
 
             <form class="col-md-8" method="post">
                 <label>
-                    First Name: <input type="text" name="firstName" /> Last Name: <input type="text" />
+                    First Name: <input type="text" name="firstName" /> Last Name: <input type="text" name="lastName" />
                 </label>
                 <label>
-                    Country: <select><option>Choose</option></select> City : <input type="text" />
+                    Country: <select><option>Choose</option></select> City : <input type="text" name="city" />
                 </label>
                 <label>
-                    Street: <input type="text" /> no.<input type="number" />
+                    Street: <input type="text" name="street" /> no.<input type="number" name="streetNum" />
                 </label>
                 <label>
-                    Zip Code:  <input type="number" />
+                    Zip Code:  <input type="number" name="zipCode" />
                 </label>
 
                 <label>Notes</label>
@@ -64,30 +32,26 @@ font-size:16px
 
                 <label>Get Paid:  </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio">
+                    <input type="radio" name="visa">
                     <img src="~/imgPay/visaImg.jpg" width="65" height="25" />
                 </label>
                 <label class="radio-inline">
-                    <input type="radio" name="optradio">
+                    <input type="radio" name="payPal">
                     <img src="~/imgPay/PayPal.jpg" width="50" height="50" />
                 </label>
                 <label>
                     <button type="button" class="btn btn-info">BUY NOW</button>
                 </label>
 
-                <label>
-                    Congratulaions your product has been ordered!
-                </label>
-
             </form>
             <div class="col-md-4" dir="rtl">
                 <img src="~/images/5.jpg" />
-                <label>Name of the Product</label>
+                <label>product name</label>
                 <label>
-                    Quantity:<input type="number" min="1" max="10" /> Shipping Cost: US $81
+                    Quantity:<input type="number" name="quantity" min="1" max="10" /> Shipping Cost: US $
                 </label>
                 <label>
-                    Price: US $105
+                    Price: US $
                 </label>
 
             </div>

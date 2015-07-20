@@ -4,25 +4,25 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>User</h4>
-        <hr />
-        @Html.ValidationSummary(true)
 
-        @if (ViewBag.Message != null)
-        {
-            <div style="border:solid 1px green">
-                @ViewBag.Message
-            </div>
-        }
-        <div class="form-group">
-            @Html.LabelFor(model => model.First_Name, new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.First_Name)
-                @Html.ValidationMessageFor(model => model.First_Name)
-            </div>
+    @Html.ValidationSummary(true)
+
+    @if (ViewBag.Message != null)
+    {
+
+        <div style="border:medium 5px green">
+            @ViewBag.Message
         </div>
+    }
+    <div class="form-group">
+        @Html.LabelFor(model => model.First_Name, new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.First_Name)
+            @Html.ValidationMessageFor(model => model.First_Name)
+            <span class="field-validation-valid" data-valmsg-for="First_Name" data-valmsg-replace="true"></span>
+
+        </div>
+    </div>
 
 
         <div class="form-group">
@@ -30,6 +30,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Last_Name)
                 @Html.ValidationMessageFor(model => model.Last_Name)
+                <span class="field-validation-valid" data-valmsg-for="Last_Name"></span>
             </div>
         </div>
 
@@ -38,6 +39,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.UserName)
                 @Html.ValidationMessageFor(model => model.UserName)
+                <span class="field-validation-valid" data-valmsg-for="UserName"></span>
             </div>
         </div>
         <div class="form-group">
@@ -45,6 +47,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Email)
                 @Html.ValidationMessageFor(model => model.Email)
+                <span class="field-validation-valid" data-valmsg-for="Email"></span>
             </div>
         </div>
 
@@ -53,6 +56,7 @@
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Password)
                 @Html.ValidationMessageFor(model => model.Password)
+                <span class="field-validation-valid" data-valmsg-for="Password"></span>
             </div>
         </div>
 

@@ -1,6 +1,6 @@
-﻿@model IList<MvcProject.BuyNet.Product>
+﻿@model IDictionary<MvcProject.BuyNet.Product, MvcProject.BuyNet.Category>
 @using MvcProject.Controllers;
-@using MvcProject.BuyNet;
+@using MvcProject.BuyNet;   
 
 
 <div class="container">
@@ -8,191 +8,68 @@
         <h1> Our Top Product </h1>
 
     </div>
-
+    
     <div class="col-lg-11">
-        @{
-            foreach (var item in Model)
+        @{int div = 0;
+            foreach (var item in Model.ToList())
             {
-                <a herf=>@item.Category.Name <span class="glyphicon glyphicon-play"></span></a>
+                @:<a herf=>@item.Value.Name <span class="glyphicon glyphicon-play"></span></a>
                 @:<div class="row">
                     @:<div class="col-md-4">
-                    @:<h2>@item.Name</h2>
+                    @:<div hidden>@div++;</div>
+                    @:<h2>@item.Key.Name</h2>
                         @:<p>
                             @: <div>
-
-                                @:<a href="/home/Product_Page/@item.Id">
-                                    string img = item.Images.FirstOrDefault() == null ? "/pics/[Phones & Telecommunications]/LG 4/Galxy5s.jpg" : item.Images[0].img;
-                //"/pics/empty2.png"
-                @: <img src="@Html.Raw(img)" alt="@item.Name" width="150" height="150" />
-                                    @:
-                                    @:
-                                    @:
+                                @:<a href="/home/Product_Page/@item.Key.Id">
+                                    string img = item.Key.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Key.Images[0].img;
+                @: <img src="@Html.Raw(img)" alt="@item.Key.Name" width="150" height="150" />      
                                 @:</a>
-                                @:
-                                @:
-                                @:
                             @:</div>
                             @:<br />
                             @:<div>
                              @:Rate:
 
-                for (int i = 0; i < @item.Rate; i++)
+                for (int i = 0; i < @item.Key.Rate; i++)
                 {
                     @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
                                         }
-                if (@item.Rate < 5)
+                if (@item.Key.Rate < 5)
                 {
-                    for (int i = 0; i < (5 - @item.Rate); i++)
+                    for (int i = 0; i < (5 - @item.Key.Rate); i++)
                     {
                         @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
                                             }
                 }
-
-                @:
-                @:
-                @:
+                
            @: </div>
             @:<div>
-                @item.Description
-                @:
-                @:
-                @:
+                @item.Key.Description
+                
             @:</div>
-            @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-            @:
-                @:
-                @:
+            @:<div>price:US @item.Key.Price <span class="glyphicon glyphicon-usd"></span></div>
+            
             @:</p>
             @:<p>
-                @: <a class="btn btn-primary" href="/home/BuyMe/@item.Id">Buy Me Now &raquo;</a>
-                @:
-                @:
-                @:
+                @: <a class="btn btn-primary" href="/home/BuyMe/@item.Key.Id">Buy Me Now &raquo;</a>
+                
 @:</p>
-            @:
-                @:
-                @:
            @: </div>
-            @:<div class="col-md-4">
-                @:<h2>@item.Name</h2>
-                @:<p>
-                    @:<div>
-                        @:<a href="/home/Product_Page/@item.Id">
-                        string img1=item.Images.FirstOrDefault()==null? "/pics/[Phones & Telecommunications]/Galxy S5/Galxy5s.jpg" : item.Images[0].img;
-                //"/pics/empty2.png"
-                            @: <img src="@Html.Raw(img1)" alt="@item.Name" width="150" height="150" />
-                            @:
-                            @:
-                            @:
-                      @:  </a>
-                        @:
-                        @:
-                        @:
-                   @: </div>
+           if (div == 3)
+                {
                     @:<br />
-                    @:<div>
-                        @:Rate:
-                                    for (int i = 0; i < @item.Rate; i++)
-                {
-                    @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                                        }
-                if (@item.Rate < 5)
-                {
-                    for (int i = 0; i < (5 - @item.Rate); i++)
-                    {
-                        @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                                            }
                 }
 
-                @:
-                @:
-                @:
-           @: </div>
-            @:<div>
-                @item.Description
-                @:
-                @:
-                @:
-            @:</div>
-            @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-            @:
-                @:
-                @:
-           @: </p>
-            @:<p><a class="btn btn-primary" href="/Home/BuyMe/id=@item.Id">Buy Now &raquo;</a></p>
-            @:
-                @:
-           @: </div>
-            @:<div class="col-md-4">
-                @:  <h2>@item.Name</h2>
-                @:<p>
-                    @:  <div>
-                        @:<a href="/home/Product_Page/@item.Id">
-                              string img2 = item.Images.FirstOrDefault() == null ? "/pics/[Phones & Telecommunications]/IPHONE 5/Ipone5s.jpg" : item.Images[0].img;
-
-                @: <img src="@Url.Content(img2)" alt="@item.Name" width="150" height="150" />
-                            @:
-                            @:
-                            @:
-                            @:
-                        @:</a>
-                        @:
-                        @:
-                        @:
-                        @:
-                    @:</div>
-                    @:<br />
-                    @:<div>
-                        @:Rate:
-                                    for (int i = 0; i < @item.Rate; i++)
-                {
-                    @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                                        }
-                if (@item.Rate < 5)
-                {
-                    for (int i = 0; i < (5 - @item.Rate); i++)
-                    {
-                        @: <span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                    }
-                }
-                @:
-                @:
-                @:
-                @:
-           @: </div>
-            @:<div>
-                @item.Description
-                @:
-                @:
-                @:
-                @:
-            @:</div>
-            @:<div>price:US @item.Price <span class="glyphicon glyphicon-usd"></span></div>
-
-            @:
-                @:
-                @:
-                @:
-            @:</p>
-
-
-            @:<p><a class="btn btn-primary" href="/Home/BuyMe?id=@item.Id">Buy me NOW &raquo;</a></p>
-            @:
-                @:
-                @:
-            @:</div>
-            @:
-                @:
-                @:
-           @: </div>
-              @:<hr/>
             }
 
-            @:<br />
-        }
 
+        }
+       
 
     </div>
+        
+
+
+      
     <div class="col-lg-1">
         <table>
             <thead>
@@ -260,6 +137,7 @@
 
 
     <div id="fb-root"></div>
+
     <script>
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
@@ -278,7 +156,7 @@
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
     <div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-    <div>
+    <div
         class="fb-like"
         data-share="true"
         data-width="450"
@@ -287,25 +165,25 @@
     <div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
     <div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
     <script>
-        var e = document.getElementById("aComDiv");
-        var s = 1;
+        //var e = document.getElementById("aComDiv");
+        //var s = 1;
 
-        setInterval(function () {
+        //setInterval(function () {
 
-            var eLeftPos = e.offsetLeft;
-            e.style.left = (eLeftPos + s) + 'px';
-            if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
+        //    var eLeftPos = e.offsetLeft;
+        //    e.style.left = (eLeftPos + s) + 'px';
+        //    if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
 
-        }, 1000);
-        var top = document.getElementById("aDiv").style.top;
-        setInterval(function () {
-            top += 1;
-            var e = document.getElementById("aDiv");
+        //}, 1000);
+        //var top = document.getElementById("aDiv").style.top;
+        //setInterval(function () {
+        //    top += 1;
+        //    var e = document.getElementById("aDiv");
 
-            // Increase the top position by 1 pixel
-            e.style.top = top + 'px';
-            // If the top position is greater than 100px, set it to 100px
-            if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
-        }, 1000);
+        //    // Increase the top position by 1 pixel
+        //    e.style.top = top + 'px';
+        //    // If the top position is greater than 100px, set it to 100px
+        //    if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
+        //}, 1000);
 
     </script>

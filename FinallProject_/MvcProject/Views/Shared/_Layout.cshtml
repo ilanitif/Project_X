@@ -7,9 +7,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/bootstrap")
+
+
+
    
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+   
 
 </head>
 <body>
@@ -41,7 +50,7 @@
                                 <input id="searchbox" style="position: fixed;" type="text" class="form-control" placeholder="Search for...">
                                 <div  style="position:absolute">
                                     <ul class=" nav-list bs-docs-sidenav" style="padding-top:34px; position:fixed" id="options">
-                                        @* here we bring the result by Search *@
+                                         @*here we bring the result by Search*@
                                     </ul>
 
                                 </div>
@@ -51,6 +60,7 @@
                 </ul>
 
             </div>
+           
 
 
             @Html.Partial("_LoginPartial")
@@ -62,50 +72,74 @@
 
 
         @RenderBody()
+
+
+        @RenderSection("scripts", required: false)
+
+      
+            @*<script>
+                $(function () {
+                    $("#dialog-modal").dialog({
+                        autoOpen: false,
+                        width: 580,
+                        height: 400,
+                        show: {
+                            effect: "blind",
+                            duration: 1000
+                        },
+                        hide: {
+                            effect: "explode",
+                            duration: 1000
+                        }
+                    });
+
+                    $("#modal-opener").click(function () {
+
+                        $("#dialog-modal").dialog("open");
+                    });
+                });
+
+                function onSuccess() {
+                    $("#dialog-modal").dialog("close");
+                }
+            </script>*@
+            <script>
+
+                $(document).click(function () {
+                    $.each($('#options'), function (i, item) {
+                        $('.opt').remove();
+                    }
+                 )
+                });
+
+                $('#searchbox').keyup(function () {
+
+
+                    $.each($('#options'), function (i, item) {
+                        $('.opt').remove();
+                    })
+
+                    var t = document.getElementById('searchbox').value;
+                    $.getJSON("/Home/SearchActionMethod", { word: t },
+                        function (data) {
+                            var ul = $('#options');
+                            $.each(data, function (i, item) {
+                                ul.addClass("nav nav-list bs-docs-sidenav ");
+                                ul.append("<li class='opt dropdown-toggle' data-toggle='dropdown' style='background-color:white;width:280px;position:relative'><a  href='#'>" + item + "</a></li>");
+                            });
+                        }
+                    );
+                })
+
+            </script>
+        }
+
+
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - BuyNet Application</p>
         </footer>
     </div>
-
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
-
-@section scripts{
-    <script>
-     
-        $(document).click(function () {
-            $.each($('#options'), function (i, item) {
-                $('.opt').remove();
-            }
-         )
-        });
-
-        $('#searchbox').keyup(function () {
-
-
-            $.each($('#options'), function (i, item) {
-                $('.opt').remove();
-            })
-
-            var t = document.getElementById('searchbox').value;
-            $.getJSON("/Home/SearchActionMethod", { word: t },
-                function (data) {
-                    var ul = $('#options');
-                    $.each(data, function (i, item) {
-                        ul.addClass("nav nav-list bs-docs-sidenav ");
-                        ul.append("<li class='opt dropdown-toggle' data-toggle='dropdown' style='background-color:white;width:280px;position:relative'><a  href='#'>" + item + "</a></li>");
-                    });
-                }
-            );
-        })
-
-    </script>
-    }
-    
-
-    
 
 
 </body>
