@@ -487,7 +487,7 @@
     <Content Include="Views\Home\ContactUs.cshtml" />
     <Content Include="Views\Home\YourDeatails.cshtml" />
     <Content Include="Views\User\AfterLogin.cshtml" />
-    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\Shared\Login.cshtml" />
     <Content Include="Views\User\Ragister.cshtml" />
     <Content Include="Views\User\Create.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
@@ -497,6 +497,10 @@
     <Content Include="Views\Home\UserPage.cshtml" />
     <Content Include="Views\Order\CurrentCart.cshtml" />
     <Content Include="Views\Home\SubCategory.cshtml" />
+    <Content Include="Views\Order\Details.cshtml" />
+    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Order\Payment.cshtml" />
+    <Content Include="Views\Order\ShoopingHistory.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

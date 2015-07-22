@@ -44,7 +44,7 @@ namespace MvcProject.Controllers
         // GET: /User/Login
         public ActionResult Login()
         {
-            return View();
+            return PartialView();
         }
         // GET: /User/Create
         public ActionResult Create()

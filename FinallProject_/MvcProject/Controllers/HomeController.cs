@@ -20,19 +20,36 @@ namespace MvcProject.Controllers
         public static Service1Client db = new Service1Client();
         public static Service1Client client = new Service1Client();
         public ActionResult Top3products()
+
         {
-            Dictionary<Product, Category> all = new Dictionary<Product, BuyNet.Category>();
+            Dictionary<Product, Category> all = new Dictionary<Product, Category>();
             foreach (var item in client.GetCategories())
             {
-                List<Product> temp =  client.GetProducts().Where(pr => pr.Category.ParentCategory.ParentCategory == item).OrderByDescending(p => p.Rate).Take(3).ToList();
-                foreach (var i in temp)
+                List<Product> pro = new List<Product>();
+                foreach (var p in client.GetProducts())
+                {
+
+                    
+                    if (p.Category.ParentCategory.Id==item.Id)
+                    {
+                        pro.Add(p);
+                    }
+                    else if (p.Category.ParentCategory.ParentCategory!=null && p.Category.ParentCategory.ParentCategory.Id == item.Id)
+                    {
+                        pro.Add(p);
+                    }
+
+                }
+                pro.OrderByDescending(pr => pr.Rate).Take(3);
+                foreach (var i in pro)
                 {
                     all.Add(i, item);
                 }
+
             }
 
 
-            return View(all);
+            return PartialView(all);
         }
         public ActionResult Index()
         {
@@ -159,7 +176,7 @@ namespace MvcProject.Controllers
         public ActionResult SubCategory(string subcategory)
         {
             Category sub = client.SubCategories().FirstOrDefault(c => c.Name == subcategory);
-            List<Product> prosub = client.GetProducts().Where(p => p.CategoryId == sub.Id).ToList();
+            Dictionary<Product,Category> prosub = client.GetProducts().Where(p => p.CategoryId == sub.Id).ToDictionary(p=>p,p=> p.Category);
             return View(prosub);
         }
 

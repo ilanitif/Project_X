@@ -1,6 +1,6 @@
 ﻿@model IDictionary<MvcProject.BuyNet.Product, MvcProject.BuyNet.Category>
 @using MvcProject.Controllers;
-@using MvcProject.BuyNet;   
+@using MvcProject.BuyNet;
 
 
 <div class="container">
@@ -8,182 +8,177 @@
         <h1> Our Top Product </h1>
 
     </div>
-    
-    <div class="col-lg-11">
+    <div class="row">
+    <div class="col-lg-9">
         @{int div = 0;
+            @:<div class="row">
             foreach (var item in Model.ToList())
             {
-                @:<a herf=>@item.Value.Name <span class="glyphicon glyphicon-play"></span></a>
-                @:<div class="row">
-                    @:<div class="col-md-4">
-                    @:<div hidden>@div++;</div>
-                    @:<h2>@item.Key.Name</h2>
-                        @:<p>
-                            @: <div>
-                                @:<a href="/home/Product_Page/@item.Key.Id">
+                if (div == 0)
+                { 
+                     @:<a herf=> <span class="glyphicon glyphicon-play">@item.Value.Name</span></a><br />
+                }
+        
+        @:<div class="col-md-4">
+            @:<div hidden>@{div++; }</div>
+            @:<h3>@item.Key.Name</h3>
+            @:<p>
+                @: <div>
+                    @:<a href="/home/Product_Page/@item.Key.Id">
                                     string img = item.Key.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Key.Images[0].img;
-                @: <img src="@Html.Raw(img)" alt="@item.Key.Name" width="150" height="150" />      
-                                @:</a>
-                            @:</div>
-                            @:<br />
-                            @:<div>
-                             @:Rate:
+        @: <img src="@Html.Raw(img)" alt="@item.Key.Name" width="150" height="150" />
+        @:
+        @:
+    @:</a>
+        @:
+        @:
+  @:  </div>
+        @:<br />
+        @:<div>
+            @:Rate:
 
                 for (int i = 0; i < @item.Key.Rate; i++)
                 {
-                    @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
+        @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
                                         }
                 if (@item.Key.Rate < 5)
                 {
                     for (int i = 0; i < (5 - @item.Key.Rate); i++)
                     {
-                        @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+        @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
                                             }
                 }
-                
-           @: </div>
-            @:<div>
-                @item.Key.Description
-                
-            @:</div>
-            @:<div>price:US @item.Key.Price <span class="glyphicon glyphicon-usd"></span></div>
-            
-            @:</p>
-            @:<p>
-                @: <a class="btn btn-primary" href="/home/BuyMe/@item.Key.Id">Buy Me Now &raquo;</a>
-                
-@:</p>
-           @: </div>
-           if (div == 3)
+
+        @:
+        @:
+    @:</div>
+        @:<div>
+            @item.Key.Description
+
+            @:
+            @:
+       @: </div>
+        @:<div>price:US @item.Key.Price <span class="glyphicon glyphicon-usd"></span></div>
+
+
+        @:
+        @:
+    @:</p>
+        @:<p>
+            @: <a class="btn btn-primary" href="/home/BuyMe/@item.Key.Id">Buy Me Now &raquo;</a>
+            @:
+            @:
+       @: </p>
+        @:
+        @:
+   @: </div>
+                if (div == 3)
                 {
+                    <script>
+                        document.write("</div>");
+                    </script>
                     @:<br />
+                    div = 0;
+                    @:<div class="row">
                 }
 
-            }
+                    }
 
 
-        }
-       
-
-    </div>
-        
-
-
-      
-    <div class="col-lg-1">
-        <table>
-            <thead>
-                <b>see what your <span style="color:cornflowerblue">FB</span> friend`s bought</b>
-
-            </thead>
-
-            <tr>
-                <td>
-                    <a style="color:cornflowerblue"><b>Ilanit Farda</b></a><br /> has a <a style="color:red">Galaxy 6</a>
-
-
-                </td>
-            </tr>
-            <tr>
-                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-            </tr>
-            <tr>
-                <td><a style="color:cornflowerblue"><b>Daniel Gola</b></a><br /> bought a <a style="color:red">SoneyPlastion</a></td>
-            </tr>
-            <tr>
-                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-            </tr>
-            <tr>
-                <td><a style="color:cornflowerblue"><b>Natan Biest</b></a><br /> bought  a <a style="color:red">Ring</a></td>
-            </tr>
-            <tr>
-                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-            </tr>
-            <tr>
-                <td><a style="color:cornflowerblue"><b>Asher Ababa</b></a><br /> bought a <a style="color:red">Blaston</a></td>
-            </tr>
-            <tr>
-                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-            </tr>
-            <tr>
-                <td><a style="color:cornflowerblue"><b>Ronit Micheali</b></a><br /> has a new <a style="color:red">TV</a></td>
-            </tr>
-            <tr>
-                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-            </tr>
-        </table>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <br />
+                }
 </div>
+</div>
+                }
+</div>
+        <div class="col-lg-2">
+            <table>
+                <thead>
+                    <b>see what your <span style="color:cornflowerblue">FB</span> friend`s bought</b>
+
+                </thead>
+
+                <tr>
+                    <td>
+                        <a style="color:cornflowerblue"><b>Ilanit Farda</b></a><br /> has a <a style="color:red">Galaxy 6</a>
 
 
+                    </td>
+                </tr>
+                <tr>
+                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
 
-    <div id="fb-root"></div>
 
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-    <div id="fb-root"></div>
-    <script>
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v2.4&appId=1626739400941856";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));</script>
-    <div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
-    <div
-        class="fb-like"
-        data-share="true"
-        data-width="450"
-        data-show-faces="true">
+                </tr>
+                <tr>
+                    <td><a style="color:cornflowerblue"><b>Daniel Gola</b></a><br /> bought a <a style="color:red">SoneyPlastion</a></td>
+                </tr>
+                <tr>
+                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+
+
+                </tr>
+                <tr>
+                    <td><a style="color:cornflowerblue"><b>Natan Biest</b></a><br /> bought  a <a style="color:red">Ring</a></td>
+                </tr>
+                <tr>
+                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+
+
+                </tr>
+                <tr>
+                    <td><a style="color:cornflowerblue"><b>Asher Ababa</b></a><br /> bought a <a style="color:red">Blaston</a></td>
+                </tr>
+                <tr>
+                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+                </tr>
+                <tr>
+                    <td><a style="color:cornflowerblue"><b>Ronit Micheali</b></a><br /> has a new <a style="color:red">TV</a></td>
+                </tr>
+                <tr>
+                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+                </tr>
+            </table>
+        </div>
+
+</div>
+        <br />
     </div>
-    <div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
-    <div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
-    <script>
-        //var e = document.getElementById("aComDiv");
-        //var s = 1;
 
-        //setInterval(function () {
 
-        //    var eLeftPos = e.offsetLeft;
-        //    e.style.left = (eLeftPos + s) + 'px';
-        //    if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
 
-        //}, 1000);
-        //var top = document.getElementById("aDiv").style.top;
-        //setInterval(function () {
-        //    top += 1;
-        //    var e = document.getElementById("aDiv");
 
-        //    // Increase the top position by 1 pixel
-        //    e.style.top = top + 'px';
-        //    // If the top position is greater than 100px, set it to 100px
-        //    if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
-        //}, 1000);
 
-    </script>
+
+
+  
+<div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
+<div class="fb-like"
+     data-share="true"
+     data-width="450"
+     data-show-faces="true">
+</div>
+<div class="fb-share-button" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="button_count"></div>
+<div class="fb-comments" data-href="@*http://developers.facebook.com/docs/plugins/comments/*@" data-numposts="5"></div>
+<script>
+    //var e = document.getElementById("aComDiv");
+    //var s = 1;
+
+    //setInterval(function () {
+
+    //    var eLeftPos = e.offsetLeft;
+    //    e.style.left = (eLeftPos + s) + 'px';
+    //    if (parseInt(e.style.left) > 1000) { e.style.left = '0px'; }
+
+    //}, 1000);
+    //var top = document.getElementById("aDiv").style.top;
+    //setInterval(function () {
+    //    top += 1;
+    //    var e = document.getElementById("aDiv");
+
+    //    // Increase the top position by 1 pixel
+    //    e.style.top = top + 'px';
+    //    // If the top position is greater than 100px, set it to 100px
+    //    if (parseInt(e.style.top) > 100) { e.style.top = '100px'; }
+    //}, 1000);
+
+</script>

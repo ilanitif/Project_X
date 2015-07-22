@@ -42,7 +42,7 @@ namespace FinallProject_
         //method who gets product by  id
         public Product GetProduct(int id)
         {
-            return db.Product.Include("User").Include("Category").FirstOrDefault(p => p.Id == id);
+            return db.Product.Include("User").Include("Category").Include("ParentCategory").FirstOrDefault(p => p.Id == id);
         }
         public void AddProduct(Product product)
         {
@@ -99,7 +99,7 @@ namespace FinallProject_
         public List<Product> GetProducts()
         {
 
-            return db.Product.Include("Category").Include("User").Include("Images").ToList();
+            return db.Product.Include(p=>p.Category.ParentCategory.ParentCategory).Include("User").Include("Images").ToList();
         }
 
         public List<OrderProduct> GetOrderProducts()

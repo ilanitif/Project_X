@@ -3,6 +3,14 @@
     ViewBag.Title = "NavigationBar";
 }
   <style>
+      .sticky {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-top: 0;
+}
         .menu, .menu ul, .menu ul li, .menu ul li a {
             margin: 0px auto;
             padding: 0;
@@ -234,7 +242,7 @@
 
     })(jQuery);
     </script>
-@*<script>
+<script>
     function categorypage(id) {
         alert("hi");
         var id = id;
@@ -255,9 +263,8 @@
         }
 
     }
-</script>*@
-<div class=" navbar navbar-left" role="navigation" style="display:table; padding:10px; width: 100%; min-height: 500px">
-    <div id="right" style="width: 80%; margin-left: auto;float:right;padding-left:2em">
+</script>
+
 
         @{int i = 0;
             Dictionary<string, string> c = new Dictionary<String, String>();
@@ -277,7 +284,7 @@
         }
 
 
-        @*@Html.Partial("Index");*@
+       
 
 
 
@@ -324,20 +331,20 @@
                     {
                         @:
                         <li class='active sub'>
-                            <a href='#'>@cate.Name</a><ul>
+                            <a href='/Home/Category/@cate.Name'>@cate.Name</a><ul>
                                 @foreach (var s in MvcProject.Controllers.HomeController.client.SubCategories())
                                 {
                                     if (s.ParentCategory.Name == cate.Name)
                                     {
                                     @:<li class='sub' id="@s.Name">
-                                    @: <a href='#'>@s.Name</a>
+                                    @: <a href='/Home/Category/@s.Name'>@s.Name</a>
                                     @:<ul >
                                         foreach (var ss in MvcProject.Controllers.HomeController.client.SubCategories())
                                         {
                                             if (ss.ParentCategory.Name == s.Name)
                                             {
                                                 
-                                                <li class="last"><a href="#">@ss.Name</a></li>
+                                                <li class="last"><a href="/home/SubCategory?subcategory=@ss.Name">@ss.Name</a></li>
                                             }
 
                                         }                                      
@@ -356,44 +363,65 @@
 
             </ul>
         </div>
-    </div>
+    @*</div>*@
     @section scripts{
-        @*<script>
-    alert("s");
-    function categorypage(id)
-    {
-        alert("hi");
-            var id = id;
-         alert("hi");
-            var xMLHttpRequest = new XMLHttpRequest();
-            xMLHttpRequest.open("GET", "/Home/Category/"+id, true);
-            xMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xMLHttpRequest.send();
-            xMLHttpRequest.onreadystatechange = function () {
-                if (xMLHttpRequest.readyState == 4 && xMLHttpRequest.status != 200) {
-                    alert("failed to load")
-                    document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
+            <script>
+        alert("s");
+        function categorypage(id)
+        {
+            alert("hi");
+                var id = id;
+             alert("hi");
+                var xMLHttpRequest = new XMLHttpRequest();
+                xMLHttpRequest.open("GET", "/Home/Category/"+id, true);
+                xMLHttpRequest.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xMLHttpRequest.send();
+                xMLHttpRequest.onreadystatechange = function () {
+                    if (xMLHttpRequest.readyState == 4 && xMLHttpRequest.status != 200) {
+                        alert("failed to load")
+                        document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
+                    }
+                    else {
+
+                        document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
+                    }
                 }
-                else {
 
-                    document.getElementById("Curent").innerHTML = xMLHttpRequest.responseText;
-                }
-            }
+        }
+            $(function () {
+                $('#category').on('change', function () {
 
-    }
-        $(function () {
-            $('#category').on('change', function () {
+                    var c = $('#category').val();
+                    $('#subcategory option').hide();
+                    $('#subcategory option[value="' + c + '"]').show();
+                    $("#subcategory").val($('#subcategory option[value="' + c + '"]:first').val());
 
-                var c = $('#category').val();
-                $('#subcategory option').hide();
-                $('#subcategory option[value="' + c + '"]').show();
-                $("#subcategory").val($('#subcategory option[value="' + c + '"]:first').val());
-
+                });
+                $("ul").dataTable()
             });
-            $("ul").dataTable()
+                    
+        $(document).ready(function() {
+            var stickyNavTop = $('.navbar-left').offset().top;
+
+        var stickyNav = function(){
+        var scrollTop = $(window).scrollTop();
+
+        if (scrollTop > stickyNavTop) {
+        $('.nav').addClass('sticky');
+        } else {
+        $('.nav').removeClass('sticky');
+        }
+        };
+
+        stickyNav();
+
+        $(window).scroll(function() {
+        stickyNav();
+        });
         });
 
+        
 
-        </script>*@
-    }
-</div>
+            </script>
+
+        }
