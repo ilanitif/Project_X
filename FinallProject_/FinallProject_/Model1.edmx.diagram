@@ -21,8 +21,6 @@
         <AssociationConnector Association="FinallProject_Model.FK_OrderProduct_Order" ManuallyRouted="false" />
         <AssociationConnector Association="FinallProject_Model.FK_OrderProduct_Product" ManuallyRouted="false" />
         <AssociationConnector Association="FinallProject_Model.FK_Product_User" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="FinallProject_Model.Inbox" Width="1.5" PointX="8.625" PointY="6.625" />
-        <AssociationConnector Association="FinallProject_Model.UserInbox" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

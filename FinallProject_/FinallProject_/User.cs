@@ -11,7 +11,9 @@ namespace FinallProject_
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract(IsReference = true)]
     public partial class User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,29 +22,37 @@ namespace FinallProject_
             this.Images = new HashSet<Images>();
             this.Order = new HashSet<Order>();
             this.Product = new HashSet<Product>();
-            this.Inbox = new HashSet<Inbox>();
         }
-    
+        [DataMember]
         public int Id { get; set; }
+        [DataMember]
         public string First_Name { get; set; }
+        [DataMember]
         public string Email { get; set; }
+        [DataMember]
         public string Password { get; set; }
+        [DataMember]
         public string Street_number { get; set; }
+        [DataMember]
         public string Zip_Code { get; set; }
+        [DataMember]
         public string City { get; set; }
+        [DataMember]
         public string Last_Name { get; set; }
+        [DataMember]
         public string UserName { get; set; }
+        [DataMember]
         public string Country { get; set; }
+        [DataMember]
         public string Notes { get; set; }
-        public bool EnableSeller { get; set; }
-    
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Images> Images { get; set; }
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
+        [DataMember]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Product> Product { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Inbox> Inbox { get; set; }
     }
 }
