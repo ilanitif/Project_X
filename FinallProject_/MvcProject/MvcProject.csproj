@@ -249,12 +249,19 @@
     <Content Include="bin\System.Web.WebPages.Razor.xml" />
     <Content Include="bin\System.Web.WebPages.xml" />
     <Content Include="bin\WebGrease.dll" />
+    <Content Include="Content\bootstrap-flat-extras.css" />
+    <Content Include="Content\bootstrap-flat-extras.min.css" />
+    <Content Include="Content\bootstrap-flat.css" />
+    <Content Include="Content\bootstrap-flat.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Icon.png" />
     <Content Include="jsImgSlider\demo1.html" />
     <Content Include="jsImgSlider\demo2.html" />
     <Content Include="jsImgSlider\demo3.html" />
@@ -327,6 +334,12 @@
     <Content Include="Models\Scripts\bootstrap.js" />
     <Content Include="Models\Scripts\bootstrap.min.js" />
     <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
     <None Include="Models\Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Models\Scripts\jquery-1.10.2.js" />
     <Content Include="Models\Scripts\jquery-1.10.2.min.js" />
@@ -378,8 +391,6 @@
     <Content Include="pics\[Phones &amp; Telecommunications]\IPHONE 5\Ipone5s.jpg" />
     <Content Include="pics\[Phones &amp; Telecommunications]\LG 4\Galxy5s.jpg" />
     <Content Include="pics\[Phones &amp; Telecommunications]\LG 4\tiger.jpg" />
-    <Content Include="Scripts\bootstrap.js" />
-    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="MvcProject.ruleset" />
     <Content Include="bin\MvcProject.dll.config" />
     <Content Include="Models\Scripts\Account\ConfirmEmail.cshtml" />
@@ -388,6 +399,8 @@
     <Content Include="Models\Scripts\Account\ResetPasswordConfirmation.cshtml" />
     <Content Include="Models\Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -398,6 +411,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
@@ -501,6 +515,7 @@
     <Content Include="Views\Order\Index.cshtml" />
     <Content Include="Views\Order\Payment.cshtml" />
     <Content Include="Views\Order\ShoopingHistory.cshtml" />
+    <Content Include="Views\Home\ProductView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -510,9 +525,6 @@
     <Folder Include="Views\OrderProduct\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>

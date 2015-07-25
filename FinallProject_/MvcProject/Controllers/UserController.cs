@@ -42,10 +42,7 @@ namespace MvcProject.Controllers
         }
 
         // GET: /User/Login
-        public ActionResult Login()
-        {
-            return PartialView();
-        }
+      
         // GET: /User/Create
         public ActionResult Create()
         {
@@ -62,22 +59,7 @@ namespace MvcProject.Controllers
         }
         //
       
-        //Login post
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Login(User user)
-        {
-         
-                //var v = fe.User.Where(a => a.UserName.Equals(user.UserName) && a.Password.Equals(user.Password));
-                  var v =db.GetUser(user.Id);
-                    if (v != null)
-                    {
-                        Session["LogUserId"] = user.Id.ToString();
-                        Session["LogUserName"] = user.UserName.ToString();
-                         //Session["User"] = user;
-                    }
-                    return RedirectToAction("AfterLogin");
-        }
+
 
         public ActionResult AfterLogin()
         {

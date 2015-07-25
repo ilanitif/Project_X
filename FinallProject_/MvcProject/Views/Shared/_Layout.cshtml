@@ -83,6 +83,8 @@
                     autoOpen: false,
                     width: 580,
                     height: 400,
+                    hidden: true,
+                    disable: 'none',
                     show: {
                         effect: "blind",
                         duration: 1000
@@ -96,6 +98,7 @@
                 $("#loginLink").click(function (e) {
                     e.preventDefault();
                     $("#dialog-modal").dialog("open");
+                    
                 });
             });
 

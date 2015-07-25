@@ -19,6 +19,26 @@ namespace MvcProject.Controllers
     {
         public static Service1Client db = new Service1Client();
         public static Service1Client client = new Service1Client();
+        public ActionResult Login()
+        {
+            return PartialView();
+        }
+        //Login post
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(User user)
+        {
+
+            //var v = fe.User.Where(a => a.UserName.Equals(user.UserName) && a.Password.Equals(user.Password));
+            var v = db.GetUser(user.Id);
+            if (v != null)
+            {
+                Session["LogUserId"] = user.Id.ToString();
+                Session["LogUserName"] = user.UserName.ToString();
+                //Session["User"] = user;
+            }
+            return RedirectToAction("AfterLogin");
+        }
         public ActionResult Top3products()
 
         {
@@ -170,14 +190,26 @@ namespace MvcProject.Controllers
         }
         public ActionResult Category(string category)
         {
+            if (category == string.Empty)
+            {
+                RedirectToAction("index");
+            }
             Category ca = client.GetCategories().FirstOrDefault(c => c.Name == category);
-            return View(ca);
+            return PartialView(ca);
+        }
+        public ActionResult ProductView(Product p)
+        {
+            return PartialView(p);
         }
         public ActionResult SubCategory(string subcategory)
         {
+            if(subcategory==string.Empty)
+            {
+                RedirectToAction("index");
+            }
             Category sub = client.SubCategories().FirstOrDefault(c => c.Name == subcategory);
             Dictionary<Product,Category> prosub = client.GetProducts().Where(p => p.CategoryId == sub.Id).ToDictionary(p=>p,p=> p.Category);
-            return View(prosub);
+            return PartialView(prosub);
         }
 
         public ActionResult ContactUs()
@@ -196,7 +228,7 @@ namespace MvcProject.Controllers
         {
 
 
-            return View();
+            return PartialView();
         }
         public ActionResult SellNewProduct()
         {

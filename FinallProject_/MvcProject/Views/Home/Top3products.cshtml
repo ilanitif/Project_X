@@ -6,151 +6,201 @@
 <div class="container">
     <div class="jumbotron">
         <h1> Our Top Product </h1>
-
     </div>
-    <div class="row">
-    <div class="col-lg-9">
-        @{int div = 0;
-            @:<div class="row">
-            foreach (var item in Model.ToList())
-            {
-                if (div == 0)
-                { 
-                     @:<a herf=> <span class="glyphicon glyphicon-play">@item.Value.Name</span></a><br />
-                }
-        
-        @:<div class="col-md-4">
-            @:<div hidden>@{div++; }</div>
-            @:<h3>@item.Key.Name</h3>
-            @:<p>
-                @: <div>
-                    @:<a href="/home/Product_Page/@item.Key.Id">
-                                    string img = item.Key.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Key.Images[0].img;
-        @: <img src="@Html.Raw(img)" alt="@item.Key.Name" width="150" height="150" />
-        @:
-        @:
-    @:</a>
-        @:
-        @:
-  @:  </div>
-        @:<br />
-        @:<div>
-            @:Rate:
-
-                for (int i = 0; i < @item.Key.Rate; i++)
+    <div class="row" id="text">
+        <div class="col-md-9">
+            @{ int div = 0;
+                @:<div class="row">
+                foreach (var item in Model.ToList())
                 {
-        @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
-                                        }
-                if (@item.Key.Rate < 5)
-                {
-                    for (int i = 0; i < (5 - @item.Key.Rate); i++)
+                    if (div == 0)
                     {
-        @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
-                                            }
-                }
-
-        @:
-        @:
-    @:</div>
-        @:<div>
-            @item.Key.Description
-
-            @:
-            @:
-       @: </div>
-        @:<div>price:US @item.Key.Price <span class="glyphicon glyphicon-usd"></span></div>
-
-
-        @:
-        @:
-    @:</p>
-        @:<p>
-            @: <a class="btn btn-primary" href="/home/BuyMe/@item.Key.Id">Buy Me Now &raquo;</a>
-            @:
-            @:
-       @: </p>
-        @:
-        @:
-   @: </div>
-                if (div == 3)
-                {
-                    <script>
-                        document.write("</div>");
-                    </script>
-                    @:<br />
-                    div = 0;
-                    @:<div class="row">
-                }
-
+                        @:<a herf="#"> <span class="glyphicon glyphicon-play">@item.Value.Name</span></a><br />
                     }
 
+                    @:{<div class="col-md-4">
+                        <div hidden>@{div++; }</div>
+                        <h3 title="@item.Key.Name">@item.Key.Name</h3>
+                        <p>
+                            <div>
+                                <a href="/home/Product_Page/@item.Key.Id">
 
+                                    @{string img = item.Key.Images.FirstOrDefault() == null ? "/pics/empty2.png" : item.Key.Images[0].img;
+                                        <img src="@Html.Raw(img)" alt="@item.Key.Name" width="150" height="150" />
+
+                                    </a>
+
+                                </div>
+                                <br />
+                                <div>
+                                    Rate:
+                                    }
+                                    for (int i = 0; i < @item.Key.Rate; i++)
+                                    {
+                                    @:<span class="bottom glyphicon glyphicon glyphicon-star"></span>
+                                    }
+                                    if (@item.Key.Rate < 5)
+                                    {
+                                    for (int i = 0; i < (5 - @item.Key.Rate); i++)
+                                    {
+                                    @:<span class="bottom glyphicon glyphicon glyphicon-star-empty"></span>
+                                    }
+                                    }
+
+                                    @:
+                                    @:
+                                    @:
+                                </div>
+                                @:<div>
+                                    @item.Key.Description
+
+                                    @:
+                                    @:
+                                    @:
+                                    @:
+                                </div>
+                                @:<div>price:US @item.Key.Price <span class="glyphicon glyphicon-usd"></span></div>
+
+
+
+
+                                @:
+                                @:
+                                @:
+                                @:
+                            </p>
+                            @:<p>
+                                @: <a class="btn btn-primary" href="/home/BuyMe/@item.Key.Id">Buy Me Now &raquo;</a>
+                                @:
+                                        @:
+                                        @:
+                                        @:
+                                    </p>
+                                    @:
+                                        @:
+                                        @:
+                                        @:
+                                    </div>
+                if (div == 3)
+                {
+                                            <script>
+                                                document.write("</div>");
+                                            </script>
+                                            @:<br />
+                    div = 0;
+                                            @:<div class="row">
                 }
+
+                                        }
+
+
+            }
+        </div>
+    </div>
+    }
 </div>
-</div>
-                }
-</div>
-        <div class="col-lg-2">
-            <table>
-                <thead>
-                    <b>see what your <span style="color:cornflowerblue">FB</span> friend`s bought</b>
+<div class="col-sm-2">
+    <div class="col-md-3 col-sm-3">
 
-                </thead>
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                <h4>INFORMATION</h4>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
 
-                <tr>
-                    <td>
-                        <a style="color:cornflowerblue"><b>Ilanit Farda</b></a><br /> has a <a style="color:red">Galaxy 6</a>
+            </div>
+            <div class="panel-footer">
+                <a href="#" class="btn btn-info ">BUY THE PRODUCT</a>
+            </div>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">
+                <h4>INFORMATION</h4>
+            </div>
+            <div class="panel-body">
+                <a href="#" class="btn btn-success btn-lg ">PRICE : 5000 USD</a>
+            </div>
 
-
-                    </td>
-                </tr>
-                <tr>
-                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-                </tr>
-                <tr>
-                    <td><a style="color:cornflowerblue"><b>Daniel Gola</b></a><br /> bought a <a style="color:red">SoneyPlastion</a></td>
-                </tr>
-                <tr>
-                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-                </tr>
-                <tr>
-                    <td><a style="color:cornflowerblue"><b>Natan Biest</b></a><br /> bought  a <a style="color:red">Ring</a></td>
-                </tr>
-                <tr>
-                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-
-
-                </tr>
-                <tr>
-                    <td><a style="color:cornflowerblue"><b>Asher Ababa</b></a><br /> bought a <a style="color:red">Blaston</a></td>
-                </tr>
-                <tr>
-                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-                </tr>
-                <tr>
-                    <td><a style="color:cornflowerblue"><b>Ronit Micheali</b></a><br /> has a new <a style="color:red">TV</a></td>
-                </tr>
-                <tr>
-                    <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
-                </tr>
-            </table>
         </div>
 
-</div>
-        <br />
+        <div class="panel panel-danger">
+            <div class="panel-heading">
+                <h4>OTHER DETAILS</h4>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                </p>
+                <p>
+
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+
+                </p>
+            </div>
+
+        </div>
+        <table>
+            <thead>
+                <b>see what your <span style="color:cornflowerblue">FB</span> friend`s bought</b>
+
+            </thead>
+
+            <tr>
+                <td>
+                    <a style="color:cornflowerblue"><b>Ilanit Farda</b></a><br /> has a <a style="color:red">Galaxy 6</a>
+                </td>
+            </tr>
+            <tr>
+                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+            </tr>
+            <tr>
+                <td><a style="color:cornflowerblue"><b>Daniel Gola</b></a><br /> bought a <a style="color:red">SoneyPlastion</a></td>
+            </tr>
+            <tr>
+                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+            </tr>
+            <tr>
+                <td><a style="color:cornflowerblue"><b>Natan Biest</b></a><br /> bought  a <a style="color:red">Ring</a></td>
+            </tr>
+            <tr>
+                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+            </tr>
+            <tr>
+                <td><a style="color:cornflowerblue"><b>Asher Ababa</b></a><br /> bought a <a style="color:red">Blaston</a></td>
+            </tr>
+            <tr>
+                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+            </tr>
+            <tr>
+                <td><a style="color:cornflowerblue"><b>Ronit Micheali</b></a><br /> has a new <a style="color:red">TV</a></td>
+            </tr>
+            <tr>
+                <td><a class="glyphicon glyphicon-thumbs-up"></a> <a style="padding-left:30px" class="glyphicon glyphicon-thumbs-down"></a></td>
+            </tr>
+        </table>
     </div>
 
+</div>
+<br />
+</div>
 
-
-
-
-
-
-  
 <div class="fb-like" data-href="@*https://developers.facebook.com/docs/plugins/*@" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 <div class="fb-like"
      data-share="true"

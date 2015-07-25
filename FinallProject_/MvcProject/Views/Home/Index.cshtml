@@ -6,17 +6,19 @@
 
 <link href="http://style.aliunicorn.com/css/6v/??run/wholesale/reset.css,run/wholesale/font.css,apollo/core/core-ws.css?t=133438bc8_3337ca690" rel="stylesheet" type="text/css" media="all" />
 
-
 <div class="col-lg-12" id="aComDiv" style="position:relative;"><b><span style="color:red">50%</span> discount on Elctronic Devisece   <span style="color:red">30%</span> discount on women lundery   <span style="color:red">25%</span> on hair Productions   <span style="color:red">15%</span> discount on books </b><b><span style="color:red">Free</span> shipping </b> </div>
 
   
-    <div  id="seen" style="max-width:1490px">
-        <div class="col-lg-1" id="Nav">
+    <div class="row"  id="seen" style="max-width:1490px">
+        @*<div class="col-md-1" id="Nav">
             @Html.Partial("NavigationBar")
         </div>
 
-        <div class="col-lg-11" id="Curent">
+        <div class="col-md-11" id="Curent">*@
 @*@Html.Partial("Top3products")*@
+        @*</div>*@
+        <div class="col-md-11" id="Curent">
+            @*@Html.Partial("Top3products")*@
         </div>
     </div>
 
@@ -26,8 +28,15 @@
 
     <script>
        
+        //function loadPage() {
+        //    $.get('/Home/Top3products', function (res) {
+        //        console.debug('load page');
+        //        //$('#Curent').html(res);
+        //        $('#Curent')[0].innerHTML = res;
+        //    });
+        //}
         function loadPage() {
-            $.get('/Home/Top3products', function (res) {
+            $.get('/Home/SubCategory?subcategory=IPhone`s', function (res) {
                 console.debug('load page');
                 //$('#Curent').html(res);
                 $('#Curent')[0].innerHTML = res;
