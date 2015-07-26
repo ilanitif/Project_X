@@ -11,8 +11,7 @@ namespace FinallProject_
 {
     using System;
     using System.Collections.Generic;
-    using System.Runtime.Serialization;
-    [DataContract(IsReference =true)]
+    
     public partial class Shipping_Company
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,15 +19,12 @@ namespace FinallProject_
         {
             this.Order = new HashSet<Order>();
         }
-        [DataMember]
+    
         public int Id { get; set; }
-        [DataMember]
         public string Company_Name { get; set; }
-        [DataMember]
         public System.DateTime Delivery_Time { get; set; }
-        [DataMember]
         public string Shipping_Cost { get; set; }
-        [DataMember]
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Order { get; set; }
     }
